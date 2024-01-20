@@ -2,7 +2,7 @@
 
 public class Anketa
 {
-    private string _name;
+    private string _name = string.Empty;
 
     public string Name
     {
@@ -10,8 +10,39 @@ public class Anketa
         set => _name = value;
     }
 
-    public Anketa(string name)
+    private string _surName;
+
+    public string SurName
     {
-        _name = name;
+        get => _surName;
+        set => _surName = value;
+    }
+
+    private int _age;
+
+    public int Age
+    {
+        get => _age;
+        set => _age = value;
+    }
+
+    private int _height;
+
+    public int Height
+    {
+        get => _height;
+        set => _height = value;
+    }
+
+    private int _weight;
+
+    public int Weight
+    {
+        get => _weight;
+        set => _weight = value;
+    }
+
+    public Anketa()
+    {
     }
 }
