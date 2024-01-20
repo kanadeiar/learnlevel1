@@ -22,4 +22,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\lesson1\Lesson1Anketa\Lesson1Anketa.csproj" />
+  </ItemGroup>
+
 </Project>

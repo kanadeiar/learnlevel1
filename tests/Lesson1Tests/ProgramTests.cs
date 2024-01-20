@@ -1,12 +1,10 @@
 namespace Lesson1Tests
 {
-    public class AnketaTests
+    public class ProgramTests
     {
         [Fact]
-        public void Test1()
+        public void TestMain()
         {
-
-
             Assert.True(true);
         }
     }
