@@ -27,5 +27,27 @@ public class AnketaTests : IClassFixture<AnketaFixture>
         Assert.Equal(79, _anketa.Weight);
     }
 
-    
+    [Fact]
+    public void TestGluedLine()
+    {
+        var actual = _anketa.GetGluedLine();
+
+        Assert.Equal("TestFam1 Test1 10 лет 80 см 49 кг", actual);
+    }
+
+    [Fact]
+    public void TestFormattedLine()
+    {
+        var actual = _anketa.GetFormatted();
+
+        Assert.Equal("Formatted TestFam1 Test1 10 лет 80 см 49 кг", actual);
+    }
+
+    [Fact]
+    public void TestInterpolated()
+    {
+        var actual = _anketa.GetInterpolated();
+
+        Assert.Equal("TestFam1 Test1 10 лет 80 см 49 кг", actual);
+    }
 }

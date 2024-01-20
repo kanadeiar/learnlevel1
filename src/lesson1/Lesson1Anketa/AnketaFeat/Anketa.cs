@@ -45,4 +45,19 @@ public class Anketa
     public Anketa()
     {
     }
+
+    public string GetGluedLine()
+    {
+        return SurName + " " + Name + " " + Age + " лет " + Height + " см " + Weight + " кг";
+    }
+
+    public string GetFormatted()
+    {
+        return string.Format("Formatted {0} {1} {2} лет {3} см {4} кг", SurName, Name, Age, Height, Weight);
+    }
+
+    public string GetInterpolated()
+    {
+        return $"""{SurName} {Name} {Age} лет {Height} см {Weight} кг""";
+    }
 }

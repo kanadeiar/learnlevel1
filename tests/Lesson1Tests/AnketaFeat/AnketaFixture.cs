@@ -2,7 +2,7 @@
 
 namespace Lesson1Tests.AnketaFeat;
 
-public class AnketaFixture
+public class AnketaFixture : IDisposable
 {
     public Anketa Anketa;
 
@@ -15,5 +15,10 @@ public class AnketaFixture
         Anketa.Age = 10;
         Anketa.Height = 80;
         Anketa.Weight = 49;
+    }
+    
+    public void Dispose()
+    {
+        Anketa = null;
     }
 }
