@@ -1,6 +1,6 @@
 ﻿using Lesson1Anketa.AnketaFeat;
 
-namespace Lesson1Tests.AnketaFeat;
+namespace Lesson1AnketaTests.AnketaFeat;
 
 public class AnketaTests : IClassFixture<AnketaFixture>
 {
@@ -30,7 +30,7 @@ public class AnketaTests : IClassFixture<AnketaFixture>
     [Fact]
     public void TestGluedLine()
     {
-        var actual = _anketa.SurName + " " + _anketa.Name + " " + _anketa.Age + " лет " + _anketa.Height + " см " + _anketa.Weight + " кг";
+        var actual = _anketa.GetGluedLine();
 
         Assert.Equal("TestFam1 Test1 10 лет 80 см 49 кг", actual);
     }

@@ -12,7 +12,8 @@ anketa.Height = ConsoleHelper.ReadNumberFromConsole<int>("Введите рос�
 anketa.Weight = ConsoleHelper.ReadNumberFromConsole<int>("Введите вес");
 
 Console.WriteLine("\nСклеивание:");
-Console.WriteLine(anketa.SurName + " " + anketa.Name + " " + anketa.Age + " лет " + anketa.Height + " см " + anketa.Weight + " кг");
+Console.WriteLine(anketa.GetGluedLine())
+    ;
 
 Console.WriteLine("\nФорматирование:");
 Console.WriteLine(anketa.GetFormatted());
