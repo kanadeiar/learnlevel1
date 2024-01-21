@@ -4,11 +4,11 @@ namespace Lesson1Tests.AnketaFeat;
 
 public class AnketaFixture : IDisposable
 {
-    public Anketa Anketa;
+    public IFaсtoryAnketa Anketa;
 
     public AnketaFixture()
     {
-        Anketa = new Anketa();
+        Anketa = IFaсtoryAnketa.Create();
 
         Anketa.Name = "Test1";
         Anketa.SurName = "TestFam1";

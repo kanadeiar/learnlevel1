@@ -1,6 +1,6 @@
 ﻿namespace Lesson1Anketa.AnketaFeat;
 
-public class Anketa
+internal class Anketa : IFaсtoryAnketa
 {
     private string _name = string.Empty;
 
@@ -42,7 +42,7 @@ public class Anketa
         set => _weight = value;
     }
 
-    public Anketa()
+    internal Anketa()
     {
     }
 
