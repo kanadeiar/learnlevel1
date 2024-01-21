@@ -1,6 +1,6 @@
 ﻿namespace Lesson1BodyMassIndex.BodyMassIndexModule;
 
-public class FactoryCalculator : IFactoryCalculator
+public class Calculator : IFactoryCalculator
 {
     private double _weight;
 
@@ -18,15 +18,15 @@ public class FactoryCalculator : IFactoryCalculator
         set => _height = value;
     }
 
+    public static IFactoryCalculator Create()
+    {
+        return new Calculator();
+    }
+
     public string Print()
     {
         var formula = new FormulaCommon(Weight, Height);
         var index = formula.Calculate();
         return $"Индекс массы тела = {index:F1}";
-    }
-
-    public static IFactoryCalculator Create()
-    {
-        return new FactoryCalculator();
     }
 }
