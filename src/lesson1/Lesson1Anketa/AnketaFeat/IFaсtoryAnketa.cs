@@ -4,10 +4,7 @@ namespace Lesson1Anketa.AnketaFeat;
 
 public interface IFaсtoryAnketa : IPropertiesAnketa, ITextGeneratingAnketa
 {
-    public static IFaсtoryAnketa Create()
-    {
-        return new Anketa();
-    }
+
 }
 
 public interface IPropertiesAnketa
@@ -21,5 +18,5 @@ public interface IPropertiesAnketa
 
 public interface ITextGeneratingAnketa
 {
-    string GetText(TextFormatType typ);
+    string GetText(TextFormatCode typ);
 }

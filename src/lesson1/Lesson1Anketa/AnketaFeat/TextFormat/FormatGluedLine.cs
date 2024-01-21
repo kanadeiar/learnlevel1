@@ -2,9 +2,9 @@
 
 public class FormatGluedLine : FormatBase
 {
-    public override TextFormatType GetCode()
+    public override TextFormatCode GetCode()
     {
-        return TextFormatType.GluedLine;
+        return TextFormatCode.GluedLine;
     }
 
     public override string GetText(IPropertiesAnketa anketa)

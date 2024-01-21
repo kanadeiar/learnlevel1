@@ -2,7 +2,7 @@
 
 namespace Lesson1Anketa.AnketaFeat;
 
-internal class Anketa : IFaсtoryAnketa
+public class Anketa : IFaсtoryAnketa
 {
     private string _name = string.Empty;
 
@@ -46,11 +46,16 @@ internal class Anketa : IFaсtoryAnketa
     
     private FormatBase _typ;
 
-    internal Anketa()
+    private Anketa()
     {
     }
 
-    public string GetText(TextFormatType typ)
+    public static IFaсtoryAnketa Create()
+    {
+        return new Anketa();
+    }
+
+    public string GetText(TextFormatCode typ)
     {
         _typ = FormatBase.Create(typ);
         return formTextLineFromProperties();

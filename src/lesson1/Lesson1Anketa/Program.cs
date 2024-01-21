@@ -4,7 +4,7 @@ using Lesson1Anketa.AnketaFeat.TextFormat;
 
 ConsoleHelper.PrintHeader("Задача № 1", "Задача № 1. Написать программу «Анкета».");
 
-var anketa = IFaсtoryAnketa.Create();
+var anketa = Anketa.Create();
 
 anketa.SurName = ConsoleHelper.ReadLineFromConsole("Введите фамилию");
 anketa.Name = ConsoleHelper.ReadLineFromConsole("Введите имя");
@@ -13,13 +13,13 @@ anketa.Height = ConsoleHelper.ReadNumberFromConsole<int>("Введите рос�
 anketa.Weight = ConsoleHelper.ReadNumberFromConsole<int>("Введите вес");
 
 Console.WriteLine("\nСклеивание:");
-Console.WriteLine(anketa.GetText(TextFormatType.GluedLine));
+Console.WriteLine(anketa.GetText(TextFormatCode.GluedLine));
 
 Console.WriteLine("\nФорматирование:");
-Console.WriteLine(anketa.GetText(TextFormatType.Formatted));
+Console.WriteLine(anketa.GetText(TextFormatCode.Formatted));
 
 Console.WriteLine("\nИнтерполяция:");
-Console.WriteLine(anketa.GetText(TextFormatType.Interpolated));
+Console.WriteLine(anketa.GetText(TextFormatCode.Interpolated));
 
 ConsoleHelper.PrintFooter();
 

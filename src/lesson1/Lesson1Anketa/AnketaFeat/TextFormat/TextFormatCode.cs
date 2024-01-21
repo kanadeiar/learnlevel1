@@ -1,6 +1,6 @@
 ﻿namespace Lesson1Anketa.AnketaFeat.TextFormat;
 
-public enum TextFormatType
+public enum TextFormatCode
 {
     GluedLine,
     Formatted,

@@ -4,21 +4,21 @@ namespace Lesson1AnketaTests.AnketaFeat;
 
 public class AnketaFixture : IDisposable
 {
-    public IFaсtoryAnketa Anketa;
+    public IFaсtoryAnketa Ank;
 
     public AnketaFixture()
     {
-        Anketa = IFaсtoryAnketa.Create();
+        Ank = Anketa.Create();
 
-        Anketa.Name = "Test1";
-        Anketa.SurName = "TestFam1";
-        Anketa.Age = 10;
-        Anketa.Height = 80;
-        Anketa.Weight = 49;
+        Ank.Name = "Test1";
+        Ank.SurName = "TestFam1";
+        Ank.Age = 10;
+        Ank.Height = 80;
+        Ank.Weight = 49;
     }
     
     public void Dispose()
     {
-        Anketa = null;
+        Ank = null;
     }
 }

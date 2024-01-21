@@ -18,9 +18,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решен
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lesson1", "lesson1", "{70746829-0102-4EE7-BAA3-D8B54D498786}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson1BodyMassIndex", "src\lesson1\Lesson1BodyMassIndex\Lesson1BodyMassIndex.csproj", "{D637E477-466E-4C6B-9A8D-B12E7910315C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson1BodyMassIndex", "src\lesson1\Lesson1BodyMassIndex\Lesson1BodyMassIndex.csproj", "{D637E477-466E-4C6B-9A8D-B12E7910315C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson1BodyMassIndexTests", "tests\lesson1\Lesson1BodyMassIndexTests\Lesson1BodyMassIndexTests.csproj", "{2939EC5A-1D30-40A7-9138-4B39C03369C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson1BodyMassIndexTests", "tests\lesson1\Lesson1BodyMassIndexTests\Lesson1BodyMassIndexTests.csproj", "{2939EC5A-1D30-40A7-9138-4B39C03369C7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson1AnketaTests", "tests\lesson1\Lesson1AnketaTests\Lesson1AnketaTests.csproj", "{B268CAF5-0878-48A9-BF34-375FB2DF4B1C}"
 EndProject

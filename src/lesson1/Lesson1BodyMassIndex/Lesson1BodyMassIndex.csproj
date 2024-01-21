@@ -13,8 +13,4 @@
 	</Compile>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="BodyMassIndexModule\" />
-  </ItemGroup>
-
 </Project>

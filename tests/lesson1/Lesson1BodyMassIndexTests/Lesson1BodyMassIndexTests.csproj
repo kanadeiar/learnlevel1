@@ -22,4 +22,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\lesson1\Lesson1BodyMassIndex\Lesson1BodyMassIndex.csproj" />
+  </ItemGroup>
+
 </Project>
