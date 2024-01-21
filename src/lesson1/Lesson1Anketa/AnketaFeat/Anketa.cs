@@ -1,4 +1,6 @@
-﻿namespace Lesson1Anketa.AnketaFeat;
+﻿using Lesson1Anketa.AnketaFeat.TextFormat;
+
+namespace Lesson1Anketa.AnketaFeat;
 
 internal class Anketa : IFaсtoryAnketa
 {
@@ -41,23 +43,21 @@ internal class Anketa : IFaсtoryAnketa
         get => _weight;
         set => _weight = value;
     }
+    
+    private FormatBase _typ;
 
     internal Anketa()
     {
     }
 
-    public string GetGluedLine()
+    public string GetText(TextFormatType typ)
     {
-        return SurName + " " + Name + " " + Age + " лет " + Height + " см " + Weight + " кг";
+        _typ = FormatBase.Create(typ);
+        return formTextLineFromProperties();
     }
 
-    public string GetFormatted()
+    private string formTextLineFromProperties()
     {
-        return string.Format("Formatted {0} {1} {2} лет {3} см {4} кг", SurName, Name, Age, Height, Weight);
-    }
-
-    public string GetInterpolated()
-    {
-        return $"""{SurName} {Name} {Age} лет {Height} см {Weight} кг""";
+        return _typ.GetText(this);
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace Lesson1Anketa.AnketaFeat;
+﻿using Lesson1Anketa.AnketaFeat.TextFormat;
+
+namespace Lesson1Anketa.AnketaFeat;
 
 public interface IFaсtoryAnketa : IPropertiesAnketa, ITextGeneratingAnketa
 {
@@ -19,7 +21,5 @@ public interface IPropertiesAnketa
 
 public interface ITextGeneratingAnketa
 {
-    string GetGluedLine();
-    string GetFormatted();
-    string GetInterpolated();
+    string GetText(TextFormatType typ);
 }
