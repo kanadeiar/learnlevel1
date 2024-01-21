@@ -1,5 +1,6 @@
 ﻿using Kanadeiar.Common;
 using Lesson1Anketa.AnketaFeat;
+using Lesson1Anketa.AnketaFeat.TextFormat;
 
 ConsoleHelper.PrintHeader("Задача № 1", "Задача № 1. Написать программу «Анкета».");
 
@@ -12,13 +13,13 @@ anketa.Height = ConsoleHelper.ReadNumberFromConsole<int>("Введите рос�
 anketa.Weight = ConsoleHelper.ReadNumberFromConsole<int>("Введите вес");
 
 Console.WriteLine("\nСклеивание:");
-Console.WriteLine(anketa.SurName + " " + anketa.Name + " " + anketa.Age + " лет " + anketa.Height + " см " + anketa.Weight + " кг");
+Console.WriteLine(anketa.GetText(TextFormatType.GluedLine));
 
 Console.WriteLine("\nФорматирование:");
-Console.WriteLine(anketa.GetFormatted());
+Console.WriteLine(anketa.GetText(TextFormatType.Formatted));
 
 Console.WriteLine("\nИнтерполяция:");
-Console.WriteLine(anketa.GetInterpolated());
+Console.WriteLine(anketa.GetText(TextFormatType.Interpolated));
 
 ConsoleHelper.PrintFooter();
 

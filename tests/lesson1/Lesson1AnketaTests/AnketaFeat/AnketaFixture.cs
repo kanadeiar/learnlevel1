@@ -1,6 +1,6 @@
 ﻿using Lesson1Anketa.AnketaFeat;
 
-namespace Lesson1Tests.AnketaFeat;
+namespace Lesson1AnketaTests.AnketaFeat;
 
 public class AnketaFixture : IDisposable
 {

@@ -1,6 +1,7 @@
 ﻿using Lesson1Anketa.AnketaFeat;
+using Lesson1Anketa.AnketaFeat.TextFormat;
 
-namespace Lesson1Tests.AnketaFeat;
+namespace Lesson1AnketaTests.AnketaFeat;
 
 public class AnketaTests : IClassFixture<AnketaFixture>
 {
@@ -30,7 +31,7 @@ public class AnketaTests : IClassFixture<AnketaFixture>
     [Fact]
     public void TestGluedLine()
     {
-        var actual = _anketa.SurName + " " + _anketa.Name + " " + _anketa.Age + " лет " + _anketa.Height + " см " + _anketa.Weight + " кг";
+        var actual = _anketa.GetText(TextFormatType.GluedLine);
 
         Assert.Equal("TestFam1 Test1 10 лет 80 см 49 кг", actual);
     }
@@ -38,7 +39,7 @@ public class AnketaTests : IClassFixture<AnketaFixture>
     [Fact]
     public void TestFormattedLine()
     {
-        var actual = _anketa.GetFormatted();
+        var actual = _anketa.GetText(TextFormatType.Formatted);
 
         Assert.Equal("Formatted TestFam1 Test1 10 лет 80 см 49 кг", actual);
     }
@@ -46,7 +47,7 @@ public class AnketaTests : IClassFixture<AnketaFixture>
     [Fact]
     public void TestInterpolated()
     {
-        var actual = _anketa.GetInterpolated();
+        var actual = _anketa.GetText(TextFormatType.Interpolated);
 
         Assert.Equal("TestFam1 Test1 10 лет 80 см 49 кг", actual);
     }
