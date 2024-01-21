@@ -2,22 +2,22 @@
 
 public abstract class FormatBase
 {
-    public static FormatBase Create(TextFormatType typ)
+    public static FormatBase Create(TextFormatCode typ)
     {
         switch (typ)
         {
-            case TextFormatType.GluedLine:
+            case TextFormatCode.GluedLine:
                 return new FormatGluedLine();
-            case TextFormatType.Formatted:
+            case TextFormatCode.Formatted:
                 return new FormatFormatted();
-            case TextFormatType.Interpolated:
+            case TextFormatCode.Interpolated:
                 return new FormatInterpolated();
             default:
                 throw new IndexOutOfRangeException();
         }
     }
 
-    public abstract TextFormatType GetCode();
+    public abstract TextFormatCode GetCode();
 
     public abstract string GetText(IPropertiesAnketa anketa);
 }

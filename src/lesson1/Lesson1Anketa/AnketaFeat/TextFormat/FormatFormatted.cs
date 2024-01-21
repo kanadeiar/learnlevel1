@@ -2,9 +2,9 @@
 
 public class FormatFormatted : FormatBase
 {
-    public override TextFormatType GetCode()
+    public override TextFormatCode GetCode()
     {
-        return TextFormatType.Formatted;
+        return TextFormatCode.Formatted;
     }
 
     public override string GetText(IPropertiesAnketa anketa)

@@ -9,7 +9,7 @@ public class AnketaTests : IClassFixture<AnketaFixture>
 
     public AnketaTests(AnketaFixture fixture)
     {
-        _anketa = fixture.Anketa;
+        _anketa = fixture.Ank;
     }
 
     [Fact]
@@ -31,7 +31,7 @@ public class AnketaTests : IClassFixture<AnketaFixture>
     [Fact]
     public void TestGluedLine()
     {
-        var actual = _anketa.GetText(TextFormatType.GluedLine);
+        var actual = _anketa.GetText(TextFormatCode.GluedLine);
 
         Assert.Equal("TestFam1 Test1 10 лет 80 см 49 кг", actual);
     }
@@ -39,7 +39,7 @@ public class AnketaTests : IClassFixture<AnketaFixture>
     [Fact]
     public void TestFormattedLine()
     {
-        var actual = _anketa.GetText(TextFormatType.Formatted);
+        var actual = _anketa.GetText(TextFormatCode.Formatted);
 
         Assert.Equal("Formatted TestFam1 Test1 10 лет 80 см 49 кг", actual);
     }
@@ -47,7 +47,7 @@ public class AnketaTests : IClassFixture<AnketaFixture>
     [Fact]
     public void TestInterpolated()
     {
-        var actual = _anketa.GetText(TextFormatType.Interpolated);
+        var actual = _anketa.GetText(TextFormatCode.Interpolated);
 
         Assert.Equal("TestFam1 Test1 10 лет 80 см 49 кг", actual);
     }
