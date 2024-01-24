@@ -9,8 +9,8 @@ public interface IFaсtoryAnketa : IPropertiesAnketa, ITextGeneratingAnketa
 
 public interface IPropertiesAnketa
 {
-    string Name { get; set; }
-    string SurName { get; set; }
+    string? Name { get; set; }
+    string? SurName { get; set; }
     int Age { get; set; }
     int Height { get; set; }
     int Weight { get; set; }

@@ -2,6 +2,7 @@
 
 public enum TextFormatCode
 {
+    None,
     GluedLine,
     Formatted,
     Interpolated,

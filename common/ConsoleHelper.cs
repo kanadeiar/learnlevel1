@@ -59,7 +59,7 @@ public class ConsoleHelper
         {
             Write($"{message}:>");
             var ci = new CultureInfo("ru-ru");
-            if (T.TryParse(ReadLine(), ci, out T number))
+            if (T.TryParse(ReadLine(), ci, out T? number))
             {
                 return number;
             }

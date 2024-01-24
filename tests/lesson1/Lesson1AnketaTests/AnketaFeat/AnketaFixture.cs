@@ -19,6 +19,6 @@ public class AnketaFixture : IDisposable
     
     public void Dispose()
     {
-        Ank = null;
+        Ank = null!;
     }
 }

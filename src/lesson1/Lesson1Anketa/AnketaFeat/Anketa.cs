@@ -6,18 +6,18 @@ public class Anketa : IFaсtoryAnketa
 {
     private string _name = string.Empty;
 
-    public string Name
+    public string? Name
     {
         get => _name;
-        set => _name = value;
+        set => _name = value!;
     }
 
-    private string _surName;
+    private string _surName = string.Empty;
 
-    public string SurName
+    public string? SurName
     {
         get => _surName;
-        set => _surName = value;
+        set => _surName = value!;
     }
 
     private int _age;
@@ -44,7 +44,7 @@ public class Anketa : IFaсtoryAnketa
         set => _weight = value;
     }
     
-    private FormatBase _typ;
+    private FormatBase _typ = new FormatNull();
 
     private Anketa()
     {

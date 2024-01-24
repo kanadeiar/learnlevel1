@@ -1,4 +1,6 @@
-﻿namespace Lesson1BodyMassIndex.BodyMassIndexModule;
+﻿using System.Globalization;
+
+namespace Lesson1BodyMassIndex.BodyMassIndexModule;
 
 public class Calculator : IFactoryCalculator
 {
@@ -26,7 +28,7 @@ public class Calculator : IFactoryCalculator
     public string Print()
     {
         var formula = new FormulaCommon(Weight, Height);
-        var index = formula.Calculate();
-        return $"Индекс массы тела = {index:F1}";
+        var index = formula.Calculate().ToString("F1", NumberFormatInfo.InvariantInfo);
+        return $"Индекс массы тела = {index}";
     }
 }
