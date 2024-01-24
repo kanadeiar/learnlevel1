@@ -1,3 +1,5 @@
+[![.NET Tests](https://github.com/kanadeiar/learnlevel1/actions/workflows/dotnet-test.yml/badge.svg)](https://github.com/kanadeiar/learnlevel1/actions/workflows/dotnet-test.yml)
+
 # TDD Level 1
 
 Обучение по курсу GeekBrains "C# Уровень 1".
