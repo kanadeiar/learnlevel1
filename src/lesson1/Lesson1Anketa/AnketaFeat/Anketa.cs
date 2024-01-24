@@ -44,7 +44,9 @@ public class Anketa : IFaсtoryAnketa
         set => _weight = value;
     }
     
-    private FormatBase _typ = new FormatNull();
+    private FormatBase _typ = new FormatNone();
+
+    public TextFormatCode Code => _typ.GetCode();
 
     private Anketa()
     {

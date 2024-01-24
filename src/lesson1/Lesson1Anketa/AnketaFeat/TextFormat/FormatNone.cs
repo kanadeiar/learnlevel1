@@ -1,6 +1,6 @@
 ﻿namespace Lesson1Anketa.AnketaFeat.TextFormat;
 
-public class FormatNull : FormatBase
+public class FormatNone : FormatBase
 {
     public override TextFormatCode GetCode()
     {

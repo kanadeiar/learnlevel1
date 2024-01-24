@@ -29,10 +29,20 @@ public class AnketaTests : IClassFixture<AnketaFixture>
     }
 
     [Fact]
+    public void TestFormatNone()
+    {
+        var actual = _anketa.GetText(TextFormatCode.None);
+
+        Assert.Equal(TextFormatCode.None, _anketa.Code);
+        Assert.Equal(String.Empty, actual);
+    }
+
+    [Fact]
     public void TestGluedLine()
     {
         var actual = _anketa.GetText(TextFormatCode.GluedLine);
 
+        Assert.Equal(TextFormatCode.GluedLine, _anketa.Code);
         Assert.Equal("TestFam1 Test1 10 лет 80 см 49 кг", actual);
     }
 
@@ -41,6 +51,7 @@ public class AnketaTests : IClassFixture<AnketaFixture>
     {
         var actual = _anketa.GetText(TextFormatCode.Formatted);
 
+        Assert.Equal(TextFormatCode.Formatted, _anketa.Code);
         Assert.Equal("Formatted TestFam1 Test1 10 лет 80 см 49 кг", actual);
     }
 
@@ -49,6 +60,7 @@ public class AnketaTests : IClassFixture<AnketaFixture>
     {
         var actual = _anketa.GetText(TextFormatCode.Interpolated);
 
+        Assert.Equal(TextFormatCode.Interpolated, _anketa.Code);
         Assert.Equal("TestFam1 Test1 10 лет 80 см 49 кг", actual);
     }
 }
