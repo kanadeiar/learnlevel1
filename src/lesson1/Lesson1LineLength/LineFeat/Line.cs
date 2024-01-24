@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace Lesson1LineLength.LineFeat;
 
-public class Line : ICommonLine
+public abstract class Line : ICommonLine
 {
     private Point _pointStart;
 
@@ -21,21 +21,17 @@ public class Line : ICommonLine
         set => _pointEnd = value;
     }
 
-    private Line(Point pointStart, Point pointEnd)
+    protected Line(Point pointStart, Point pointEnd)
     {
         _pointStart = pointStart;
         _pointEnd = pointEnd;
     }
-    public static Line Create(Point pStart, Point pEnd)
+    public static LenghtLine Create(Point pStart, Point pEnd)
     {
-        return new Line(pStart, pEnd);
+        return new LenghtLine(pStart, pEnd);
     }
 
-    public double Length()
-    {
-        var result = Math.Sqrt(Math.Pow(PointEnd.X - PointStart.X, 2) + Math.Pow(PointEnd.Y - PointStart.Y, 2));
-        return result;
-    }
+    public abstract double Length();
 
     public string TextLength()
     {
