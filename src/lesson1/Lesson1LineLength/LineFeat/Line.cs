@@ -1,8 +1,9 @@
 ﻿using System.Drawing;
+using System.Globalization;
 
 namespace Lesson1LineLength.LineFeat;
 
-public class Line
+public class Line : ICommonLine
 {
     private Point _pointStart;
 
@@ -34,5 +35,10 @@ public class Line
     {
         var result = Math.Sqrt(Math.Pow(PointEnd.X - PointStart.X, 2) + Math.Pow(PointEnd.Y - PointStart.Y, 2));
         return result;
+    }
+
+    public string TextLength()
+    {
+        return Length().ToString("F2", NumberFormatInfo.InvariantInfo);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Globalization;
 using Lesson1LineLength.LineFeat;
 
 namespace Lesson1LineLengthTests.LineFeat;
@@ -22,16 +23,31 @@ public class LineTests
         Assert.Equal(new Point(3, 3), line.PointEnd);
     }
 
-    [Fact]
-    public void TestFormula()
+    [Theory]
+    [InlineData(2, 2, 3, 3, 1.4142135623730951)]
+    [InlineData(3, 3, 5, 5, 2.8284271247461903)]
+    public void TestLengthFormula(int x1, int y1, int x2, int y2, double expected)
     {
-        var point1 = new Point(2, 2);
-        var point2 = new Point(3, 3);
+        var point1 = new Point(x1, y1);
+        var point2 = new Point(x2, y2);
         var line = Line.Create(point1, point2);
-        var lengthOfLine = Math.Sqrt(Math.Pow(point2.X - point1.X, 2) + Math.Pow(point2.Y - point1.Y, 2));
 
         var actual = line.Length();
 
-        Assert.Equal(lengthOfLine, actual);
+        Assert.Equal(expected, actual);
+    }
+
+    [Theory]
+    [InlineData(2, 2, 3, 3, "1.41")]
+    [InlineData(3, 3, 5, 5, "2.83")]
+    public void TestLengthText(int x1, int y1, int x2, int y2, string expected)
+    {
+        var point1 = new Point(x1, y1);
+        var point2 = new Point(x2, y2);
+        var line = Line.Create(point1, point2);
+        
+        var actual = line.TextLength();
+
+        Assert.Equal(expected, actual);
     }
 }
