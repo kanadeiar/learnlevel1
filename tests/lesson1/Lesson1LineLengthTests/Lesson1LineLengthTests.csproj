@@ -22,4 +22,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\lesson1\Lesson1LineLength\Lesson1LineLength.csproj" />
+  </ItemGroup>
+
 </Project>
