@@ -4,7 +4,7 @@ namespace Lesson1Anketa.AnketaFeat;
 
 public interface IFaсtoryAnketa : IPropertiesAnketa, ITextGeneratingAnketa
 {
-
+    TextFormatCode Code { get; }
 }
 
 public interface IPropertiesAnketa

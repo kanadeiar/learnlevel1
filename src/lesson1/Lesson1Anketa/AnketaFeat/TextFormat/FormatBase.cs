@@ -13,7 +13,7 @@ public abstract class FormatBase
             case TextFormatCode.Interpolated:
                 return new FormatInterpolated();
             default:
-                return new FormatNull();
+                return new FormatNone();
         }
     }
 
