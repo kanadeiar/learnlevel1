@@ -9,7 +9,6 @@ public class Calculator : IFactoryCalculator
     public double Weight
     {
         get => _weight;
-        set => _weight = value;
     }
 
     private double _height;
@@ -17,12 +16,17 @@ public class Calculator : IFactoryCalculator
     public double Height
     {
         get => _height;
-        set => _height = value;
     }
 
-    public static IFactoryCalculator Create()
+    public Calculator(double weight, double height)
     {
-        return new Calculator();
+        _weight = weight;
+        _height = height;
+    }
+
+    public static IFactoryCalculator Create(double weight, double height)
+    {
+        return new Calculator(weight, height);
     }
 
     public string Print()

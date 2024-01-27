@@ -1,5 +1,4 @@
 ﻿using System.Drawing;
-using System.Globalization;
 using Lesson1LineLength.LineFeat;
 
 namespace Lesson1LineLengthTests.LineFeat;
@@ -15,12 +14,6 @@ public class LineTests
         var line = Line.Create(new Point(1, 1), new Point(5, 5));
         Assert.Equal(new Point(1, 1), line.PointStart);
         Assert.Equal(new Point(5, 5), line.PointEnd);
-
-        line.PointStart = point1;
-        line.PointEnd = point2;
-        
-        Assert.Equal(new Point(2, 2), line.PointStart);
-        Assert.Equal(new Point(3, 3), line.PointEnd);
     }
 
     [Theory]

@@ -7,25 +7,18 @@ public abstract class Line : ICommonLine
 {
     private Point _pointStart;
 
-    public Point PointStart
-    {
-        get => _pointStart;
-        set => _pointStart = value;
-    }
+    public Point PointStart => _pointStart;
 
     private Point _pointEnd;
 
-    public Point PointEnd
-    {
-        get => _pointEnd;
-        set => _pointEnd = value;
-    }
+    public Point PointEnd => _pointEnd;
 
     protected Line(Point pointStart, Point pointEnd)
     {
         _pointStart = pointStart;
         _pointEnd = pointEnd;
     }
+
     public static LenghtLine Create(Point pStart, Point pEnd)
     {
         return new LenghtLine(pStart, pEnd);

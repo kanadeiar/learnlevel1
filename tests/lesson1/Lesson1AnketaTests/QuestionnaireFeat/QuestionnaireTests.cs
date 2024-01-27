@@ -1,13 +1,13 @@
-﻿using Lesson1Anketa.AnketaFeat;
-using Lesson1Anketa.AnketaFeat.TextFormat;
+﻿using Lesson1Questionnaire.QuestionnaireFeat;
+using Lesson1Questionnaire.QuestionnaireFeat.TextFormat;
 
-namespace Lesson1AnketaTests.AnketaFeat;
+namespace Lesson1QuestionnaireTests.QuestionnaireFeat;
 
-public class AnketaTests : IClassFixture<AnketaFixture>
+public class QuestionnaireTests : IClassFixture<QuestionnaireFixture>
 {
-    private readonly IFaсtoryAnketa _anketa;
+    private IFaсtoryquestionnaire _anketa;
 
-    public AnketaTests(AnketaFixture fixture)
+    public QuestionnaireTests(QuestionnaireFixture fixture)
     {
         _anketa = fixture.Ank;
     }
@@ -15,11 +15,7 @@ public class AnketaTests : IClassFixture<AnketaFixture>
     [Fact]
     public void TestData()
     {
-        _anketa.Name = "Test";
-        _anketa.SurName = "TestFam";
-        _anketa.Age = 20;
-        _anketa.Height = 180;
-        _anketa.Weight = 79;
+        _anketa = Questionnaire.Create("Test", "TestFam", 20, 180, 79);
 
         Assert.Equal("Test", _anketa.Name);
         Assert.Equal("TestFam", _anketa.SurName);

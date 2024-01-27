@@ -7,8 +7,8 @@ public interface IFactoryCalculator : ICommonCalculator, IPrintingCalculator
 
 public interface ICommonCalculator
 {
-    double Weight { get; set; }
-    double Height { get; set; }
+    double Weight { get; }
+    double Height { get; }
 }
 
 public interface IPrintingCalculator

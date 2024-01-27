@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E8669B74-088
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lesson1", "lesson1", "{4C621A99-3A54-4B15-9AD1-A221D069DDCD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson1Anketa", "src\lesson1\Lesson1Anketa\Lesson1Anketa.csproj", "{4F400E44-9981-46BA-B3B4-C0485AF6A6C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson1Questionnaire", "src\lesson1\Lesson1Anketa\Lesson1Questionnaire.csproj", "{4F400E44-9981-46BA-B3B4-C0485AF6A6C9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{BBF42D37-436A-49F1-956B-1134EA24911C}"
 	ProjectSection(SolutionItems) = preProject
@@ -22,7 +22,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson1BodyMassIndex", "src
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson1BodyMassIndexTests", "tests\lesson1\Lesson1BodyMassIndexTests\Lesson1BodyMassIndexTests.csproj", "{2939EC5A-1D30-40A7-9138-4B39C03369C7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson1AnketaTests", "tests\lesson1\Lesson1AnketaTests\Lesson1AnketaTests.csproj", "{B268CAF5-0878-48A9-BF34-375FB2DF4B1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson1QuestionnaireTests", "tests\lesson1\Lesson1AnketaTests\Lesson1QuestionnaireTests.csproj", "{B268CAF5-0878-48A9-BF34-375FB2DF4B1C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson1LineLength", "src\lesson1\Lesson1LineLength\Lesson1LineLength.csproj", "{9A46A955-9979-4D70-BF31-C7ED4CD2471A}"
 EndProject
@@ -38,7 +38,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kanadeiar.CommonTests", "te
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson1SwapTests", "tests\lesson1\Lesson1SwapTests\Lesson1SwapTests.csproj", "{2B9F8545-0327-48E0-844E-80DBDB15610B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson1Swap", "src\lesson1\Lesson1Swap\Lesson1Swap.csproj", "{805D8332-D17A-448C-8924-A1DD647923FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson1Swap", "src\lesson1\Lesson1Swap\Lesson1Swap.csproj", "{805D8332-D17A-448C-8924-A1DD647923FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

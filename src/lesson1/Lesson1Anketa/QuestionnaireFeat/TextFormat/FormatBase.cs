@@ -1,4 +1,4 @@
-﻿namespace Lesson1Anketa.AnketaFeat.TextFormat;
+﻿namespace Lesson1Questionnaire.QuestionnaireFeat.TextFormat;
 
 public abstract class FormatBase
 {
@@ -19,5 +19,5 @@ public abstract class FormatBase
 
     public abstract TextFormatCode GetCode();
 
-    public abstract string GetText(IPropertiesAnketa anketa);
+    public abstract string GetText(IPropertiesQuestionnaire questionnaire);
 }

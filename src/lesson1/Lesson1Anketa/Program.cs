@@ -1,16 +1,16 @@
 ﻿using Kanadeiar.Common;
-using Lesson1Anketa.AnketaFeat;
-using Lesson1Anketa.AnketaFeat.TextFormat;
+using Lesson1Questionnaire.QuestionnaireFeat;
+using Lesson1Questionnaire.QuestionnaireFeat.TextFormat;
 
 ConsoleHelper.PrintHeader("Задача № 1", "Задача № 1. Написать программу «Анкета».");
 
-var anketa = Anketa.Create();
+var surName = ConsoleHelper.ReadLineFromConsole("Введите фамилию");
+var name = ConsoleHelper.ReadLineFromConsole("Введите имя");
+var age = ConsoleHelper.ReadNumberFromConsole<int>("Введите возраст"); 
+var height = ConsoleHelper.ReadNumberFromConsole<int>("Введите рост");
+var weight = ConsoleHelper.ReadNumberFromConsole<int>("Введите вес");
 
-anketa.SurName = ConsoleHelper.ReadLineFromConsole("Введите фамилию");
-anketa.Name = ConsoleHelper.ReadLineFromConsole("Введите имя");
-anketa.Age = ConsoleHelper.ReadNumberFromConsole<int>("Введите возраст");
-anketa.Height = ConsoleHelper.ReadNumberFromConsole<int>("Введите рост");
-anketa.Weight = ConsoleHelper.ReadNumberFromConsole<int>("Введите вес");
+var anketa = Questionnaire.Create(name, surName, age, height, weight);
 
 Console.WriteLine("\nСклеивание:");
 Console.WriteLine(anketa.GetText(TextFormatCode.GluedLine));
