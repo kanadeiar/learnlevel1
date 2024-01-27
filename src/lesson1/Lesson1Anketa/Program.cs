@@ -1,8 +1,4 @@
-﻿using Kanadeiar.Common;
-using Lesson1Questionnaire.QuestionnaireFeat;
-using Lesson1Questionnaire.QuestionnaireFeat.TextFormat;
-
-ConsoleHelper.PrintHeader("Задача № 1", "Задача № 1. Написать программу «Анкета».");
+﻿ConsoleHelper.PrintHeader("Задача № 1", "Задача № 1. Написать программу «Анкета».");
 
 var surName = ConsoleHelper.ReadLineFromConsole("Введите фамилию");
 var name = ConsoleHelper.ReadLineFromConsole("Введите имя");

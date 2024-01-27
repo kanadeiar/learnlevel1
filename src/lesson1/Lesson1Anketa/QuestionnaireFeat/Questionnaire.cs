@@ -1,6 +1,4 @@
-﻿using Lesson1Questionnaire.QuestionnaireFeat.TextFormat;
-
-namespace Lesson1Questionnaire.QuestionnaireFeat;
+﻿namespace Lesson1Questionnaire.QuestionnaireFeat;
 
 public class Questionnaire : IFaсtoryquestionnaire
 {
