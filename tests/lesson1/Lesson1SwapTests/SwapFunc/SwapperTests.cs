@@ -18,4 +18,26 @@ public class SwapperTests
         Assert.Equal(3, swapper.First);
         Assert.Equal(2, swapper.Second);
     }
+
+    [Fact]
+    public void SimpleSwap()
+    {
+        var swapper = Swapper.Create(2, 3);
+
+        swapper.Swap();
+
+        Assert.Equal(3, swapper.First);
+        Assert.Equal(2, swapper.Second);
+    }
+
+    [Fact]
+    public void AdvanvedSwap()
+    {
+        var swapper = Swapper.Create(2, 3);
+
+        swapper.AdvancedSwap();
+
+        Assert.Equal(3, swapper.First);
+        Assert.Equal(2, swapper.Second);
+    }
 }

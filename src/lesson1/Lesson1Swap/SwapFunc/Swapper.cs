@@ -27,4 +27,18 @@ public class Swapper
     {
         return new Swapper(first, second);
     }
+
+    public void Swap()
+    {
+        var buffer = First;
+        First = Second;
+        Second = buffer;
+    }
+
+    public void AdvancedSwap()
+    {
+        First = First - Second;
+        Second = First + Second;
+        First = -First + Second;
+    }
 }
