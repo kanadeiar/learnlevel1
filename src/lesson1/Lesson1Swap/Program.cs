@@ -1,5 +1,6 @@
 ﻿using Kanadeiar.Common;
 using Lesson1Swap.SwapFunc;
+using Lesson1Swap.SwapFunc.SwapImpl;
 
 ConsoleHelper.PrintHeader("Задача № 2", "Задача № 2. Написать программу обмена значениями двух переменных.");
 
@@ -8,9 +9,9 @@ var two = ConsoleHelper.ReadNumberFromConsole<int>("Введите второе 
 
 var swapper = Swapper.Create(one, two);
 
-swapper.Swap();
+swapper.Swap(SwapType.WithBuffer);
 Console.WriteLine($"Результат простого обмена: первое = {swapper.First}, второе = {swapper.Second}");
-swapper.AdvancedSwap();
+swapper.Swap(SwapType.Advanced);
 Console.WriteLine($"Результат дополнительного обмена: первое = {swapper.First}, второе = {swapper.Second}");
 
 ConsoleHelper.PrintFooter();

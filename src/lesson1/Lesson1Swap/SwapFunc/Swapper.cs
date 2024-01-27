@@ -1,44 +1,41 @@
-﻿namespace Lesson1Swap.SwapFunc;
+﻿using Lesson1Swap.SwapFunc.SwapImpl;
+
+namespace Lesson1Swap.SwapFunc;
 
 public class Swapper
 {
-    private int _first;
-
+    private readonly Values _values;
+    
     public int First
     {
-        get => _first;
-        set => _first = value;
+        get => _values.First;
+        set => _values.First = value;
     }
-
-    private int _second;
 
     public int Second
     {
-        get => _second;
-        set => _second = value;
+        get => _values.Second;
+        set => _values.Second = value;
     }
+
+    private SwapCode _code;
 
     private Swapper(int first, int second)
     {
-        _first = first;
-        _second = second;
+        _values = new Values
+        {
+            First = first, 
+            Second = second
+        };
     }
     public static Swapper Create(int first, int second)
     {
         return new Swapper(first, second);
     }
 
-    public void Swap()
+    public void Swap(SwapType type)
     {
-        var buffer = First;
-        First = Second;
-        Second = buffer;
-    }
-
-    public void AdvancedSwap()
-    {
-        First = First - Second;
-        Second = First + Second;
-        First = -First + Second;
+        _code = SwapCode.FromType(type);
+        _code.Swap(_values);
     }
 }

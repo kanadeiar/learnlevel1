@@ -1,4 +1,5 @@
 ﻿using Lesson1Swap.SwapFunc;
+using Lesson1Swap.SwapFunc.SwapImpl;
 
 namespace Lesson1SwapTests.SwapFunc;
 
@@ -24,7 +25,7 @@ public class SwapperTests
     {
         var swapper = Swapper.Create(2, 3);
 
-        swapper.Swap();
+        swapper.Swap(SwapType.WithBuffer);
 
         Assert.Equal(3, swapper.First);
         Assert.Equal(2, swapper.Second);
@@ -35,7 +36,7 @@ public class SwapperTests
     {
         var swapper = Swapper.Create(2, 3);
 
-        swapper.AdvancedSwap();
+        swapper.Swap(SwapType.Advanced);
 
         Assert.Equal(3, swapper.First);
         Assert.Equal(2, swapper.Second);
