@@ -35,7 +35,13 @@ public class ConsoleHelper
         ReadKey();
     }
 
-    internal static void PositionPrint(string message, int x, int y)
+    public static void Pause(string text = "Нажмите любую кнопку для продолжения ...")
+    {
+        WriteLine("\n" + text);
+        ReadKey();
+    }
+
+    public static void PositionPrint(string message, int x, int y)
     {
         SetCursorPosition(x, y);
         WriteLine(message);
