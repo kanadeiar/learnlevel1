@@ -41,11 +41,6 @@ public class ConsoleHelper
         WriteLine(message);
     }
 
-    internal static void Pause()
-    {
-        ReadKey();
-    }
-
     public static string? ReadLineFromConsole(string message)
     {
         Write($"{message}:>");
