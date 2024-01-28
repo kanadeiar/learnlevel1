@@ -22,4 +22,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\common\Kanadeiar.Common\Kanadeiar.Common.csproj" />
+  </ItemGroup>
+
 </Project>
