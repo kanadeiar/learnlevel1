@@ -11,11 +11,10 @@ public class ConsoleHelperTests
         var old = Console.Out;
         Console.SetOut(writer);
 
-        ConsoleHelper.PrintHeader("TestTitle", "TestText");
+        ConsoleHelper.OutputHeaderToConsole("TestText");
 
         var text = writer.ToString();
 
-        Assert.Equal("TestTitle", Console.Title);
         Assert.Contains("TestText", text);
 
         Console.SetOut(old);
