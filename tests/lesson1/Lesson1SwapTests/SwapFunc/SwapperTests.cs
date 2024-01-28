@@ -12,12 +12,6 @@ public class SwapperTests
 
         Assert.Equal(5, swapper.First);
         Assert.Equal(6, swapper.Second);
-
-        swapper.First = 3;
-        swapper.Second = 2;
-
-        Assert.Equal(3, swapper.First);
-        Assert.Equal(2, swapper.Second);
     }
 
     [Fact]

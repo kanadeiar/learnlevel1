@@ -1,4 +1,4 @@
-﻿namespace Lesson1Anketa.AnketaFeat.TextFormat;
+﻿namespace Lesson1Questionnaire.QuestionnaireFeat.TextFormat;
 
 public class FormatNone : FormatBase
 {
@@ -7,7 +7,7 @@ public class FormatNone : FormatBase
         return TextFormatCode.None;
     }
 
-    public override string GetText(IPropertiesAnketa anketa)
+    public override string GetText(IPropertiesQuestionnaire questionnaire)
     {
         return string.Empty;
     }

@@ -1,4 +1,4 @@
-﻿namespace Lesson1Anketa.AnketaFeat.TextFormat;
+﻿namespace Lesson1Questionnaire.QuestionnaireFeat.TextFormat;
 
 public enum TextFormatCode
 {

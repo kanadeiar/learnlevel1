@@ -2,21 +2,13 @@
 
 namespace Lesson1Swap.SwapFunc;
 
-public class Swapper
+public class Swapper : ICommonSwapper
 {
     private readonly Values _values;
     
-    public int First
-    {
-        get => _values.First;
-        set => _values.First = value;
-    }
+    public int First => _values.First;
 
-    public int Second
-    {
-        get => _values.Second;
-        set => _values.Second = value;
-    }
+    public int Second => _values.Second;
 
     private SwapCode _code;
 
@@ -28,6 +20,7 @@ public class Swapper
             Second = second
         };
     }
+
     public static Swapper Create(int first, int second)
     {
         return new Swapper(first, second);
