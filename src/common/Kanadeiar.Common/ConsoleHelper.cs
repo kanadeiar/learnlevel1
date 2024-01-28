@@ -10,13 +10,20 @@ public class ConsoleHelper
     {
         setupConsole(title);
 
+        OutputHeaderToConsole(text);
+    }
+
+    public static void OutputHeaderToConsole(string text)
+    {
         BackgroundColor = ConsoleColor.DarkGreen;
         ForegroundColor = ConsoleColor.White;
 
-        WriteLine($"┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐");
+        WriteLine(
+            $"┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐");
         WriteLine($"│{text,-117}│");
-        WriteLine($"└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘");
-        
+        WriteLine(
+            $"└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘");
+
         ForegroundColor = ConsoleColor.White;
         BackgroundColor = ConsoleColor.Black;
 
