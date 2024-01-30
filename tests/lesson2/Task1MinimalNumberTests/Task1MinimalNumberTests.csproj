@@ -26,8 +26,4 @@
     <ProjectReference Include="..\..\..\src\lesson2\Task1MinimalNumber\Task1MinimalNumber.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="MinimalNumber\" />
-  </ItemGroup>
-
 </Project>
