@@ -1,6 +1,6 @@
 ﻿namespace Task5SurNameNameCity.SurNameNameCityModule;
 
-public class SurNameNameCity : ICommonSurNameNameCity, ITextSurNameNameCity
+public class SurNameNameCity : ICommonSurNameNameCity
 {
     private readonly string _surName;
 

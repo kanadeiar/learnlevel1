@@ -7,7 +7,7 @@ public class FormatNone : FormatBase
         return TextFormatCode.None;
     }
 
-    public override string GetText(IPropertiesQuestionnaire questionnaire)
+    public override string GetText(IDataQuestionnaire questionnaire)
     {
         return string.Empty;
     }

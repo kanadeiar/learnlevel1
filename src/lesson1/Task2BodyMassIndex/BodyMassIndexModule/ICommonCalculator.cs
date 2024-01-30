@@ -1,11 +1,11 @@
 ﻿namespace Task2BodyMassIndex.BodyMassIndexModule;
 
-public interface IFactoryCalculator : ICommonCalculator, IPrintingCalculator
+public interface ICommonCalculator : IDataCalculator, IPrintingCalculator
 {
     
 }
 
-public interface ICommonCalculator
+public interface IDataCalculator
 {
     double Weight { get; }
     double Height { get; }

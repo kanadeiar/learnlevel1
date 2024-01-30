@@ -5,7 +5,7 @@ namespace Task1QuestionnaireTests.QuestionnaireFeat;
 
 public class QuestionnaireTests
 {
-    private IFaсtoryquestionnaire _questionnaire;
+    private ICommonQuestionnaire _questionnaire;
 
     public QuestionnaireTests()
     {
@@ -15,13 +15,11 @@ public class QuestionnaireTests
     [Fact]
     public void TestData()
     {
-        _questionnaire = Questionnaire.Create("Test", "TestFam", 20, 180, 79);
-
-        Assert.Equal("Test", _questionnaire.Name);
-        Assert.Equal("TestFam", _questionnaire.SurName);
-        Assert.Equal(20, _questionnaire.Age);
-        Assert.Equal(180, _questionnaire.Height);
-        Assert.Equal(79, _questionnaire.Weight);
+        Assert.Equal("Test1", _questionnaire.Name);
+        Assert.Equal("TestFam1", _questionnaire.SurName);
+        Assert.Equal(10, _questionnaire.Age);
+        Assert.Equal(80, _questionnaire.Height);
+        Assert.Equal(49, _questionnaire.Weight);
     }
 
     [Fact]

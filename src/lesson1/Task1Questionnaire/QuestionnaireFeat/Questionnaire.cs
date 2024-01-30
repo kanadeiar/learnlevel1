@@ -1,6 +1,6 @@
 ﻿namespace Task1Questionnaire.QuestionnaireFeat;
 
-public class Questionnaire : IFaсtoryquestionnaire
+public class Questionnaire : ICommonQuestionnaire
 {
     private readonly string _name;
 
@@ -35,7 +35,7 @@ public class Questionnaire : IFaсtoryquestionnaire
         _weight = weight;
     }
 
-    public static IFaсtoryquestionnaire Create(string name, string surName, int age, int height, int weight)
+    public static ICommonQuestionnaire Create(string name, string surName, int age, int height, int weight)
     {
         return new Questionnaire(name, surName, age, height, weight);
     }

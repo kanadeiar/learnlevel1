@@ -1,6 +1,6 @@
 ﻿namespace Task2BodyMassIndex.BodyMassIndexModule;
 
-public class Calculator : IFactoryCalculator
+public class Calculator : ICommonCalculator
 {
     private double _weight;
 
@@ -22,7 +22,7 @@ public class Calculator : IFactoryCalculator
         _height = height;
     }
 
-    public static IFactoryCalculator Create(double weight, double height)
+    public static ICommonCalculator Create(double weight, double height)
     {
         return new Calculator(weight, height);
     }

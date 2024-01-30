@@ -1,11 +1,11 @@
 ﻿namespace Task1Questionnaire.QuestionnaireFeat;
 
-public interface IFaсtoryquestionnaire : IPropertiesQuestionnaire, ITextGeneratingQuestionnaire
+public interface ICommonQuestionnaire : IDataQuestionnaire, IGettingTextQuestionnaire
 {
     TextFormatCode Code { get; }
 }
 
-public interface IPropertiesQuestionnaire
+public interface IDataQuestionnaire
 {
     string? Name { get; }
     string? SurName { get; }
@@ -14,7 +14,7 @@ public interface IPropertiesQuestionnaire
     int Weight { get; }
 }
 
-public interface ITextGeneratingQuestionnaire
+public interface IGettingTextQuestionnaire
 {
     string GetText(TextFormatCode typ);
 }
