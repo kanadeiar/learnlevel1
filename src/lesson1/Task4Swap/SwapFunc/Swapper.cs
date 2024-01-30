@@ -8,7 +8,7 @@ public class Swapper : ICommonSwapper
 
     public int Second => _values.Second;
 
-    private SwapCode _code;
+    private SwapCode? _code;
 
     private Swapper(int first, int second)
     {
