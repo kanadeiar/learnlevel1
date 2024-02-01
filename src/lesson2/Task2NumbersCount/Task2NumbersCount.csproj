@@ -11,8 +11,4 @@
     <ProjectReference Include="..\..\common\Kanadeiar.Common\Kanadeiar.Common.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="DigitalsCounter\" />
-  </ItemGroup>
-
 </Project>
