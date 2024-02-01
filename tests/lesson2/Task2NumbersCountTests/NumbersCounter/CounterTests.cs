@@ -11,4 +11,16 @@ public class CounterTests
 
         Assert.Equal(100, counter.Number);
     }
+
+    [Theory]
+    [InlineData(1, 1)]
+    [InlineData(100, 3)]
+    public void TestGetCount(int number, int expected)
+    {
+        ICountCounter counter = Counter.Create(number);
+
+        var actual = counter.GetCount();
+
+        Assert.Equal(expected, actual);
+    }
 }

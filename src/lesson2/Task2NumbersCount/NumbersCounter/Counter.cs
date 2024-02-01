@@ -1,6 +1,6 @@
 ﻿namespace Task2NumbersCount.NumbersCounter;
 
-public class Counter : IDataCounter
+public class Counter : ICommonCounter
 {
     private int _number;
 
@@ -10,8 +10,24 @@ public class Counter : IDataCounter
     {
         _number = number;
     }
-    public static IDataCounter Create(int number)
+    public static ICommonCounter Create(int number)
     {
         return new Counter(number);
+    }
+
+    public int GetCount()
+    {
+        return countWithDivision(_number);
+    }
+
+    private static int countWithDivision(int number)
+    {
+        int count = default;
+        while (number > 0)
+        {
+            count++;
+            number = number / 10;
+        }
+        return count;
     }
 }
