@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\lesson2\Task2NumbersCount\Task2NumbersCount.csproj" />
+    <ProjectReference Include="..\..\..\src\lesson2\Task3CyclicNumbersSum\Task3CyclicNumbersSum.csproj" />
   </ItemGroup>
 
 </Project>
