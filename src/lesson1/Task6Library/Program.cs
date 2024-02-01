@@ -1,4 +1,6 @@
-﻿Console.WriteLine("Метод вывода заголовка:");
+﻿using Kanadeiar.Common;
+
+Console.WriteLine("Метод вывода заголовка:");
 ConsoleHelper.PrintHeader("Задача № 6", "Задача № 6. Собственная библиотека.");
 
 Console.WriteLine("Метод ввода числа:");
