@@ -2,15 +2,11 @@
 
 public class Adder : ICommonAdder
 {
-    public IEnumerable<int> Numbers
-    {
-        get
-        {
-            yield return 1;
-            yield return 100;
-        }
-    }
+    private IList<int> _numbers = new List<int>();
+    private bool _isEnd = false;
 
+    public IEnumerable<int> Numbers => _numbers;
+    
     private Adder()
     {
         
@@ -23,22 +19,32 @@ public class Adder : ICommonAdder
 
     public bool AddNumber(int number)
     {
+        if (isEnd(number)) return false;
+
+        _numbers.Add(number);
         return true;
+    }
+
+    private bool isEnd(int number)
+    {
+        if (_isEnd) return true;
+        _isEnd = number == 0;
+        return _isEnd;
+    }
+
+    public int SumPlusOdd()
+    {
+        var result = 0;
+        foreach (var each in Numbers)
+        {
+            if (each > 0 && each % 2 != 0)
+            {
+                result += each;
+            }
+        }
+        return result;
     }
 }
 
-public interface ICommonAdder : IDataAdder, IAddingAdder
-{
 
-}
-
-public interface IDataAdder
-{
-    public IEnumerable<int> Numbers { get; }
-}
-
-public interface IAddingAdder
-{
-    public bool AddNumber(int number);
-}
 
