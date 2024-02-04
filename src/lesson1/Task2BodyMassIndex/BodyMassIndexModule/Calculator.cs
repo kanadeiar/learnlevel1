@@ -24,7 +24,7 @@ public class Calculator : ICommonCalculator
 
     public string Print()
     {
-        var formula = Formula.Create(FormulaCode.Simple, Height, Weight);
+        var formula = Formula.Create(FormulaCode.Simple, Weight, Height);
         var index = formula.Calculate().ToString("F1", NumberFormatInfo.InvariantInfo);
         return $"Индекс массы тела = {index}";
     }
