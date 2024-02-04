@@ -1,8 +1,8 @@
 ﻿namespace Task3LineLength.LineFeat;
 
-public class LenghtLine : Line
+public class LengthLine : Line
 {
-    public LenghtLine(Point pointStart, Point pointEnd) : base(pointStart, pointEnd)
+    public LengthLine(Point pointStart, Point pointEnd) : base(pointStart, pointEnd)
     {
     }
 

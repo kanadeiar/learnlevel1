@@ -1,6 +1,6 @@
 ﻿namespace Task2BodyMassIndex.BodyMassIndexModule;
 
-public class Calculator : IFactoryCalculator
+public class Calculator : ICommonCalculator
 {
     private double _weight;
 
@@ -22,14 +22,9 @@ public class Calculator : IFactoryCalculator
         _height = height;
     }
 
-    public static IFactoryCalculator Create(double weight, double height)
-    {
-        return new Calculator(weight, height);
-    }
-
     public string Print()
     {
-        var formula = new FormulaCommon(Weight, Height);
+        var formula = Formula.Create(FormulaCode.Simple, Weight, Height);
         var index = formula.Calculate().ToString("F1", NumberFormatInfo.InvariantInfo);
         return $"Индекс массы тела = {index}";
     }

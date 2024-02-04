@@ -1,6 +1,6 @@
 ﻿namespace Task1Questionnaire.QuestionnaireFeat;
 
-public class Questionnaire : IFaсtoryquestionnaire
+public class Questionnaire : ICommonQuestionnaire
 {
     private readonly string _name;
 
@@ -26,18 +26,13 @@ public class Questionnaire : IFaсtoryquestionnaire
 
     public TextFormatCode Code => _typ.GetCode();
 
-    private Questionnaire(string name, string surName, int age, int height, int weight)
+    public Questionnaire(string name, string surName, int age, int height, int weight)
     {
         _name = name;
         _surName = surName;
         _age = age;
         _height = height;
         _weight = weight;
-    }
-
-    public static IFaсtoryquestionnaire Create(string name, string surName, int age, int height, int weight)
-    {
-        return new Questionnaire(name, surName, age, height, weight);
     }
 
     public string GetText(TextFormatCode typ)

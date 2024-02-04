@@ -19,5 +19,5 @@ public abstract class FormatBase
 
     public abstract TextFormatCode GetCode();
 
-    public abstract string GetText(IPropertiesQuestionnaire questionnaire);
+    public abstract string GetText(IDataQuestionnaire questionnaire);
 }

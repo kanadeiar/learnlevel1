@@ -7,7 +7,7 @@ public class CalculatorTests
     [Theory, MemberData(nameof(DataForTest))]
     public void TestGetIndex(double weight, double height, string expected)
     {
-        var calculator = Calculator.Create(weight, height);
+        var calculator = (ICommonCalculator)new Calculator(weight, height);
 
         var actual = calculator.Print();
 

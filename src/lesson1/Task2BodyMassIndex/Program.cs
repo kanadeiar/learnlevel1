@@ -1,9 +1,11 @@
-﻿ConsoleHelper.PrintHeader("Задача № 2", "Задача № 2. Написать программу расчета индекса массы тела.");
+﻿using Kanadeiar.Common;
+
+ConsoleHelper.PrintHeader("Задача № 2", "Задача № 2. Написать программу расчета индекса массы тела.");
 
 var weight = ConsoleHelper.ReadNumberFromConsole<double>("Введите вес в килограммах");
 var height = ConsoleHelper.ReadNumberFromConsole<double>("Введите рост в метрах");
 
-var calculator = Calculator.Create(weight, height);
+var calculator = (ICommonCalculator)new Calculator(weight, height);
 
 Console.WriteLine(calculator.Print());
 

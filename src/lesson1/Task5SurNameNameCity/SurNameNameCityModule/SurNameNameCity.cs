@@ -1,6 +1,6 @@
 ﻿namespace Task5SurNameNameCity.SurNameNameCityModule;
 
-public class SurNameNameCity : ICommonSurNameNameCity, ITextSurNameNameCity
+public class SurNameNameCity : ICommonSurNameNameCity
 {
     private readonly string _surName;
 
@@ -14,16 +14,11 @@ public class SurNameNameCity : ICommonSurNameNameCity, ITextSurNameNameCity
 
     public string City => _city;
 
-    private SurNameNameCity(string surName, string name, string city)
+    public SurNameNameCity(string surName, string name, string city)
     {
         _surName = surName;
         _name = name;
         _city = city;
-    }
-
-    public static ICommonSurNameNameCity CreateInstance(string surName, string name, string city)
-    {
-        return new SurNameNameCity(surName, name, city);
     }
 
     public string GetText()
