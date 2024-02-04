@@ -14,7 +14,7 @@ public class AdderTests
         var actual = adder.AddNumber(100);
 
         Assert.True(actual);
-        var numbers = (adder as IDataAdder).Numbers.ToArray();
+        var numbers = (adder as IDataAdder)!.Numbers.ToArray();
         Assert.Equal(1, numbers[0]);
         Assert.Equal(2, numbers[1]);
         Assert.Equal(100, numbers[2]);
@@ -30,9 +30,9 @@ public class AdderTests
         adder.AddNumber(200);
 
         Assert.False(actual);
-        var numbers = (adder as IDataAdder).Numbers.ToArray();
+        var numbers = (adder as IDataAdder)!.Numbers.ToArray();
         Assert.Equal(100, numbers[0]);
-        Assert.Equal(1, numbers.Length);
+        Assert.Single(numbers);
     }
 
     [Theory]
@@ -45,7 +45,7 @@ public class AdderTests
             adder.AddNumber(each);
         }
         
-        var actual = (adder as ICalculatingAdder).SumPlusOdd();
+        var actual = (adder as ICalculatingAdder)!.SumPlusOdd();
 
         Assert.Equal(expected, actual);
     }
