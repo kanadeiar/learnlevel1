@@ -8,6 +8,7 @@ public class SimpleFormula : Formula
 
     public override double Calculate()
     {
-        return Weight / Height * Height;
+        var result = Weight / (Height * Height);
+        return result;
     }
 }
