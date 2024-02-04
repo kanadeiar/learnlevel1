@@ -2,8 +2,7 @@
 
 ConsoleHelper.PrintHeader("Задача № 3", "Задача № 3. Подсчет суммы нечетных положительных чисел.");
 
-var adder = Adder.CreateInstance();
-
+var adder = new Adder();
 while (true)
 {
     var value = ConsoleHelper.ReadNumberFromConsole<int>("Вводите числа, введите 0 для завершения");

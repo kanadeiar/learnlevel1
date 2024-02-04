@@ -7,7 +7,7 @@ public class CounterTests
     [Fact]
     public void TestData()
     {
-        IDataCounter counter = Counter.Create(100);
+        IDataCounter counter = new Counter(100);
 
         Assert.Equal(100, counter.Number);
     }
@@ -17,7 +17,7 @@ public class CounterTests
     [InlineData(100, 3)]
     public void TestGetCount(int number, int expected)
     {
-        ICountCounter counter = Counter.Create(number);
+        ICountCounter counter = new Counter(number);
 
         var actual = counter.GetCount();
 

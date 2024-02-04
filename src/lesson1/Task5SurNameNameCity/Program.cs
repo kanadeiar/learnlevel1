@@ -2,7 +2,7 @@
 
 ConsoleHelper.PrintHeader("Задача № 5", "Задача № 5. Имя, фамилия, город проживания.");
 
-var data = SurNameNameCity.CreateInstance("Рассахатский", "Андрей", "Кузнецк");
+var data = (ICommonSurNameNameCity)new SurNameNameCity("Рассахатский", "Андрей", "Кузнецк");
 
 Console.WriteLine("Вывод в консоль:");
 Console.WriteLine(data.GetText());

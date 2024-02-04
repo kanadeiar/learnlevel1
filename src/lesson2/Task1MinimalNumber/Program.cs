@@ -6,7 +6,8 @@ var first = ConsoleHelper.ReadNumberFromConsole<int>("Введите перво�
 var second = ConsoleHelper.ReadNumberFromConsole<int>("Введите второе число");
 var third = ConsoleHelper.ReadNumberFromConsole<int>("Введите третье число");
 
-var finder = Finder.CreateInstance(first, second, third);
+int[] numbers = new[] { first, second, third };
+var finder = new Finder(numbers);
 
 var minimal = finder.Min();
 

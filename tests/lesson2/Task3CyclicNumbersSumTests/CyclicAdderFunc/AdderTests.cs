@@ -7,7 +7,7 @@ public class AdderTests
     [Fact]
     public void TestAddNumber()
     {
-        IAddingAdder adder = Adder.CreateInstance();
+        IAddingAdder adder = new Adder();
 
         adder.AddNumber(1);
         adder.AddNumber(2);
@@ -23,7 +23,7 @@ public class AdderTests
     [Fact]
     public void TestAddNumber_WhenZero()
     {
-        IAddingAdder adder = Adder.CreateInstance();
+        IAddingAdder adder = new Adder();
 
         adder.AddNumber(100);
         var actual = adder.AddNumber(0);
@@ -39,7 +39,7 @@ public class AdderTests
     [MemberData(nameof(NumbersForTestSumPlusOdd))]
     public void TestSumPlusOdd(int[] numbers, int expected)
     {
-        IAddingAdder adder = Adder.CreateInstance();
+        IAddingAdder adder = new Adder();
         foreach (var each in numbers)
         {
             adder.AddNumber(each);
@@ -50,10 +50,10 @@ public class AdderTests
         Assert.Equal(expected, actual);
     }
 
-    public static TheoryData<int[], int> NumbersForTestSumPlusOdd = new TheoryData<int[], int>
+    public static IEnumerable<object[]> NumbersForTestSumPlusOdd()
     {
-        { new[] { 1, 5, 6, 0 }, 6 },
-        { new[] { 1, -2, 7, 0, 9 }, 8 },
-        { new[] { 1, 3, 0, 9, 8 }, 4 },
-    };
+        yield return new object[] { new int[] { 1, 5, 6, 0 }, 6 };
+        yield return new object[] { new int[] { 1, -2, 7, 0, 9 }, 8 };
+        yield return new object[] { new int[] { 1, 3, 0, 9, 8 }, 4 };
+    }
 }

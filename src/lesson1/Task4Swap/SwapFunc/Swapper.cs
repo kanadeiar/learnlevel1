@@ -10,18 +10,9 @@ public class Swapper : ICommonSwapper
 
     private SwapCode? _code;
 
-    private Swapper(int first, int second)
+    public Swapper(int first, int second)
     {
-        _values = new Values
-        {
-            First = first, 
-            Second = second
-        };
-    }
-
-    public static Swapper Create(int first, int second)
-    {
-        return new Swapper(first, second);
+        _values = new Values(first, second);
     }
 
     public void Swap(SwapType type)

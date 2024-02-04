@@ -16,9 +16,9 @@ public abstract class Line : ICommonLine
         _pointEnd = pointEnd;
     }
 
-    public static LenghtLine Create(Point pStart, Point pEnd)
+    public static LengthLine Create(Point pStart, Point pEnd)
     {
-        return new LenghtLine(pStart, pEnd);
+        return new LengthLine(pStart, pEnd);
     }
 
     public abstract double Length();

@@ -2,19 +2,14 @@
 
 public class Adder : ICommonAdder
 {
-    private IList<int> _numbers = new List<int>();
+    private readonly IList<int> _numbers = new List<int>();
     private bool _isEnd = false;
 
     public IEnumerable<int> Numbers => _numbers;
-    
-    private Adder()
+
+    public Adder()
     {
         
-    }
-
-    public static ICommonAdder CreateInstance()
-    {
-        return new Adder();
     }
 
     public bool AddNumber(int number)

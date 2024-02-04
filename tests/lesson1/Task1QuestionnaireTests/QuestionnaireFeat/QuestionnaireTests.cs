@@ -9,7 +9,7 @@ public class QuestionnaireTests
 
     public QuestionnaireTests()
     {
-        _questionnaire = Questionnaire.Create("Test1", "TestFam1", 10, 80, 49);
+        _questionnaire = new Questionnaire("Test1", "TestFam1", 10, 80, 49);
     }
 
     [Fact]
