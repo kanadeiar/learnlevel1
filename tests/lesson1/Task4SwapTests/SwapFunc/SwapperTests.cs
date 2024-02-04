@@ -8,7 +8,7 @@ public class SwapperTests
     [Fact]
     public void TestData()
     {
-        var swapper = Swapper.Create(5, 6);
+        var swapper = new Swapper(5, 6);
 
         Assert.Equal(5, swapper.First);
         Assert.Equal(6, swapper.Second);
@@ -17,7 +17,7 @@ public class SwapperTests
     [Fact]
     public void SimpleSwap()
     {
-        var swapper = Swapper.Create(2, 3);
+        var swapper = new Swapper(2, 3);
 
         swapper.Swap(SwapType.WithBuffer);
 
@@ -28,7 +28,7 @@ public class SwapperTests
     [Fact]
     public void AdvanvedSwap()
     {
-        var swapper = Swapper.Create(2, 3);
+        var swapper = new Swapper(2, 3);
 
         swapper.Swap(SwapType.Advanced);
 

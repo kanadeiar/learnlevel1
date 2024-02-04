@@ -4,7 +4,7 @@ ConsoleHelper.PrintHeader("Задача № 2", "Задача № 2. Напис�
 
 var numer = ConsoleHelper.ReadNumberFromConsole<int>("Введите число");
 
-var counter = Counter.Create(numer);
+var counter = (ICommonCounter)new Counter(numer);
 var result = counter.GetCount();
 
 Console.WriteLine("\nКоличество чисел в числе: {0}", result);

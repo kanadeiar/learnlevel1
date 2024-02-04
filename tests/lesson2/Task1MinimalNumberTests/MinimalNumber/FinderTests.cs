@@ -5,7 +5,8 @@ public class FinderTests
     [Fact]
     public void TestData()
     {
-        ICommonFinder finder = Finder.CreateInstance(3, 4, 5);
+        int[] numbers = new[] { 3, 4, 5 };
+        ICommonFinder finder = new Finder(numbers);
 
         var actuals = finder.Numbers.ToArray();
 
@@ -20,7 +21,8 @@ public class FinderTests
     [InlineData(0, int.MinValue, -5, int.MinValue)]
     public void TestMinimal(int first, int second, int third, int expected)
     {
-        IMinFinder finder = Finder.CreateInstance(first, second, third);
+        int[] numbers = new[] { first, second, third };
+        IMinFinder finder = new Finder(numbers);
 
         var actual = finder.Min();
 

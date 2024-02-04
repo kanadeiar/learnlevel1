@@ -8,7 +8,7 @@ var age = ConsoleHelper.ReadNumberFromConsole<int>("Введите возрас�
 var height = ConsoleHelper.ReadNumberFromConsole<int>("Введите рост");
 var weight = ConsoleHelper.ReadNumberFromConsole<int>("Введите вес");
 
-IGettingTextQuestionnaire anketa = Questionnaire.Create(name, surName, age, height, weight);
+IGettingTextQuestionnaire anketa = new Questionnaire(name, surName, age, height, weight);
 
 Console.WriteLine("\nСклеивание:");
 Console.WriteLine(anketa.GetText(TextFormatCode.GluedLine));

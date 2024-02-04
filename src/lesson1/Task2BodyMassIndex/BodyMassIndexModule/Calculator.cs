@@ -22,14 +22,9 @@ public class Calculator : ICommonCalculator
         _height = height;
     }
 
-    public static ICommonCalculator Create(double weight, double height)
-    {
-        return new Calculator(weight, height);
-    }
-
     public string Print()
     {
-        var formula = new FormulaCommon(Weight, Height);
+        var formula = Formula.Create(FormulaCode.Simple, Weight, Height);
         var index = formula.Calculate().ToString("F1", NumberFormatInfo.InvariantInfo);
         return $"Индекс массы тела = {index}";
     }

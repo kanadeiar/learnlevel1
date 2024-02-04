@@ -5,7 +5,7 @@ ConsoleHelper.PrintHeader("Задача № 2", "Задача № 2. Напис�
 var one = ConsoleHelper.ReadNumberFromConsole<int>("Введите первое число");
 var two = ConsoleHelper.ReadNumberFromConsole<int>("Введите второе число");
 
-var swapper = Swapper.Create(one, two);
+var swapper = new Swapper(one, two);
 
 swapper.Swap(SwapType.WithBuffer);
 Console.WriteLine($"Результат простого обмена: первое = {swapper.First}, второе = {swapper.Second}");

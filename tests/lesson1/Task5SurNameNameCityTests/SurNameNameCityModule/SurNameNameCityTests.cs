@@ -8,7 +8,7 @@ public class SurNameNameCityTests
 
     public SurNameNameCityTests()
     {
-        _data = SurNameNameCity.CreateInstance("SurName", "Name", "Kuzneck");
+        _data = new SurNameNameCity("SurName", "Name", "Kuzneck");
     }
 
     [Fact]

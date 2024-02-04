@@ -10,10 +10,6 @@ public class Counter : ICommonCounter
     {
         _number = number;
     }
-    public static ICommonCounter Create(int number)
-    {
-        return new Counter(number);
-    }
 
     public int GetCount()
     {

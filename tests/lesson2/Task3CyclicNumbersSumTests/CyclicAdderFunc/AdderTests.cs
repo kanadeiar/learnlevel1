@@ -5,9 +5,9 @@ namespace Task3CyclicNumbersSumTests.CyclicAdderFunc;
 public class AdderTests
 {
     [Fact]
-    public void AddNumber()
+    public void TestAddNumber()
     {
-        IAddingAdder adder = Adder.CreateInstance();
+        IAddingAdder adder = new Adder();
 
         adder.AddNumber(1);
         adder.AddNumber(2);
@@ -21,9 +21,9 @@ public class AdderTests
     }
 
     [Fact]
-    public void AddNumber_WhenZero()
+    public void TestAddNumber_WhenZero()
     {
-        IAddingAdder adder = Adder.CreateInstance();
+        IAddingAdder adder = new Adder();
 
         adder.AddNumber(100);
         var actual = adder.AddNumber(0);
@@ -35,18 +35,25 @@ public class AdderTests
         Assert.Equal(1, numbers.Length);
     }
 
-    [Fact]
-    public void SumPlusOdd()
+    [Theory]
+    [MemberData(nameof(NumbersForTestSumPlusOdd))]
+    public void TestSumPlusOdd(int[] numbers, int expected)
     {
-        IAddingAdder adder = Adder.CreateInstance();
-        adder.AddNumber(1);
-        adder.AddNumber(5);
-        adder.AddNumber(6);
-        adder.AddNumber(0);
-        adder.AddNumber(5);
-
+        IAddingAdder adder = new Adder();
+        foreach (var each in numbers)
+        {
+            adder.AddNumber(each);
+        }
+        
         var actual = (adder as ICalculatingAdder).SumPlusOdd();
 
-        Assert.Equal(6, actual);
+        Assert.Equal(expected, actual);
+    }
+
+    public static IEnumerable<object[]> NumbersForTestSumPlusOdd()
+    {
+        yield return new object[] { new int[] { 1, 5, 6, 0 }, 6 };
+        yield return new object[] { new int[] { 1, -2, 7, 0, 9 }, 8 };
+        yield return new object[] { new int[] { 1, 3, 0, 9, 8 }, 4 };
     }
 }
