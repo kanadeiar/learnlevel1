@@ -1,4 +1,6 @@
-﻿ConsoleHelper.PrintHeader("Задача № 1", "Задача № 1. Написать программу «Анкета».");
+﻿using Kanadeiar.Common;
+
+ConsoleHelper.PrintHeader("Задача № 1", "Задача № 1. Написать программу «Анкета».");
 
 var surName = ConsoleHelper.ReadLineFromConsole("Введите фамилию")!;
 var name = ConsoleHelper.ReadLineFromConsole("Введите имя")!;

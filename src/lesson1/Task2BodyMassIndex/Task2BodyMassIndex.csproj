@@ -13,8 +13,4 @@
 	</Compile>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\common\Kanadeiar.Common\Kanadeiar.Common.csproj" />
-  </ItemGroup>
-
 </Project>

@@ -1,4 +1,4 @@
-﻿using Task2NumbersCount.NumbersCounter;
+﻿using Kanadeiar.Common;
 
 ConsoleHelper.PrintHeader("Задача № 2", "Задача № 2. Написать метод подсчета количества цифр числа.");
 
