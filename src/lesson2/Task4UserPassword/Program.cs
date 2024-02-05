@@ -7,8 +7,8 @@ var checkpoint = Checkpoint.Create(userPassword);
 
 while (true)
 {
-    var username = ConsoleHelper.ReadLineFromConsole("Введите имя пользователя");
-    var password = ConsoleHelper.ReadLineFromConsole("Введите пароль");
+    var username = ConsoleHelper.ReadLineFromConsole("Введите имя пользователя")!;
+    var password = ConsoleHelper.ReadLineFromConsole("Введите пароль")!;
     var isCorrect = checkpoint.CheckUserPassword(username, password);
     
     if (isCorrect)
