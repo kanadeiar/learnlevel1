@@ -26,4 +26,8 @@
     <ProjectReference Include="..\..\..\src\lesson2\Task5BodyMassIndex\Task5BodyMassIndex.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="RecomendationModule\" />
+  </ItemGroup>
+
 </Project>

@@ -13,4 +13,8 @@
 		</Compile>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="RecomendationModule\" />
+	</ItemGroup>
+
 </Project>
