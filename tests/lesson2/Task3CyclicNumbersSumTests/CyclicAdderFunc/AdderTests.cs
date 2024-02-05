@@ -36,7 +36,7 @@ public class AdderTests
     }
 
     [Theory]
-    [MemberData(nameof(NumbersForTestSumPlusOdd))]
+    [MemberData(nameof(PlusOddNumbers))]
     public void TestSumPlusOdd(int[] numbers, int expected)
     {
         IAddingAdder adder = new Adder();
@@ -50,7 +50,7 @@ public class AdderTests
         Assert.Equal(expected, actual);
     }
 
-    public static IEnumerable<object[]> NumbersForTestSumPlusOdd()
+    public static IEnumerable<object[]> PlusOddNumbers()
     {
         yield return new object[] { new int[] { 1, 5, 6, 0 }, 6 };
         yield return new object[] { new int[] { 1, -2, 7, 0, 9 }, 8 };
