@@ -22,6 +22,11 @@ public class Calculator : ICommonCalculator
         return $"Индекс массы тела = {index.ToString("F1", NumberFormatInfo.InvariantInfo)}";
     }
 
+    public double Index()
+    {
+        return simpleFormula();
+    }
+
     private double simpleFormula()
     {
         return Weight / (Height * Height);
