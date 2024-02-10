@@ -1,6 +1,4 @@
-﻿using Task2BodyMassIndex.BodyMassIndexModule;
-
-namespace Task2BodyMassIndexTests.BodyMassIndexModule;
+﻿namespace Task2BodyMassIndexTests.BodyMassIndexModule;
 
 public class CalculatorTests
 {
@@ -14,10 +12,10 @@ public class CalculatorTests
         Assert.Equal(expected, actual);
     }
 
-    public static TheoryData<double, double, string> DataForTest = new()
+    public static IEnumerable<object[]> DataForTest()
     {
-        { 50.0, 1.700, "Индекс массы тела = 17.3" },
-        { 80.0, 1.800, "Индекс массы тела = 24.7" },
-        { 85.0, 1.800, "Индекс массы тела = 26.2" },
-    };
+        yield return new object[] { 50.0, 1.700, "Индекс массы тела = 17.3" };
+        yield return new object[] { 80.0, 1.800, "Индекс массы тела = 24.7" };
+        yield return new object[] { 85.0, 1.800, "Индекс массы тела = 26.2" };
+    }
 }

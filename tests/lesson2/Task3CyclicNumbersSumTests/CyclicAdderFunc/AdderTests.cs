@@ -14,7 +14,7 @@ public class AdderTests
         var actual = adder.AddNumber(100);
 
         Assert.True(actual);
-        var numbers = (adder as IDataAdder).Numbers.ToArray();
+        var numbers = (adder as IDataAdder)!.Numbers.ToArray();
         Assert.Equal(1, numbers[0]);
         Assert.Equal(2, numbers[1]);
         Assert.Equal(100, numbers[2]);
@@ -30,13 +30,13 @@ public class AdderTests
         adder.AddNumber(200);
 
         Assert.False(actual);
-        var numbers = (adder as IDataAdder).Numbers.ToArray();
+        var numbers = (adder as IDataAdder)!.Numbers.ToArray();
         Assert.Equal(100, numbers[0]);
-        Assert.Equal(1, numbers.Length);
+        Assert.Single(numbers);
     }
 
     [Theory]
-    [MemberData(nameof(NumbersForTestSumPlusOdd))]
+    [MemberData(nameof(PlusOddNumbers))]
     public void TestSumPlusOdd(int[] numbers, int expected)
     {
         IAddingAdder adder = new Adder();
@@ -45,12 +45,12 @@ public class AdderTests
             adder.AddNumber(each);
         }
         
-        var actual = (adder as ICalculatingAdder).SumPlusOdd();
+        var actual = (adder as ICalculatingAdder)!.SumPlusOdd();
 
         Assert.Equal(expected, actual);
     }
 
-    public static IEnumerable<object[]> NumbersForTestSumPlusOdd()
+    public static IEnumerable<object[]> PlusOddNumbers()
     {
         yield return new object[] { new int[] { 1, 5, 6, 0 }, 6 };
         yield return new object[] { new int[] { 1, -2, 7, 0, 9 }, 8 };
