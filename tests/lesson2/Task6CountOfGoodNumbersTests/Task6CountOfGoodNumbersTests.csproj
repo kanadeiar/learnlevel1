@@ -22,4 +22,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\lesson2\Task6CountOfGoodNumbers\Task6CountOfGoodNumbers.csproj" />
+  </ItemGroup>
+
 </Project>
