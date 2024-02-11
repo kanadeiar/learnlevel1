@@ -23,4 +23,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\lesson3\Task2Numbers\Task2Numbers.csproj" />
+  </ItemGroup>
+
 </Project>
