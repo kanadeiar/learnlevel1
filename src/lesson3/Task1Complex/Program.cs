@@ -1,5 +1,4 @@
 ﻿using Kanadeiar.Common;
-using Task1Complex.ComplexFunc;
 
 namespace Task1Complex;
 
@@ -10,29 +9,11 @@ internal class Program
         ConsoleHelper.PrintHeader("Задача № 1", "Задача № 1. Комплексные числа.");
 
         sComplexDemo();
-        
         complexDemo();
 
         ConsoleHelper.Pause();
 
-        while (true)
-        {
-            var command = ConsoleHelper.ReadLineFromConsole("Операции с комалесными числами, введите exit для завершения");
-            if (command == "exit")
-            {
-                break;
-            }
-
-            var com1 = complex(1);
-            var com2 = complex(2);
-            
-            Console.WriteLine("Дествие с комплексными числами");
-            var action = ConsoleHelper.ReadNumberFromConsole<int>("1-сумма, 2-разность, 3-произведение, 4-частное");
-
-            var result = doAction(action, com1, com2);
-            Console.WriteLine($"Результат операции: {result}");
-            Console.WriteLine();
-        }
+        complexCalculator();
 
         ConsoleHelper.PrintFooter();
     }
@@ -57,6 +38,28 @@ internal class Program
         Console.WriteLine($"Разность чисел = {com1 - com2}");
         Console.WriteLine($"Произведение чисел = {com1 * com2}");
         Console.WriteLine($"Частное чисел = {com1 / com2}");
+    }
+
+    private static void complexCalculator()
+    {
+        while (true)
+        {
+            var command = ConsoleHelper.ReadLineFromConsole("Операции с комалесными числами, введите exit для завершения");
+            if (command == "exit")
+            {
+                break;
+            }
+
+            var com1 = complex(1);
+            var com2 = complex(2);
+
+            Console.WriteLine("Дествие с комплексными числами");
+            var action = ConsoleHelper.ReadNumberFromConsole<int>("1-сумма, 2-разность, 3-произведение, 4-частное");
+
+            var result = doAction(action, com1, com2);
+            Console.WriteLine($"Результат операции: {result}");
+            Console.WriteLine();
+        }
     }
 
     private static Complex complex(int num)
