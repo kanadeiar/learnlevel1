@@ -1,4 +1,4 @@
-﻿namespace Task3CyclicNumbersSumTests.CyclicAdderFunc;
+﻿namespace Task2NumbersTests.NumbersFunc;
 
 public class AdderTests
 {
@@ -14,7 +14,7 @@ public class AdderTests
         }
 
         actual.Should().BeTrue();
-        var results = (adder as IDataAdder)!.Numbers.ToArray();
+        var results = (adder as IValuesAdder)!.Numbers.ToArray();
         results.Should().Equal(numbers);
     }
 
@@ -28,7 +28,7 @@ public class AdderTests
             adder.AddNumber(each);
         }
 
-        var results = (adder as IDataAdder)!.Numbers.ToArray();
+        var results = (adder as IValuesAdder)!.Numbers.ToArray();
         results[0].Should().Be(100);
         results.Should().HaveCount(1);
     }
@@ -41,8 +41,8 @@ public class AdderTests
         {
             adder.AddNumber(each);
         }
-        
-        var actual = (adder as ICalculatingAdder)!.SumPlusOdd();
+
+        var actual = (adder as ICalculatingAdder)!.SumPlusOddNumbers();
 
         actual.Should().Be(expected);
     }
