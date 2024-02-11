@@ -1,8 +1,10 @@
 ﻿using Kanadeiar.Common;
 
+namespace Task5BodyMassIndex;
+
 internal class Program
 {
-    public static void Main(string[] args)
+    static void Main(string[] args)
     {
         ConsoleHelper.PrintHeader("Задача № 5", "Задача № 5. Рекомендации по индексу массы тела.");
 
