@@ -1,4 +1,6 @@
-﻿namespace Task7RecursionTests.RecursionFunc;
+﻿using FluentAssertions;
+
+namespace Task7RecursionTests.RecursionFunc;
 
 public class RecursiveExecutorTests
 {
@@ -9,7 +11,7 @@ public class RecursiveExecutorTests
 
         var actual = executor.RecursiveExecute(1, 10);
 
-        Assert.Equal("1 2 3 4 5 6 7 8 9 10", actual);
+        actual.Should().Be("1 2 3 4 5 6 7 8 9 10");
     }
 
     [Fact]
@@ -19,6 +21,6 @@ public class RecursiveExecutorTests
 
         var actual = executor.RecursiveExecute(1, 10);
 
-        Assert.Equal(55L, actual);
+        actual.Should().Be(55L);
     }
 }

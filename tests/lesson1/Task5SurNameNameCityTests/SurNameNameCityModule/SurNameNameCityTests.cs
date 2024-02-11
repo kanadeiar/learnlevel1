@@ -1,29 +1,31 @@
-﻿using Task5SurNameNameCity.SurNameNameCityModule;
+﻿using FluentAssertions;
 
 namespace Task5SurNameNameCityTests.SurNameNameCityModule;
 
 public class SurNameNameCityTests
 {
-    private ICommonSurNameNameCity _data;
-
-    public SurNameNameCityTests()
+    [Theory, MemberData(nameof(ValuesSource))]
+    public void TestValues(string surName, string name, string city)
     {
-        _data = new SurNameNameCity("SurName", "Name", "Kuzneck");
+        ICommonSurNameNameCity _data = new SurNameNameCity(surName, name, city);
+
+        _data.SurName.Should().Be(surName);
+        _data.Name.Should().Be(name);
+        _data.City.Should().Be(city);
     }
 
-    [Fact]
-    public void TestValues()
+    [Theory, MemberData(nameof(ValuesSource))]
+    public void GetText(string surName, string name, string city)
     {
-        Assert.Equal("SurName", _data.SurName);
-        Assert.Equal("Name", _data.Name);
-        Assert.Equal("Kuzneck", _data.City);
-    }
+        ITextSurNameNameCity _data = new SurNameNameCity(surName, name, city);
 
-    [Fact]
-    public void GetText()
-    {
         var actual = _data.GetText();
 
-        Assert.Equal("Фамилия: SurName Имя: Name Город: Kuzneck", actual);
+        actual.Should().Be("Фамилия: SurName Имя: Name Город: Kuzneck");
+    }
+
+    public static IEnumerable<object[]> ValuesSource()
+    {
+        yield return new object[] { "SurName", "Name", "Kuzneck" };
     }
 }

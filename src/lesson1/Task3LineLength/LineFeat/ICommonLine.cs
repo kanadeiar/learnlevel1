@@ -1,6 +1,10 @@
 ﻿namespace Task3LineLength.LineFeat;
 
-public interface ICommonLine : ILengthLine
+public interface ICommonLine : ILengthLine, IValuesLine
+{
+}
+
+public interface IValuesLine
 {
     Point PointStart { get; }
     Point PointEnd { get; }

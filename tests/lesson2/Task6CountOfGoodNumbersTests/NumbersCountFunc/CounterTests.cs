@@ -9,6 +9,6 @@ public class CounterTests
 
         var actual = counter.Count(1_000_000);
 
-        Assert.Equal(43654768809, actual);
+        actual.Should().Be(43654768809);
     }
 }

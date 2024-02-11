@@ -2,7 +2,7 @@
 
 public class MessagesRecommender : Recommender
 {
-    public override string RecommendationText(ICommonCalculator calculator)
+    public override string RecommendationText(IndexCalculatorModuleAdapter calculator)
     {
         var result = Index(calculator) switch
         {

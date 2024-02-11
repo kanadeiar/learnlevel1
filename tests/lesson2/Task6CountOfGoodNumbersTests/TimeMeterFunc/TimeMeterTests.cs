@@ -1,6 +1,4 @@
-﻿using Task6CountOfGoodNumbers.TimeMeterFunc;
-
-namespace Task6CountOfGoodNumbersTests.TimeMeterFunc;
+﻿namespace Task6CountOfGoodNumbersTests.TimeMeterFunc;
 
 public class TimeMeterTests
 {
@@ -12,7 +10,7 @@ public class TimeMeterTests
 
         var actual = meter.Current;
 
-        Assert.Equal(expected, actual, TimeSpan.FromMilliseconds(10));
+        actual.Should().BeCloseTo(expected, TimeSpan.FromMilliseconds(10));
     }
 
     [Fact]
@@ -24,6 +22,6 @@ public class TimeMeterTests
 
         var actual = meter.Stop();
 
-        Assert.Equal(expected.AddSeconds(1), expected.Add(actual), TimeSpan.FromMilliseconds(10));
+        expected.Add(actual).Should().BeCloseTo(expected.AddSeconds(1), TimeSpan.FromMilliseconds(10));
     }
 }

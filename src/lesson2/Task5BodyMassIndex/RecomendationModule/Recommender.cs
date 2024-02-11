@@ -23,9 +23,9 @@ public abstract class Recommender : ITextRecommender
 
     }
 
-    public abstract string RecommendationText(ICommonCalculator calculator);
+    public abstract string RecommendationText(IndexCalculatorModuleAdapter calculator);
 
-    protected static double Index(ICommonCalculator calculator)
+    protected static double Index(IndexCalculatorModuleAdapter calculator)
     {
         var index = calculator.Index();
         return index;

@@ -2,17 +2,17 @@
 
 public class Checkpoint : ICheckCheckpoint
 {
-    private ICheckingUserPassword _checkingUserPassword;
+    private UserPasswordFuncAdapter _checkingUserPasswordFunc;
     private int _count;
 
-    private Checkpoint(ICheckingUserPassword checkingUserPassword)
+    private Checkpoint(UserPasswordFuncAdapter checkingUserPasswordFunc)
     {
-        _checkingUserPassword = checkingUserPassword;
+        _checkingUserPasswordFunc = checkingUserPasswordFunc;
     }
 
-    public static Checkpoint Create(ICheckingUserPassword checkingUserPassword)
+    public static Checkpoint Create(UserPasswordFuncAdapter checkingUserPasswordFunc)
     {
-        return new Checkpoint(checkingUserPassword);
+        return new Checkpoint(checkingUserPasswordFunc);
     }
 
     public bool IsBlocked() => _count >= 3;
@@ -21,7 +21,7 @@ public class Checkpoint : ICheckCheckpoint
     {
         if (IsBlocked()) return false;
 
-        if (_checkingUserPassword.Check(username, password))
+        if (_checkingUserPasswordFunc.Check(username, password))
         {
             return true;
         }

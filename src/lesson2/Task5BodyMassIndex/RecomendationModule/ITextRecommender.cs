@@ -2,5 +2,5 @@
 
 public interface ITextRecommender
 {
-    string RecommendationText(ICommonCalculator calculator);
+    string RecommendationText(IndexCalculatorModuleAdapter calculator);
 }

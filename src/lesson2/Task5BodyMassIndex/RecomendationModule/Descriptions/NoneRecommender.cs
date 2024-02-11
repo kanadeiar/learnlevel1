@@ -2,5 +2,5 @@
 
 public class NoneRecommender : ITextRecommender
 {
-    public string RecommendationText(ICommonCalculator calculator) => string.Empty;
+    public string RecommendationText(IndexCalculatorModuleAdapter calculator) => string.Empty;
 }

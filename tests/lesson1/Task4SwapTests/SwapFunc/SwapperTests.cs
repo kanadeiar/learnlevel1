@@ -1,38 +1,40 @@
-﻿using Task4Swap.SwapFunc;
-using Task4Swap.SwapFunc.SwapImpl;
-
-namespace Task4SwapTests.SwapFunc;
+﻿namespace Task4SwapTests.SwapFunc;
 
 public class SwapperTests
 {
-    [Fact]
-    public void TestData()
+    [Theory, MemberData(nameof(ValuesSource))]
+    public void TestValues(int first, int second)
     {
-        var swapper = new Swapper(5, 6);
+        var swapper = new Swapper(first, second);
 
-        Assert.Equal(5, swapper.First);
-        Assert.Equal(6, swapper.Second);
+        Assert.Equal(first, swapper.First);
+        Assert.Equal(second, swapper.Second);
     }
 
-    [Fact]
-    public void SimpleSwap()
+    [Theory, MemberData(nameof(ValuesSource))]
+    public void TestWithBufferSwap(int first, int second)
     {
-        var swapper = new Swapper(2, 3);
+        var swapper = new Swapper(first, second);
 
         swapper.Swap(SwapType.WithBuffer);
 
-        Assert.Equal(3, swapper.First);
-        Assert.Equal(2, swapper.Second);
+        Assert.Equal(second, swapper.First);
+        Assert.Equal(first, swapper.Second);
     }
 
-    [Fact]
-    public void AdvanvedSwap()
+    [Theory, MemberData(nameof(ValuesSource))]
+    public void TestAdvancedSwap(int first, int second)
     {
-        var swapper = new Swapper(2, 3);
+        var swapper = new Swapper(first, second);
 
         swapper.Swap(SwapType.Advanced);
 
-        Assert.Equal(3, swapper.First);
-        Assert.Equal(2, swapper.Second);
+        Assert.Equal(second, swapper.First);
+        Assert.Equal(first, swapper.Second);
+    }
+
+    public static IEnumerable<object[]> ValuesSource()
+    {
+        yield return new object[] { 2, 3 };
     }
 }
