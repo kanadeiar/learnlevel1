@@ -10,8 +10,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FluentAssertions" Version="6.12.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.0" />
+	<PackageReference Include="FluentAssertions" Version="6.12.0" />
+	<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.0" />
     <PackageReference Include="xunit" Version="2.4.2" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\lesson3\Task2Numbers\Task2Numbers.csproj" />
+    <ProjectReference Include="..\..\..\src\lesson3\Task3Rational\Task3Rational.csproj" />
   </ItemGroup>
 
 </Project>
