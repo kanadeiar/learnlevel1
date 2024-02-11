@@ -7,9 +7,9 @@ public class RecursiveExecutor
         switch (code)
         {
             case AlgorithmCode.Text:
-                return new MessageExecutor() as IExecutor<T>;
+                return (IExecutor<T>)new MessageExecutor();
             case AlgorithmCode.Sum:
-                return new SumExecutor() as IExecutor<T>;
+                return (IExecutor<T>)new SumExecutor();
             default:
                 throw new IndexOutOfRangeException(nameof(code));
         }
