@@ -44,15 +44,10 @@ public class Complex
     }
 
     public static Complex operator +(Complex c1, Complex c2) => c1.plus(c2);
-
     public static Complex operator -(Complex c1, Complex c2) => c1.minus(c2);
-
     public static Complex operator *(Complex c1, Complex c2) => c1.multiply(c2);
-
     public static Complex operator /(Complex c1, Complex c2) => c1.divide(c2);
-
     public static bool operator == (Complex c1, object c2) => c1.Equals(c2);
-
     public static bool operator != (Complex c1, object c2) => !(c1 == c2);
 
     public override bool Equals(object? obj)
