@@ -1,7 +1,4 @@
-﻿using System;
-using System.Xml;
-
-namespace Task3Rational.RationalFunc;
+﻿namespace Task3Rational.RationalFunc;
 
 public class Rational
 {
@@ -14,7 +11,7 @@ public class Rational
     
     public Rational(int numerator, int denominator)
     {
-        if (denominator == 0) throw new ArgumentException("Знаменатель не может быть навен 0");
+        if (denominator == 0) throw new ArgumentException("Знаменатель не может быть равен 0");
         _numerator = numerator;
         _denominator = denominator;
     }
