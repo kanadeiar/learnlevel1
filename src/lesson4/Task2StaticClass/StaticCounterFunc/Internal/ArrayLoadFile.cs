@@ -14,12 +14,13 @@ internal class ArrayLoadFile : IArrayLoadFile
 
     public IEnumerable<int> LoadArrayFromFile(string fileName)
     {
-        if (File.Exists(fileName))
+        var path = Path.Combine(Environment.CurrentDirectory, fileName);
+        if (File.Exists(path) == false)
         {
-            throw new FileNotFoundException($"Файл не существует: {fileName}");
+            throw new FileNotFoundException($"Файл не существует: {path}");
         }
 
-        using var reader = new StreamReader(fileName);
+        using var reader = new StreamReader(path);
         List<int> results = new List<int>();
         while (reader.EndOfStream == false)
         {
