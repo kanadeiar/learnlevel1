@@ -8,7 +8,7 @@
   </PropertyGroup>
 
 	<ItemGroup>
-		<Compile Include="$(SolutionDir)common\**\*.*">
+		<Compile Include="$(SolutionDir)shared\common\**\*.*">
 			<Link>Common\%(RecursiveDir)%(FileName)%(Extension)</Link>
 		</Compile>
 	</ItemGroup>
