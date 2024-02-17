@@ -1,4 +1,4 @@
-﻿namespace Task1CountPairsInArray.ArrayCounterFunc;
+﻿namespace Task1CountPairsInArray.CounterFunc;
 
 public class Generator
 {

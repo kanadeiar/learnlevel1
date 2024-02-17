@@ -1,4 +1,6 @@
-﻿namespace Task1CountPairsInArrayTests.ArrayCounterFunc;
+﻿using Task1CountPairsInArray.CounterFunc;
+
+namespace Task1CountPairsInArrayTests.CounterFunc;
 
 public class CounterTests
 {
