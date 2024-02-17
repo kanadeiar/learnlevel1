@@ -1,4 +1,6 @@
-﻿namespace Task1CountPairsInArray;
+﻿using Task1CountPairsInArray.CounterFunc;
+
+namespace Task1CountPairsInArray;
 
 internal class Program
 {
