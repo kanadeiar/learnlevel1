@@ -5,7 +5,7 @@ public class CheckpointTests
     [Theory, MemberData(nameof(UserPasswordSource))]
     public void TestCheckUserPassword(Mock<ICheckingUserPassword> mock)
     {
-        ICheckCheckpoint checkpoint = Checkpoint.Create(new Task4UserPassword.CheckpointFunc.UserPasswordFuncAdapter(mock.Object));
+        ICheckCheckpoint checkpoint = Checkpoint.Create(new UserPasswordFuncAdapter(mock.Object));
 
         var actual = checkpoint.CheckUserPassword("root", "GeekBrains");
 
@@ -16,7 +16,7 @@ public class CheckpointTests
     [Theory, MemberData(nameof(UserPasswordSource))]
     public void TestCheckUserPassword_WhenIncorrect(Mock<ICheckingUserPassword> mock)
     {
-        ICheckCheckpoint checkpoint = Checkpoint.Create(new Task4UserPassword.CheckpointFunc.UserPasswordFuncAdapter(mock.Object));
+        ICheckCheckpoint checkpoint = Checkpoint.Create(new UserPasswordFuncAdapter(mock.Object));
 
         var actual = checkpoint.CheckUserPassword("incorrect", "incorrect");
 
@@ -28,7 +28,7 @@ public class CheckpointTests
     [Theory, MemberData(nameof(UserPasswordSource))]
     public void TestCheckUserPassword_WhenIncorrect3Times_ThenBlocked(Mock<ICheckingUserPassword> mock)
     {
-        ICheckCheckpoint checkpoint = Checkpoint.Create(new Task4UserPassword.CheckpointFunc.UserPasswordFuncAdapter(mock.Object));
+        ICheckCheckpoint checkpoint = Checkpoint.Create(new UserPasswordFuncAdapter(mock.Object));
 
         var actual = false;
         for (var i = 0; i < 3; i++)
@@ -44,7 +44,7 @@ public class CheckpointTests
     [Theory, MemberData(nameof(UserPasswordSource))]
     public void TestCheckUserPassword_WhenBlocked_ThenIncorrect(Mock<ICheckingUserPassword> mock)
     {
-        ICheckCheckpoint checkpoint = Checkpoint.Create(new Task4UserPassword.CheckpointFunc.UserPasswordFuncAdapter(mock.Object));
+        ICheckCheckpoint checkpoint = Checkpoint.Create(new UserPasswordFuncAdapter(mock.Object));
 
         bool actual;
         for (var i = 0; i < 3; i++)

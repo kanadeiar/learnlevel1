@@ -1,13 +1,11 @@
-﻿using Kanadeiar.Common.Adapters;
-
-namespace Task3BestArrayClassTests.BestArrayFunc;
+﻿namespace Task3BestArrayClassTests.BestArrayFunc;
 
 public class CommonBestArrayTests
 {
     [Fact]
     public void TestCreate()
     {
-        IInfoBestArray array = CommonBestArray.Factory.Create(10);
+        IInfoBestArray array = CommonBestArray.Factory.RandomCreate(10);
 
         TestHelper.AssertValuesInArray(array);
     }
@@ -17,7 +15,7 @@ public class CommonBestArrayTests
     {
         mock.Setup(x => x.Exists("test.txt")).Returns(true);
         mock.Setup(x => x.ReadAllLines("test.txt")).Returns(numbers.Select(x => x.ToString()).ToArray);
-        IInfoBestArray array = CommonBestArray.Factory.Create("test.txt", mock.Object);
+        IInfoBestArray array = CommonBestArray.Factory.CreateFromFile("test.txt", mock.Object);
 
         mock.Verify(x => x.Exists("test.txt"), Times.Once);
         TestHelper.AssertValuesInArray(array, numbers);
@@ -28,7 +26,7 @@ public class CommonBestArrayTests
     {
         var action = new Action(() =>
         {
-            _ = CommonBestArray.Factory.Create("file_not_found.txt", mock.Object);
+            _ = CommonBestArray.Factory.CreateFromFile("file_not_found.txt", mock.Object);
         });
 
         action.Should().Throw<FileLoadException>();
@@ -110,7 +108,7 @@ public class CommonBestArrayTests
     [Fact]
     public void TestToString()
     {
-        IInfoBestArray array = CommonBestArray.Factory.Create(10);
+        IInfoBestArray array = CommonBestArray.Factory.RandomCreate(10);
         var expected = TestHelper.CreateExpected(array);
 
         var actual = array.ToString();

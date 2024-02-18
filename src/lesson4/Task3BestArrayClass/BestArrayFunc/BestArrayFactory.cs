@@ -4,7 +4,7 @@ public class BestArrayFactory()
 {
     private readonly Random _random = new Random();
 
-    public ICommonBestArray Create(int size)
+    public ICommonBestArray RandomCreate(int size)
     {
         var array = new int[size];
         for (var i = 0; i < size; i++)
@@ -14,16 +14,13 @@ public class BestArrayFactory()
         return new CommonBestArray(array);
     }
 
-    public ICommonBestArray Create(string fileName, IFile? adapter = null)
+    public ICommonBestArray CreateFromFile(string fileName, IFile? adapter = null)
     {
         var file = adapter ?? new FileAdapter();
-        var isFileExists = file.Exists(fileName);
-        if (isFileExists)
-        {
-            var array = readArrayFromFile(fileName, file);
-            return new CommonBestArray(array);
-        }
-        throw new FileLoadException("Файл отсутствует");
+        if (!file.Exists(fileName)) throw new FileLoadException("Файл отсутствует");
+
+        var array = readArrayFromFile(fileName, file);
+        return new CommonBestArray(array);
     }
 
     private static int[] readArrayFromFile(string fileName, IFile file)

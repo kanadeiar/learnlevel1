@@ -8,7 +8,7 @@ public class AccountsManagerTests
     public void TestUsernameCheck(string username, bool expected)
     {
         var loginPasswords = new[] { ("root", "GeekBrains") };
-        var manager = AccountsManager.Create(loginPasswords);
+        ICheckingAccountsManager manager = AccountsManager.Factory.Create(loginPasswords);
 
         var actual = manager.UsernameCheck(username);
 
@@ -21,10 +21,24 @@ public class AccountsManagerTests
     public void TestCheck(string username, string password, bool expected)
     {
         var loginPasswords = new[] { ("root", "GeekBrains") };
-        var manager = AccountsManager.Create(loginPasswords);
+        ICheckingAccountsManager manager = AccountsManager.Factory.Create(loginPasswords);
 
         var actual = manager.Check(username, password);
 
         actual.Should().Be(expected);
+    }
+
+    [Theory, AutoMoqData]
+    public void TestCreate_WhenFromFile([Frozen] Mock<IFile> mock)
+    {
+        var expected = new [] { "test,pass" };
+        mock.Setup(x => x.Exists("test.txt")).Returns(true);
+        mock.Setup(x => x.ReadAllLines("test.txt")).Returns(expected);
+
+        ICheckingAccountsManager manager = AccountsManager.Factory.CreateFromFile("test.txt", mock.Object);
+
+        var actual = manager.Check("test", "pass");
+        mock.Verify(x => x.Exists("test.txt"), Times.Once);
+        actual.Should().BeTrue();
     }
 }
