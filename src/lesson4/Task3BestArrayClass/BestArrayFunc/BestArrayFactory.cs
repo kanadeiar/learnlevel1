@@ -4,24 +4,24 @@ public class BestArrayFactory()
 {
     private readonly Random _random = new Random();
 
-    public BestArray Create(int size)
+    public ICommonBestArray Create(int size)
     {
         var array = new int[size];
         for (var i = 0; i < size; i++)
         {
             array[i] = _random.Next(1, 101);
         }
-        return new BestArray(array);
+        return new CommonBestArray(array);
     }
 
-    public BestArray Create(string fileName, IFile? adapter = null)
+    public ICommonBestArray Create(string fileName, IFile? adapter = null)
     {
         var file = adapter ?? new FileAdapter();
         var isFileExists = file.Exists(fileName);
         if (isFileExists)
         {
             var array = readArrayFromFile(fileName, file);
-            return new BestArray(array);
+            return new CommonBestArray(array);
         }
         throw new FileLoadException("Файл отсутствует");
     }
@@ -38,13 +38,13 @@ public class BestArrayFactory()
         return array;
     }
 
-    public BestArray Create(int start, int step, int size)
+    public ICommonBestArray Create(int start, int step, int size)
     {
         var array = new int[size];
         for (var i = 0; i < size; i++)
         {
             array[i] = start + i * step;
         }
-        return new BestArray(array);
+        return new CommonBestArray(array);
     }
 }

@@ -1,4 +1,4 @@
-﻿using Task1CountPairsInArray.CounterFunc;
+﻿using Kanadeiar.Common.Console;
 
 namespace Task1CountPairsInArray;
 

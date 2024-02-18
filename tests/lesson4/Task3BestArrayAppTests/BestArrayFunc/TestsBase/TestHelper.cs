@@ -2,7 +2,7 @@
 
 public class TestHelper
 {
-    public static string CreateExpected(BestArray array)
+    public static string CreateExpected(IInfoBestArray array)
     {
         var expected = string.Empty;
         for (var i = 0; i < array.Length; i++)
@@ -13,7 +13,7 @@ public class TestHelper
         return expected;
     }
 
-    public static void AssertValuesInArray(BestArray array, int[]? expected = null)
+    public static void AssertValuesInArray(IInfoBestArray array, int[]? expected = null)
     {
         if (expected is not null)
         {

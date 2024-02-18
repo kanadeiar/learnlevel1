@@ -1,4 +1,6 @@
-﻿namespace Task4UserPasswords;
+﻿using Kanadeiar.Common.Console;
+
+namespace Task4UserPasswords;
 
 internal class Program
 {

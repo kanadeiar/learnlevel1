@@ -1,5 +1,4 @@
-﻿using FluentAssertions;
-using Kanadeiar.Common;
+﻿using Kanadeiar.Common.Console;
 
 namespace Task6LibraryTests;
 

@@ -1,4 +1,4 @@
-﻿namespace Task3BestArrayClass.BestArrayFunc.Adapters;
+﻿namespace Kanadeiar.Common.Adapters;
 
 public interface IFile
 {
