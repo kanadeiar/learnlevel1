@@ -25,7 +25,7 @@
 
 	<ItemGroup>
 		<Compile Include="$(SolutionDir)shared\tests\**\*.*">
-			<Link>common\%(RecursiveDir)%(FileName)%(Extension)</Link>
+			<Link>Common\%(RecursiveDir)%(FileName)%(Extension)</Link>
 		</Compile>
 	</ItemGroup>
 

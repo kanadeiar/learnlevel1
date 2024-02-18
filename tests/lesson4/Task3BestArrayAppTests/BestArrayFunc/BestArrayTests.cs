@@ -1,4 +1,6 @@
-﻿namespace Task3BestArrayClassTests.BestArrayFunc;
+﻿using Kanadeiar.Tests;
+
+namespace Task3BestArrayClassTests.BestArrayFunc;
 
 public class BestArrayTests
 {
@@ -80,6 +82,18 @@ public class BestArrayTests
         var actual = array.MaxCount;
 
         actual.Should().Be(2);
+    }
+
+    [Fact]
+    public void TestFrequencyDictionary()
+    {
+        var expected = new Dictionary<int, int> { { 100, 2 }, { 25, 1 }, { 50, 1 }, { 75, 1 } };
+        var array = BestArray.Factory.Create(0, 25, 5);
+        array[0] = 100;
+
+        var actual = array.FrequencyDictionary();
+
+        actual.Should().Equal(expected);
     }
 
     [Fact]

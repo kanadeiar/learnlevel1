@@ -47,6 +47,23 @@ public class BestArray
         }
     }
 
+    public Dictionary<int, int> FrequencyDictionary()
+    {
+        var result = new Dictionary<int, int>();
+        foreach (var each in _array)
+        {
+            if (result.ContainsKey(each))
+            {
+                result[each]++;
+            }
+            else
+            {
+                result.Add(each, 1);
+            }
+        }
+        return result;
+    }
+
     public int this[int i]
     {
         get => _array[i];

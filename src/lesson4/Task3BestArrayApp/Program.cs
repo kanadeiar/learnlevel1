@@ -1,4 +1,4 @@
-﻿namespace Task3BestArrayClass;
+﻿namespace Task3BestArrayApp;
 
 internal class Program
 {
