@@ -1,4 +1,4 @@
-﻿using Kanadeiar.Common;
+﻿using Kanadeiar.Common.Console;
 
 ConsoleHelper.PrintHeader("Задача № 7", "Задача № 7. Рекурсивный метод.");
 

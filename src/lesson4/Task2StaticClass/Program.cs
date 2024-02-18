@@ -1,4 +1,6 @@
-﻿namespace Task2StaticClass;
+﻿using Kanadeiar.Common.Console;
+
+namespace Task2StaticClass;
 
 internal class Program
 {

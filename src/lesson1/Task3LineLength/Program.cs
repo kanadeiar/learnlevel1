@@ -1,4 +1,4 @@
-﻿using Kanadeiar.Common;
+﻿using Kanadeiar.Common.Console;
 
 ConsoleHelper.PrintHeader("Задача № 3", "Задача № 3. Написать программу расчета расстояния между двумя точками.");
 

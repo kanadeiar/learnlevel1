@@ -1,32 +1,41 @@
-﻿using Kanadeiar.Tests;
+﻿namespace Task3BestArrayClassTests.BestArrayFunc;
 
-namespace Task3BestArrayClassTests.BestArrayFunc;
-
-public class BestArrayTests
+public class CommonBestArrayTests
 {
     [Fact]
-    public void TestCtor()
+    public void TestCreate()
     {
-        var array = BestArray.Factory.Create(10);
+        IInfoBestArray array = CommonBestArray.Factory.RandomCreate(10);
 
         TestHelper.AssertValuesInArray(array);
     }
 
     [Theory, AutoMoqData]
-    public void TestCtor_WhenFromFile([Frozen]Mock<IFile> mock, int[] numbers)
+    public void TestCreate_WhenFromFile([Frozen]Mock<IFile> mock, int[] numbers)
     {
         mock.Setup(x => x.Exists("test.txt")).Returns(true);
         mock.Setup(x => x.ReadAllLines("test.txt")).Returns(numbers.Select(x => x.ToString()).ToArray);
-        var array = BestArray.Factory.Create("test.txt", mock.Object);
+        IInfoBestArray array = CommonBestArray.Factory.CreateFromFile("test.txt", mock.Object);
 
         mock.Verify(x => x.Exists("test.txt"), Times.Once);
         TestHelper.AssertValuesInArray(array, numbers);
     }
 
-    [Theory, InlineData(3, 2, 3, new [] { 3, 5, 7 })]
-    public void TestCtor_WhenStartStep(int start, int step, int size, int[] expected)
+    [Theory, AutoMoqData]
+    public void TestCreate_WhenNoneFile_ThenException([Frozen] Mock<IFile> mock)
     {
-        var array = BestArray.Factory.Create(start, step, size);
+        var action = new Action(() =>
+        {
+            _ = CommonBestArray.Factory.CreateFromFile("file_not_found.txt", mock.Object);
+        });
+
+        action.Should().Throw<FileLoadException>();
+    }
+
+    [Theory, InlineData(3, 2, 3, new [] { 3, 5, 7 })]
+    public void TestCreate_WhenStartStep(int start, int step, int size, int[] expected)
+    {
+        IInfoBestArray array = CommonBestArray.Factory.Create(start, step, size);
 
         TestHelper.AssertValuesInArray(array, expected);
     }
@@ -34,7 +43,7 @@ public class BestArrayTests
     [Fact]
     public void TestMax()
     {
-        var array = BestArray.Factory.Create(0, 25, 5);
+        IInfoBestArray array = CommonBestArray.Factory.Create(0, 25, 5);
 
         var actual = array.Max;
 
@@ -44,7 +53,7 @@ public class BestArrayTests
     [Fact]
     public void TestSum()
     {
-        var array = BestArray.Factory.Create(0, 25, 5);
+        IInfoBestArray array = CommonBestArray.Factory.Create(0, 25, 5);
 
         var actual = array.Sum;
 
@@ -55,7 +64,7 @@ public class BestArrayTests
     public void TestInverse()
     {
         var expected = new[] { 0, -25, -50, -75, -100 };
-        var array = BestArray.Factory.Create(0, 25, 5);
+        IGettingBestArray array = CommonBestArray.Factory.Create(0, 25, 5);
 
         var actual = array.Inverse;
 
@@ -66,7 +75,7 @@ public class BestArrayTests
     public void TestMultiply()
     {
         var expected = new[] { 0, 50, 100, 150, 200 };
-        var array = BestArray.Factory.Create(0, 25, 5);
+        IGettingBestArray array = CommonBestArray.Factory.Create(0, 25, 5);
 
         var actual = array.Multiply(2);
 
@@ -76,7 +85,7 @@ public class BestArrayTests
     [Fact]
     public void TestMaxCount()
     {
-        var array = BestArray.Factory.Create(0, 25, 5);
+        IInfoBestArray array = CommonBestArray.Factory.Create(0, 25, 5);
         array[0] = 100;
 
         var actual = array.MaxCount;
@@ -88,7 +97,7 @@ public class BestArrayTests
     public void TestFrequencyDictionary()
     {
         var expected = new Dictionary<int, int> { { 100, 2 }, { 25, 1 }, { 50, 1 }, { 75, 1 } };
-        var array = BestArray.Factory.Create(0, 25, 5);
+        ICommonBestArray array = CommonBestArray.Factory.Create(0, 25, 5);
         array[0] = 100;
 
         var actual = array.FrequencyDictionary();
@@ -99,7 +108,7 @@ public class BestArrayTests
     [Fact]
     public void TestToString()
     {
-        var array = BestArray.Factory.Create(10);
+        IInfoBestArray array = CommonBestArray.Factory.RandomCreate(10);
         var expected = TestHelper.CreateExpected(array);
 
         var actual = array.ToString();

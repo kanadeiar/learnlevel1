@@ -1,4 +1,6 @@
-﻿namespace Task3BestArrayApp;
+﻿using Kanadeiar.Common.Console;
+
+namespace Task3BestArrayApp;
 
 internal class Program
 {
@@ -9,7 +11,7 @@ internal class Program
         var start = ConsoleHelper.ReadNumberFromConsole<int>("Начальное значение (int)");
         var size = ConsoleHelper.ReadNumberFromConsole<int>("Размер массива (int)");
         var step = ConsoleHelper.ReadNumberFromConsole<int>("Шаг заполнения массива (int)");
-        var array = BestArray.Factory.Create(start, step, size);
+        var array = CommonBestArray.Factory.Create(start, step, size);
         Console.WriteLine("Сгенерированный массив:");
         for (var i = 0; i < array.Length; i++)
         {
