@@ -7,12 +7,6 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-	<ItemGroup>
-		<Compile Include="$(SolutionDir)shared\common\**\*.*">
-			<Link>Common\%(RecursiveDir)%(FileName)%(Extension)</Link>
-		</Compile>
-	</ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Task5TwoDimensionalArrayClass\Task5TwoDimensionalArrayClass.csproj" />
   </ItemGroup>
