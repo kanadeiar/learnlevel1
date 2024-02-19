@@ -11,7 +11,7 @@ public class BestArrayFactory()
         {
             array[i] = _random.Next(1, 101);
         }
-        return new CommonBestArray(array);
+        return new BestArray(array);
     }
 
     public ICommonBestArray CreateFromFile(string fileName, IFile? adapter = null)
@@ -20,7 +20,7 @@ public class BestArrayFactory()
         if (!file.Exists(fileName)) throw new FileLoadException("Файл отсутствует");
 
         var array = readArrayFromFile(fileName, file);
-        return new CommonBestArray(array);
+        return new BestArray(array);
     }
 
     private static int[] readArrayFromFile(string fileName, IFile file)
@@ -42,6 +42,6 @@ public class BestArrayFactory()
         {
             array[i] = start + i * step;
         }
-        return new CommonBestArray(array);
+        return new BestArray(array);
     }
 }

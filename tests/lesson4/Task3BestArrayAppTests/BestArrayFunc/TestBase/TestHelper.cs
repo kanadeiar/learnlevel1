@@ -1,4 +1,4 @@
-﻿namespace Task3BestArrayClassTests.BestArrayFunc.TestsBase;
+﻿namespace Task3BestArrayClassTests.BestArrayFunc.TestBase;
 
 public class TestHelper
 {
