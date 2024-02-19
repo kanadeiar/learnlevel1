@@ -6,7 +6,7 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        ConsoleHelper.PrintHeader("Задача № 2", "Задача № 2. Статический класс и чтение из файла.");
+        ConsoleHelper.PrintHeader("Задача № 3", "Задача № 3. Статический класс и чтение из файла.");
 
         var start = ConsoleHelper.ReadNumberFromConsole<int>("Начальное значение (int)");
         var size = ConsoleHelper.ReadNumberFromConsole<int>("Размер массива (int)");

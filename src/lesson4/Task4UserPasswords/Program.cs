@@ -6,7 +6,7 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        ConsoleHelper.PrintHeader("Задача № 2", "Задача № 2. Статический класс и чтение из файла.");
+        ConsoleHelper.PrintHeader("Задача № 4", "Задача № 4. Статический класс и чтение из файла.");
 
         Console.WriteLine("Введите логин и пароль, 3 попытки");
 

@@ -106,9 +106,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task3BestArrayClassTests", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task3BestArrayClass", "src\lesson4\Task3BestArrayClass\Task3BestArrayClass.csproj", "{5A71298D-2D8C-4FC1-82FB-F7ED452B90E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task4UserPasswords", "src\lesson4\Task4UserPasswords\Task4UserPasswords.csproj", "{2B8BD297-DCD6-41EE-8946-F125E0A2B3C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task4UserPasswords", "src\lesson4\Task4UserPasswords\Task4UserPasswords.csproj", "{2B8BD297-DCD6-41EE-8946-F125E0A2B3C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task4UserPasswordsTests", "tests\lesson4\Task4UserPasswordsTests\Task4UserPasswordsTests.csproj", "{D659F788-427D-47F0-96A1-24BB8ECF3154}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task4UserPasswordsTests", "tests\lesson4\Task4UserPasswordsTests\Task4UserPasswordsTests.csproj", "{D659F788-427D-47F0-96A1-24BB8ECF3154}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task5TwoDimensionalArrayApp", "src\lesson4\Task5TwoDimensionalArrayApp\Task5TwoDimensionalArrayApp.csproj", "{4D6C5C81-8BFD-4174-8EAB-4F3A545833E8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task5TwoDimensionalArrayClassTests", "tests\lesson4\Task5TwoDimensionalArrayClassTests\Task5TwoDimensionalArrayClassTests.csproj", "{8C66E87B-CA55-45FB-B15F-59BEF6CF89A8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task5TwoDimensionalArrayClass", "src\lesson4\Task5TwoDimensionalArrayClass\Task5TwoDimensionalArrayClass.csproj", "{17C7421D-01B3-43E8-BAD1-638D3978EDD3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -280,6 +286,18 @@ Global
 		{D659F788-427D-47F0-96A1-24BB8ECF3154}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D659F788-427D-47F0-96A1-24BB8ECF3154}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D659F788-427D-47F0-96A1-24BB8ECF3154}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D6C5C81-8BFD-4174-8EAB-4F3A545833E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D6C5C81-8BFD-4174-8EAB-4F3A545833E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D6C5C81-8BFD-4174-8EAB-4F3A545833E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D6C5C81-8BFD-4174-8EAB-4F3A545833E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C66E87B-CA55-45FB-B15F-59BEF6CF89A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C66E87B-CA55-45FB-B15F-59BEF6CF89A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C66E87B-CA55-45FB-B15F-59BEF6CF89A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C66E87B-CA55-45FB-B15F-59BEF6CF89A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17C7421D-01B3-43E8-BAD1-638D3978EDD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17C7421D-01B3-43E8-BAD1-638D3978EDD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17C7421D-01B3-43E8-BAD1-638D3978EDD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17C7421D-01B3-43E8-BAD1-638D3978EDD3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -334,6 +352,9 @@ Global
 		{5A71298D-2D8C-4FC1-82FB-F7ED452B90E7} = {EED634F7-85BC-4AF4-B832-3A7D0F80B314}
 		{2B8BD297-DCD6-41EE-8946-F125E0A2B3C6} = {EED634F7-85BC-4AF4-B832-3A7D0F80B314}
 		{D659F788-427D-47F0-96A1-24BB8ECF3154} = {0FEA8BC0-A82E-4B27-A249-B292B0852A4E}
+		{4D6C5C81-8BFD-4174-8EAB-4F3A545833E8} = {EED634F7-85BC-4AF4-B832-3A7D0F80B314}
+		{8C66E87B-CA55-45FB-B15F-59BEF6CF89A8} = {0FEA8BC0-A82E-4B27-A249-B292B0852A4E}
+		{17C7421D-01B3-43E8-BAD1-638D3978EDD3} = {EED634F7-85BC-4AF4-B832-3A7D0F80B314}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {95B77FF9-D3EB-40B5-B922-436658FC9B93}
