@@ -15,7 +15,7 @@ public class TestHelper
 
     public static void AssertValuesInArray(IInfoBestArray array, int[]? expected = null)
     {
-        array.Length.Should().Be(expected.Length);
+        array.Length.Should().Be(expected!.Length);
         for (int i = 0; i < array.Length; i++)
         {
             array[i].Should().Be(expected[i]);
