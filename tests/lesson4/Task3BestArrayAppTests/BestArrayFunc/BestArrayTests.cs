@@ -17,7 +17,8 @@ public class CommonBestArrayTests
     {
         mock.Setup(x => x.Exists("test.txt")).Returns(true);
         mock.Setup(x => x.ReadAllLines("test.txt")).Returns(numbers.Select(x => x.ToString()).ToArray);
-        IInfoBestArray array = BestArray.Factory.CreateFromFile("test.txt", mock.Object);
+        var factory = new BestArrayFactoryFake(mock.Object);
+        IInfoBestArray array = factory.CreateFromFile("test.txt");
 
         mock.Verify(x => x.Exists("test.txt"), Times.Once);
         TestHelper.AssertValuesInArray(array, numbers);
@@ -26,9 +27,10 @@ public class CommonBestArrayTests
     [Theory, AutoMoqData]
     public void TestCreate_WhenNoneFile_ThenException([Frozen] Mock<IFile> mock)
     {
+        var factory = new BestArrayFactoryFake(mock.Object);
         var action = new Action(() =>
         {
-            _ = BestArray.Factory.CreateFromFile("file_not_found.txt", mock.Object);
+            _ = factory.CreateFromFile("file_not_found.txt");
         });
 
         action.Should().Throw<FileLoadException>();

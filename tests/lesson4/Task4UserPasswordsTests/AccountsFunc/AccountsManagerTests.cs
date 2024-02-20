@@ -1,4 +1,6 @@
-﻿namespace Task4UserPasswordsTests.AccountsFunc;
+﻿using Task4UserPasswordsTests.AccountsFunc.TestBase;
+
+namespace Task4UserPasswordsTests.AccountsFunc;
 
 public class AccountsManagerTests
 {
@@ -34,8 +36,9 @@ public class AccountsManagerTests
         var expected = new [] { "test,pass" };
         mock.Setup(x => x.Exists("test.txt")).Returns(true);
         mock.Setup(x => x.ReadAllLines("test.txt")).Returns(expected);
+        var factory = new AccountsManagerFactoryFake(mock.Object);
 
-        ICheckingAccountsManager manager = AccountsManager.Factory.CreateFromFile("test.txt", mock.Object);
+        ICheckingAccountsManager manager = factory.CreateFromFile("test.txt");
 
         var actual = manager.Check("test", "pass");
         mock.Verify(x => x.Exists("test.txt"), Times.Once);

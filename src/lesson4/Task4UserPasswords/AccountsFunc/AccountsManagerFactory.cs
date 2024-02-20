@@ -2,23 +2,24 @@
 
 public class AccountsManagerFactory
 {
+    protected IFile File = new FileAdapter();
+
     public ICheckingAccountsManager Create(IEnumerable<(string, string)> accounts)
     {
         return new AccountsManager(accounts);
     }
 
-    public ICheckingAccountsManager CreateFromFile(string fileName, IFile? adapter = null)
+    public ICheckingAccountsManager CreateFromFile(string fileName)
     {
-        var file = adapter ?? new FileAdapter();
-        if (!file.Exists(fileName)) throw new FileLoadException("Файл отсутствует");
+        if (!File.Exists(fileName)) throw new FileLoadException("Файл отсутствует");
 
-        var accounts = readArrayFromFile(fileName, file);
+        var accounts = readArrayFromFile(fileName);
         return new AccountsManager(accounts);
     }
 
-    private static IEnumerable<(string, string)> readArrayFromFile(string fileName, IFile file)
+    private IEnumerable<(string, string)> readArrayFromFile(string fileName)
     {
-        string[] strings = file.ReadAllLines(fileName);
+        string[] strings = File.ReadAllLines(fileName);
         for (var i = 0; i < strings.Length; i++)
         {
             var strs = strings[i].Split(',');
