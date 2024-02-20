@@ -1,4 +1,6 @@
-﻿namespace Task5TwoDimensionalArrayClass.DoubleArrayFunc;
+﻿using System.Text;
+
+namespace Task5TwoDimensionalArrayClass.DoubleArrayFunc;
 
 public class DoubleArray
 {
@@ -67,4 +69,18 @@ public class DoubleArray
     public int ColCount => _array.GetLength(1);
 
     public int RowCount => _array.GetLength(0);
+    
+    public override string ToString()
+    {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < RowCount; i++)
+        {
+            for (int j = 0; j < ColCount; j++)
+            {
+                sb.Append(_array[i, j] + " ");
+            }
+            sb.Append("\n");
+        }
+        return sb.ToString();
+    }
 }

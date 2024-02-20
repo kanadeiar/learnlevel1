@@ -75,6 +75,16 @@ public class DoubleArrayTests
 
         actual.Should().Be(12);
     }
+
+    [Theory, MemberData(nameof(ArraySource))]
+    public void TestToString(int[,] numbers)
+    {
+        var array = new DoubleArray(numbers);
+
+        var actual = array.ToString();
+
+        actual.Should().Be("1 2 3 4 \n5 6 7 8 \n9 10 11 12 \n");
+    }
     
     public static IEnumerable<object[]> ArraySource()
     {

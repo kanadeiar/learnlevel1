@@ -11,4 +11,10 @@
     <ProjectReference Include="..\Task5TwoDimensionalArrayClass\Task5TwoDimensionalArrayClass.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="DoubleArrayFile.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
