@@ -19,10 +19,10 @@ public class AccountsManagerFactory
 
     private IEnumerable<(string, string)> readArrayFromFile(string fileName)
     {
-        string[] strings = File.ReadAllLines(fileName);
-        for (var i = 0; i < strings.Length; i++)
+        var strings = File.ReadAllLines(fileName);
+        foreach (var each in strings)
         {
-            var strs = strings[i].Split(',');
+            var strs = each.Split(',');
             yield return (strs[0], strs[1]);
         }
     }

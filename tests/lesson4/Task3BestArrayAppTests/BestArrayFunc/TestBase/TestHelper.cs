@@ -15,20 +15,18 @@ public class TestHelper
 
     public static void AssertValuesInArray(IInfoBestArray array, int[]? expected = null)
     {
-        if (expected is not null)
-        {
-            array.Length.Should().Be(expected.Length);
-        }
+        array.Length.Should().Be(expected.Length);
         for (int i = 0; i < array.Length; i++)
         {
-            if (expected is not null)
-            {
-                array[i].Should().Be(expected[i]);
-            }
-            else
-            {
-                array[i].Should().BeInRange(1, 101);
-            }
+            array[i].Should().Be(expected[i]);
+        }
+    }
+
+    public static void AssertRandomValuesInArray(IInfoBestArray array)
+    {
+        for (int i = 0; i < array.Length; i++)
+        {
+            array[i].Should().BeInRange(1, 101);
         }
     }
 }

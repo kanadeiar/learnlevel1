@@ -1,6 +1,4 @@
-﻿using Task4UserPasswordsTests.AccountsFunc.TestBase;
-
-namespace Task4UserPasswordsTests.AccountsFunc;
+﻿namespace Task4UserPasswordsTests.AccountsFunc;
 
 public class AccountsManagerTests
 {

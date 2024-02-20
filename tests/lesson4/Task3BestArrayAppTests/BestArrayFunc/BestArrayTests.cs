@@ -1,6 +1,4 @@
-﻿using Task3BestArrayClassTests.BestArrayFunc.TestBase;
-
-namespace Task3BestArrayClassTests.BestArrayFunc;
+﻿namespace Task3BestArrayClassTests.BestArrayFunc;
 
 public class CommonBestArrayTests
 {
@@ -9,7 +7,7 @@ public class CommonBestArrayTests
     {
         IInfoBestArray array = BestArray.Factory.RandomCreate(10);
 
-        TestHelper.AssertValuesInArray(array);
+        TestHelper.AssertRandomValuesInArray(array);
     }
 
     [Theory, AutoMoqData]
@@ -18,6 +16,7 @@ public class CommonBestArrayTests
         mock.Setup(x => x.Exists("test.txt")).Returns(true);
         mock.Setup(x => x.ReadAllLines("test.txt")).Returns(numbers.Select(x => x.ToString()).ToArray);
         var factory = new BestArrayFactoryFake(mock.Object);
+
         IInfoBestArray array = factory.CreateFromFile("test.txt");
 
         mock.Verify(x => x.Exists("test.txt"), Times.Once);

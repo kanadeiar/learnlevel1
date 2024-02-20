@@ -1,4 +1,6 @@
-﻿namespace Task3BestArrayClass.BestArrayFunc;
+﻿using Task3BestArrayClass.BestArrayFunc.Adapters;
+
+namespace Task3BestArrayClass.BestArrayFunc;
 
 public class BestArrayFactory()
 {

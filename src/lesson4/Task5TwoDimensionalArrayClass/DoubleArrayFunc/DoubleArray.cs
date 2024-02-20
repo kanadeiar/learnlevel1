@@ -3,6 +3,7 @@
 public class DoubleArray
 {
     private int[,] _array;
+    protected IFile File = new FileAdapter();
 
     public DoubleArray(int[,] numbers)
     {
@@ -27,17 +28,32 @@ public class DoubleArray
 
     public (int, int) GetIndexForValue(int value)
     {
-        for (var i = 0; i < _array.GetLength(1); i++)
+        for (var i = 0; i < RowCount; i++)
         {
-            for (var j = 0; j < _array.GetLength(0); j++)
+            for (var j = 0; j < ColCount; j++)
             {
-                if (_array[j, i] == value)
+                if (_array[i, j] == value)
                 {
-                    return (j, i);
+                    return (i, j);
                 }
             }
         }
         return (-1, -1);
+    }
+
+    public void SaveToFile(string path)
+    {
+        var lines = new List<string> { $"{RowCount},{ColCount}" };
+        for (var i = 0; i < RowCount; i++)
+        {
+            var numbers = new int[ColCount];
+            for (var j = 0; j < ColCount; j++)
+            {
+                numbers[j] = _array[i, j];
+            }
+            lines.Add(string.Join(',', numbers));
+        }
+        File.WriteAllLines(path, lines.ToArray());
     }
 
     public int this[int i, int j]
@@ -48,7 +64,7 @@ public class DoubleArray
 
     public int Length => _array.Length;
 
-    public int ColCount => _array.GetLength(0);
+    public int ColCount => _array.GetLength(1);
 
-    public int RowCount => _array.GetLength(1);
+    public int RowCount => _array.GetLength(0);
 }
