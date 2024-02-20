@@ -1,10 +1,10 @@
 ﻿namespace Task3BestArrayClass.BestArrayFunc;
 
-public class CommonBestArray : ICommonBestArray
+public class BestArray : ICommonBestArray
 {
     private int[] _array;
 
-    internal CommonBestArray(int[] numbers)
+    internal BestArray(int[] numbers)
     {
         _array = numbers;
     }
@@ -24,7 +24,7 @@ public class CommonBestArray : ICommonBestArray
             {
                 result[i] = - _array[i];
             }
-            return new CommonBestArray(result);
+            return new BestArray(result);
         }
     }
 
@@ -35,7 +35,7 @@ public class CommonBestArray : ICommonBestArray
         {
             result[i] = _array[i] * value;
         }
-        return new CommonBestArray(result);
+        return new BestArray(result);
     }
 
     public object MaxCount

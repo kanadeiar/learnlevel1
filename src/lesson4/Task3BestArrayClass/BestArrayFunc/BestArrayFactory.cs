@@ -1,8 +1,12 @@
-﻿namespace Task3BestArrayClass.BestArrayFunc;
+﻿using Task3BestArrayClass.BestArrayFunc.Adapters;
+
+namespace Task3BestArrayClass.BestArrayFunc;
 
 public class BestArrayFactory()
 {
     private readonly Random _random = new Random();
+
+    protected IFile File = new FileAdapter();
 
     public ICommonBestArray RandomCreate(int size)
     {
@@ -11,21 +15,20 @@ public class BestArrayFactory()
         {
             array[i] = _random.Next(1, 101);
         }
-        return new CommonBestArray(array);
+        return new BestArray(array);
     }
 
-    public ICommonBestArray CreateFromFile(string fileName, IFile? adapter = null)
+    public ICommonBestArray CreateFromFile(string fileName)
     {
-        var file = adapter ?? new FileAdapter();
-        if (!file.Exists(fileName)) throw new FileLoadException("Файл отсутствует");
+        if (!File.Exists(fileName)) throw new FileLoadException("Файл отсутствует");
 
-        var array = readArrayFromFile(fileName, file);
-        return new CommonBestArray(array);
+        var array = readArrayFromFile(fileName);
+        return new BestArray(array);
     }
 
-    private static int[] readArrayFromFile(string fileName, IFile file)
+    private int[] readArrayFromFile(string fileName)
     {
-        string[] strings = file.ReadAllLines(fileName);
+        string[] strings = File.ReadAllLines(fileName);
         var array = new int[strings.Length];
         for (var i = 0; i < strings.Length; i++)
         {
@@ -42,6 +45,6 @@ public class BestArrayFactory()
         {
             array[i] = start + i * step;
         }
-        return new CommonBestArray(array);
+        return new BestArray(array);
     }
 }
