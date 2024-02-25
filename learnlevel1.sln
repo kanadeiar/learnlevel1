@@ -120,9 +120,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lesson5", "lesson5", "{97DA
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lesson5", "lesson5", "{D16F0ABA-FB2B-44DD-82A6-5CF4D5D05303}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1CheckLogin", "src\lesson5\Task1CheckLogin\Task1CheckLogin.csproj", "{471C8216-0F65-478E-AA07-80BAF500C020}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task1CheckLogin", "src\lesson5\Task1CheckLogin\Task1CheckLogin.csproj", "{471C8216-0F65-478E-AA07-80BAF500C020}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1CheckLoginTests", "tests\lesson5\Task1CheckLoginTests\Task1CheckLoginTests.csproj", "{79EE0A5F-13C4-41AA-9B3B-5E88EE34E4A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task1CheckLoginTests", "tests\lesson5\Task1CheckLoginTests\Task1CheckLoginTests.csproj", "{79EE0A5F-13C4-41AA-9B3B-5E88EE34E4A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task2StaticClassMessageTests", "tests\lesson5\Task2StaticClassMessageTests\Task2StaticClassMessageTests.csproj", "{46EC7587-2870-481B-A55A-A8ABC8C9F851}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task2StaticClassMessage", "src\lesson5\Task2StaticClassMessage\Task2StaticClassMessage.csproj", "{5CC758B5-5384-4594-8F71-31CAA090EB63}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -314,6 +318,14 @@ Global
 		{79EE0A5F-13C4-41AA-9B3B-5E88EE34E4A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79EE0A5F-13C4-41AA-9B3B-5E88EE34E4A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79EE0A5F-13C4-41AA-9B3B-5E88EE34E4A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46EC7587-2870-481B-A55A-A8ABC8C9F851}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46EC7587-2870-481B-A55A-A8ABC8C9F851}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46EC7587-2870-481B-A55A-A8ABC8C9F851}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46EC7587-2870-481B-A55A-A8ABC8C9F851}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CC758B5-5384-4594-8F71-31CAA090EB63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CC758B5-5384-4594-8F71-31CAA090EB63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CC758B5-5384-4594-8F71-31CAA090EB63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CC758B5-5384-4594-8F71-31CAA090EB63}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -375,6 +387,8 @@ Global
 		{D16F0ABA-FB2B-44DD-82A6-5CF4D5D05303} = {7374E4E0-21E3-4718-85B5-36DF767BBA6D}
 		{471C8216-0F65-478E-AA07-80BAF500C020} = {97DA3075-FEB3-43CF-A44D-CE30875DC3B1}
 		{79EE0A5F-13C4-41AA-9B3B-5E88EE34E4A6} = {D16F0ABA-FB2B-44DD-82A6-5CF4D5D05303}
+		{46EC7587-2870-481B-A55A-A8ABC8C9F851} = {D16F0ABA-FB2B-44DD-82A6-5CF4D5D05303}
+		{5CC758B5-5384-4594-8F71-31CAA090EB63} = {97DA3075-FEB3-43CF-A44D-CE30875DC3B1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {95B77FF9-D3EB-40B5-B922-436658FC9B93}
