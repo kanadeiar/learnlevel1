@@ -110,11 +110,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task4UserPasswords", "src\l
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task4UserPasswordsTests", "tests\lesson4\Task4UserPasswordsTests\Task4UserPasswordsTests.csproj", "{D659F788-427D-47F0-96A1-24BB8ECF3154}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task5TwoDimensionalArrayApp", "src\lesson4\Task5TwoDimensionalArrayApp\Task5TwoDimensionalArrayApp.csproj", "{4D6C5C81-8BFD-4174-8EAB-4F3A545833E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task5TwoDimensionalArrayApp", "src\lesson4\Task5TwoDimensionalArrayApp\Task5TwoDimensionalArrayApp.csproj", "{4D6C5C81-8BFD-4174-8EAB-4F3A545833E8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task5TwoDimensionalArrayClassTests", "tests\lesson4\Task5TwoDimensionalArrayClassTests\Task5TwoDimensionalArrayClassTests.csproj", "{8C66E87B-CA55-45FB-B15F-59BEF6CF89A8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task5TwoDimensionalArrayClass", "src\lesson4\Task5TwoDimensionalArrayClass\Task5TwoDimensionalArrayClass.csproj", "{17C7421D-01B3-43E8-BAD1-638D3978EDD3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lesson5", "lesson5", "{97DA3075-FEB3-43CF-A44D-CE30875DC3B1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lesson5", "lesson5", "{D16F0ABA-FB2B-44DD-82A6-5CF4D5D05303}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1CheckLogin", "src\lesson5\Task1CheckLogin\Task1CheckLogin.csproj", "{471C8216-0F65-478E-AA07-80BAF500C020}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1CheckLoginTests", "tests\lesson5\Task1CheckLoginTests\Task1CheckLoginTests.csproj", "{79EE0A5F-13C4-41AA-9B3B-5E88EE34E4A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -298,6 +306,14 @@ Global
 		{17C7421D-01B3-43E8-BAD1-638D3978EDD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17C7421D-01B3-43E8-BAD1-638D3978EDD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17C7421D-01B3-43E8-BAD1-638D3978EDD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{471C8216-0F65-478E-AA07-80BAF500C020}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{471C8216-0F65-478E-AA07-80BAF500C020}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{471C8216-0F65-478E-AA07-80BAF500C020}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{471C8216-0F65-478E-AA07-80BAF500C020}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79EE0A5F-13C4-41AA-9B3B-5E88EE34E4A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79EE0A5F-13C4-41AA-9B3B-5E88EE34E4A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79EE0A5F-13C4-41AA-9B3B-5E88EE34E4A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79EE0A5F-13C4-41AA-9B3B-5E88EE34E4A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -355,6 +371,10 @@ Global
 		{4D6C5C81-8BFD-4174-8EAB-4F3A545833E8} = {EED634F7-85BC-4AF4-B832-3A7D0F80B314}
 		{8C66E87B-CA55-45FB-B15F-59BEF6CF89A8} = {0FEA8BC0-A82E-4B27-A249-B292B0852A4E}
 		{17C7421D-01B3-43E8-BAD1-638D3978EDD3} = {EED634F7-85BC-4AF4-B832-3A7D0F80B314}
+		{97DA3075-FEB3-43CF-A44D-CE30875DC3B1} = {E8669B74-0882-43F1-940B-DBC1EBF9C525}
+		{D16F0ABA-FB2B-44DD-82A6-5CF4D5D05303} = {7374E4E0-21E3-4718-85B5-36DF767BBA6D}
+		{471C8216-0F65-478E-AA07-80BAF500C020} = {97DA3075-FEB3-43CF-A44D-CE30875DC3B1}
+		{79EE0A5F-13C4-41AA-9B3B-5E88EE34E4A6} = {D16F0ABA-FB2B-44DD-82A6-5CF4D5D05303}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {95B77FF9-D3EB-40B5-B922-436658FC9B93}

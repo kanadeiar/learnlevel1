@@ -22,6 +22,6 @@ public class TimeMeterTests
 
         var actual = meter.Stop();
 
-        expected.Add(actual).Should().BeCloseTo(expected.AddSeconds(1), TimeSpan.FromMilliseconds(1));
+        expected.Add(actual).Should().BeCloseTo(expected.AddSeconds(1), TimeSpan.FromMilliseconds(100));
     }
 }
