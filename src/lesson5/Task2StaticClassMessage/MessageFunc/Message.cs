@@ -1,7 +1,4 @@
-﻿using System.Text;
-using System.Text.RegularExpressions;
-
-namespace Task2StaticClassMessage.MessageFunc;
+﻿namespace Task2StaticClassMessage.MessageFunc;
 
 public static class Message
 {
