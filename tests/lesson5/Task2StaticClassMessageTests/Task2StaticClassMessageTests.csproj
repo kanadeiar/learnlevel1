@@ -29,6 +29,10 @@
 		</Compile>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\..\..\src\lesson5\Task2StaticClassMessage\Task2StaticClassMessage.csproj" />
+	</ItemGroup>
+
   <ItemGroup>
     <Using Include="Xunit" />
   </ItemGroup>
