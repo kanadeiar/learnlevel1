@@ -16,4 +16,18 @@ public class Students : ICommonStudents
 
     IEnumerator IEnumerable.GetEnumerator() 
         => GetEnumerator();
+
+    public IEnumerable<ICommonStudent> Dummers()
+    {
+        if (_lines.Any() == false) yield break;
+
+        var dummThreeStudents = _lines.OrderBy(st => st.Average).Take(3);
+        var minAverage = dummThreeStudents.Last().Average;
+        foreach (var student in _lines.OrderBy(st => st.Average))
+        {
+            if (student.Average > minAverage) yield break;
+
+            yield return student;
+        }
+    }
 }

@@ -24,6 +24,30 @@ public class StudentsTests
         actual.Should().BeEquivalentTo(expected);
     }
 
+    [Theory, MemberData(nameof(StudentsSource))]
+    public void TestDummers(Student[] items)
+    {
+        ICommonStudents students = new Students(items);
+
+        var actuals = students.Dummers();
+
+        actuals.Should().HaveCount(3);
+        actuals.Last().ToString().Should().Be("Сидоров Сидор - 2.67");
+    }
+
+    [Theory, MemberData(nameof(StudentsSource))]
+    public void TestDummers_WhenMany(Student[] items)
+    {
+        var many = Enumerable.Range(1, 5).Select(_ => new Student("Васин", "Вася", [2, 2, 2]));
+        var manyItems = many.Concat(items);
+        ICommonStudents students = new Students(manyItems);
+
+        var actuals = students.Dummers();
+
+        actuals.Should().HaveCount(6);
+        actuals.Last().ToString().Should().Be("Буянов Буян - 2.00");
+    }
+
     public static IEnumerable<object[]> StudentsSource()
     {
         yield return
@@ -32,7 +56,10 @@ public class StudentsTests
             {
                 new("Тестов", "Тест", [3, 4, 5]),
                 new("Иванов", "Иван", [2, 3, 4]),
-                new("Тестов", "Тест", [5, 4, 3])
+                new("Петров", "Петр", [5, 4, 3]),
+                new("Сидоров", "Сидор", [2, 3, 3]),
+                new("Плохов", "Плох", [2, 2, 3]),
+                new("Буянов", "Буян", [2, 2, 2]),
             }
         ];
     }
