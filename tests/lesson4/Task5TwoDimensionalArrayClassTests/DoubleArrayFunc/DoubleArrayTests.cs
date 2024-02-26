@@ -1,9 +1,4 @@
-﻿using AutoFixture.Xunit2;
-using Castle.Core.Internal;
-using Kanadeiar.Tests;
-using Moq;
-
-namespace Task5TwoDimensionalArrayClassTests.DoubleArrayFunc;
+﻿namespace Task5TwoDimensionalArrayClassTests.DoubleArrayFunc;
 
 public class DoubleArrayTests
 {
@@ -97,8 +92,7 @@ public class DoubleArrayTests
         yield return new object[] { numbers };
     }
 
-    [Theory]
-    [InlineAutoMoqData([new[] {"3,4", "1,2,3,4", "5,6,7,8", "9,10,11,12" }])]
+    [Theory, InlineAutoMoqData([new[] {"3,4", "1,2,3,4", "5,6,7,8", "9,10,11,12" }])]
     public void TestLoadFromFile(string[] sourceLines, [Frozen]Mock<IFile> mock)
     {
         mock.Setup(x => x.Exists("test.txt")).Returns(true);
@@ -123,8 +117,7 @@ public class DoubleArrayTests
         action.Should().Throw<FileLoadException>();
     }
 
-    [Theory]
-    [InlineAutoMoqData([new[] { "2,3", "1,2,3", "4,5,6" }])]
+    [Theory, InlineAutoMoqData([new[] { "2,3", "1,2,3", "4,5,6" }])]
     public void TestSaveToFile(string[] expected, [Frozen]Mock<IFile> mock)
     {
         mock.Setup(x => x.WriteAllLines("test.txt", It.IsAny<string[]>()));
