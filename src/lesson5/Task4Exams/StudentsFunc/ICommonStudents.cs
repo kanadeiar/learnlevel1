@@ -1,6 +1,6 @@
 ﻿namespace Task4Exams.StudentsFunc;
 
-public interface ICommonStudents : IDummersingStudents, IEnumerable<Student>
+public interface ICommonStudents : IDummersingStudents, IEnumerable<ICommonStudent>
 {
 
 }

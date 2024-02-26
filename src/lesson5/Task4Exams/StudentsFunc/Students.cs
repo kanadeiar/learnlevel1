@@ -11,7 +11,7 @@ public class Students : ICommonStudents
 
     public static StudentsFactory Factory = new();
 
-    public IEnumerator<Student> GetEnumerator() 
+    public IEnumerator<ICommonStudent> GetEnumerator() 
         => _lines.Cast<Student>().GetEnumerator();
 
     IEnumerator IEnumerable.GetEnumerator() 
