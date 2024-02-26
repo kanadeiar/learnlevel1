@@ -1,4 +1,4 @@
-namespace Task3StringComparsionTests
+namespace Task4ExamsTests
 {
     public class UnitTest1
     {
