@@ -1,6 +1,6 @@
 ﻿namespace Task3StringComparison.ComparisonFunc;
 
-public class Comparison
+public static class Comparison
 {
     public static bool ShuffleComparison(string first, string second)
     {
