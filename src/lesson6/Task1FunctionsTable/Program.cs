@@ -1,6 +1,4 @@
-﻿using Task1FunctionsTable.FunctionsTableFunc;
-
-namespace Task1FunctionsTable;
+﻿namespace Task1FunctionsTable;
 
 internal class Program
 {
