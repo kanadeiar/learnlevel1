@@ -33,7 +33,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\..\src\lesson5\Task3StringComparison\Task3StringComparison.csproj" />
+	  <ProjectReference Include="..\..\..\src\lesson6\Task1FunctionsTable\Task1FunctionsTable.csproj" />
 	</ItemGroup>
 
   <ItemGroup>
