@@ -2,54 +2,34 @@
 
 internal class Program
 {
-    public static double F(double x)
-    {
-        return x * x - 50 * x + 10;
-    }
-
-    public static void SaveFunc(string fileName, double a, double b, double h)
-    {
-        FileStream fs = new FileStream(fileName, FileMode.Create,
-            FileAccess.Write);
-        BinaryWriter bw = new BinaryWriter(fs);
-        double x = a;
-        while (x <= b)
-        {
-            bw.Write(F(x));
-            x += h;
-        }
-        bw.Close();
-        fs.Close();
-    }
-
-    public static double Load(string fileName)
-    {
-        FileStream fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-        BinaryReader bw = new BinaryReader(fs);
-        double min = double.MaxValue;
-        double d;
-        for (int i = 0; i < fs.Length / sizeof(double); i++)
-        {
-            d = bw.ReadDouble();
-            if (d < min) min = d;
-        }
-        bw.Close();
-        fs.Close();
-        return min;
-    }
-
-
-
     static void Main(string[] args)
     {
         ConsoleHelper.PrintHeader("Задача № 2", "Задача № 2. Нахождение минимума функции.");
+            
+        Console.WriteLine("Тест записи значений функции в файл test.txt");
 
+        var func = FuncSource.GetFunc(FuncCode.Multiply);
+        var saver = new DataSaver();
+        saver.SaveDataFromFunc(func, "text.txt", 0, 10, 1);
 
-        SaveFunc("data.bin", -100, 100, 0.5);
-        Console.WriteLine(Load("data.bin"));
-        Console.ReadKey();
-        
+        Console.WriteLine("Минимальное число на основе данных из файла:");
+        {
+            var loader = new DataLoader();
+            var min = loader.GetMinFromFile("text.txt");
+            Console.WriteLine(min.ToString("F2", CultureInfo.InvariantCulture));
+        }
 
+        Console.WriteLine("Последние записанные данные в файл:");
+        {
+            var loader = new DataLoader();
+            var values = loader.GetValuesAndMinFromFile("text.txt", out var min);
+            foreach (var each in values)
+            {
+                Console.WriteLine(each);
+            }
+
+            Console.WriteLine("Минимум функции равен: {0}", min);
+        }
 
         ConsoleHelper.PrintFooter();
     }
