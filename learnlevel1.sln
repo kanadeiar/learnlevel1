@@ -144,9 +144,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task1FunctionsTable", "src\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task1FunctionsTableTests", "tests\lesson6\Task1FunctionsTableTests\Task1FunctionsTableTests.csproj", "{6EDFE897-087E-4F3B-9A17-E735C7705354}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task2FuncMinimum", "src\lesson6\Task2FuncMinimum\Task2FuncMinimum.csproj", "{C75E9C6E-C5C7-4894-95CC-C0516196E88E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task2FuncMinimum", "src\lesson6\Task2FuncMinimum\Task2FuncMinimum.csproj", "{C75E9C6E-C5C7-4894-95CC-C0516196E88E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task2FuncMinimumTests", "tests\lesson6\Task2FuncMinimumTests\Task2FuncMinimumTests.csproj", "{9F9C96B3-559E-4EBD-9C1B-5B9DDC4A26F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task2FuncMinimumTests", "tests\lesson6\Task2FuncMinimumTests\Task2FuncMinimumTests.csproj", "{9F9C96B3-559E-4EBD-9C1B-5B9DDC4A26F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task3StudentsTests", "tests\lesson6\Task3StudentsTests\Task3StudentsTests.csproj", "{D57246B7-FBA1-4164-96E5-44946A41926F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task3Students", "src\lesson6\Task3Students\Task3Students.csproj", "{0D33DB6E-893E-4ADE-8685-A92B5A1C8D17}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -378,6 +382,14 @@ Global
 		{9F9C96B3-559E-4EBD-9C1B-5B9DDC4A26F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F9C96B3-559E-4EBD-9C1B-5B9DDC4A26F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F9C96B3-559E-4EBD-9C1B-5B9DDC4A26F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D57246B7-FBA1-4164-96E5-44946A41926F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D57246B7-FBA1-4164-96E5-44946A41926F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D57246B7-FBA1-4164-96E5-44946A41926F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D57246B7-FBA1-4164-96E5-44946A41926F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D33DB6E-893E-4ADE-8685-A92B5A1C8D17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D33DB6E-893E-4ADE-8685-A92B5A1C8D17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D33DB6E-893E-4ADE-8685-A92B5A1C8D17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D33DB6E-893E-4ADE-8685-A92B5A1C8D17}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -451,6 +463,8 @@ Global
 		{6EDFE897-087E-4F3B-9A17-E735C7705354} = {A06BDEDD-6329-4099-9162-7698467EE09A}
 		{C75E9C6E-C5C7-4894-95CC-C0516196E88E} = {C1895C8D-E563-48FB-9A3E-6D7D30507845}
 		{9F9C96B3-559E-4EBD-9C1B-5B9DDC4A26F8} = {A06BDEDD-6329-4099-9162-7698467EE09A}
+		{D57246B7-FBA1-4164-96E5-44946A41926F} = {A06BDEDD-6329-4099-9162-7698467EE09A}
+		{0D33DB6E-893E-4ADE-8685-A92B5A1C8D17} = {C1895C8D-E563-48FB-9A3E-6D7D30507845}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {95B77FF9-D3EB-40B5-B922-436658FC9B93}

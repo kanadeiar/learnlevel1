@@ -2,8 +2,13 @@
 
 public class DataSaverFake : DataSaver
 {
-    public DataSaverFake(IBinaryWriter writer)
+    private DataSaverFake(IBinaryWriter writer)
     {
         Writer = writer;
+    }
+
+    public static ISavingDataSaver Create(IBinaryWriter writer)
+    {
+        return new DataSaverFake(writer);
     }
 }

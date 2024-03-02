@@ -1,8 +1,15 @@
 ﻿namespace Task2FuncMinimum.FuncModule;
 
-public class DataLoader
+public class DataLoader : ILoadingDataLoader
 {
     protected IBinaryReader? Reader;
+
+    protected DataLoader() { }
+
+    public static ILoadingDataLoader Create()
+    {
+        return new DataLoader();
+    }
 
     public double GetMinFromFile(string filename)
     {

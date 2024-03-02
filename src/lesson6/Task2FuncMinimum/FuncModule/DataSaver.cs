@@ -1,10 +1,17 @@
 ﻿namespace Task2FuncMinimum.FuncModule;
 
-public class DataSaver
+public class DataSaver : ISavingDataSaver
 {
     public delegate double Func(double x);
 
     protected IBinaryWriter? Writer;
+
+    protected DataSaver() { }
+
+    public static ISavingDataSaver Create()
+    {
+        return new DataSaver();
+    }
 
     public void SaveDataFromFunc(Func func, string filename, double start, double end, double step)
     {
