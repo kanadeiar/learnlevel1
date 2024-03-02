@@ -50,13 +50,13 @@ public class StudentsTests
     public void TestAgesFrequency(Student[] items)
     {
         ICountingStudents students = new Students(items);
+        var predicate = new Predicate<Student>(x => x.Age is >= 20 and <= 40);
 
-        var actuals = students.AgesFrequency();
+        var actuals = students.CoursesFrequency(predicate);
 
-        actuals.Keys.Count.Should().Be(3);
-        actuals[18].Should().Be(3);
-        actuals[22].Should().Be(2);
-        actuals[34].Should().Be(1);
+        actuals.Keys.Count.Should().Be(2);
+        actuals[5].Should().Be(1);
+        actuals[6].Should().Be(2);
     }
 
     [Theory, MemberData(nameof(StudentsSource))]

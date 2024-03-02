@@ -24,17 +24,18 @@ public class Students : ICommonStudents
         }
     }
     
-    public StudentsFactory Factory = new();
+    public static StudentsFactory Factory = new();
 
     public Students(IEnumerable<Student> items)
     {
         _items = items;
     }
 
-    public IDictionary<int, int> AgesFrequency()
+    public IDictionary<int, int> CoursesFrequency(Predicate<Student> predicate)
     {
         var result = _items
-            .GroupBy(x => x.Age)
+            .Where(predicate.Invoke)
+            .GroupBy(x => x.Course)
             .ToDictionary(x => x.Key, x => x.Count());
         return result;
     }

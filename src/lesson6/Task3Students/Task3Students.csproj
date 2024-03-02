@@ -13,4 +13,10 @@
 		</Compile>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Update="test.csv">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+
 </Project>
