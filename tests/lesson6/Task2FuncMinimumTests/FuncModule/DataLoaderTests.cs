@@ -6,7 +6,7 @@ public class DataLoaderTests
     public void TestGetMinFromFile(Mock<IBinaryReader> mock)
     {
         setupBinaryReaderMock(mock);
-        var loader = new DataLoaderFake(mock.Object);
+        var loader = DataLoaderFake.Create(mock.Object);
 
         var actual = loader.GetMinFromFile("test.txt");
 
@@ -17,7 +17,7 @@ public class DataLoaderTests
     public void TestGetValuesAndMinFromFile(Mock<IBinaryReader> mock)
     {
         setupBinaryReaderMock(mock);
-        var loader = new DataLoaderFake(mock.Object);
+        var loader = DataLoaderFake.Create(mock.Object);
 
         var actuals = loader.GetValuesAndMinFromFile("test.txt", out double min);
 

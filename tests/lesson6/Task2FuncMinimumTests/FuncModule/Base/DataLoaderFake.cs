@@ -2,8 +2,13 @@
 
 public class DataLoaderFake : DataLoader
 {
-    public DataLoaderFake(IBinaryReader reader)
+    private DataLoaderFake(IBinaryReader reader)
     {
         Reader = reader;
+    }
+
+    public static ILoadingDataLoader Create(IBinaryReader reader)
+    {
+        return new DataLoaderFake(reader);
     }
 }
