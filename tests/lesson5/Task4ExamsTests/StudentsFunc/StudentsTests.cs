@@ -36,7 +36,7 @@ public class StudentsTests
     }
 
     [Theory, MemberData(nameof(StudentsSource))]
-    public void TestDummers_WhenMany(Student[] items)
+    public void TestDummers_WhenFourDummers(Student[] items)
     {
         var many = Enumerable.Range(1, 5).Select(_ => new Student("Васин", "Вася", [2, 2, 2]));
         var manyItems = many.Concat(items);

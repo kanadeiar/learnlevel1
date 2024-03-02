@@ -33,9 +33,9 @@ public class FileGenerator : IGeneratingFileGenerator
     public void GenerateCsvFile(string path)
     {
         var lines = new List<string>();
-        foreach (var el in _source)
+        foreach (var student in _source)
         {
-            lines.Add(el.Join());
+            lines.Add(student);
         }
         File.WriteAllLines(path, lines.ToArray());
     }
