@@ -9,7 +9,7 @@ public class CharWriterReader : WriterReaderBase, ICharWriterReader
 
     public void Write(char[] data)
     {
-        using var stream = Stream is null ? new FileStream(Filename, FileMode.Open, FileAccess.Read) : null!;
+        using var stream = Stream is null ? new FileStream(Filename, FileMode.Create, FileAccess.Write) : null!;
         using var writer = Writer ??= new StreamWriterAdapter(stream);
 
         foreach (var each in data)
@@ -20,7 +20,7 @@ public class CharWriterReader : WriterReaderBase, ICharWriterReader
 
     public char[] Read()
     {
-        using var stream = Stream is null ? new FileStream(Filename, FileMode.Create, FileAccess.Write) : null!;
+        using var stream = Stream is null ? new FileStream(Filename, FileMode.Open, FileAccess.Read) : null!;
         using var reader = Reader ??= new StreamReaderAdapter(stream);
 
         var result = new List<char>();

@@ -4,22 +4,22 @@ namespace Task4WriteReadFile.FileFunc;
 
 public class WriterReaderFactory
 {
-    public IByteingWriterReader StreamCreate(string filename)
+    public static IByteingWriterReader StreamCreate(string filename)
     {
         return new ByteingWriterReader(filename);
     }    
     
-    public INumberWriterReader BinaryCreate(string filename)
+    public static INumberWriterReader BinaryCreate(string filename)
     {
         return new NumberWriterReader(filename);
     }
 
-    public ICharWriterReader StreamsCreate(string filename)
+    public static ICharWriterReader StreamsCreate(string filename)
     {
         return new CharWriterReader(filename);
     }
 
-    public IBufferedWriterReader BufferedCreate(string filename)
+    public static IBufferedWriterReader BufferedCreate(string filename)
     {
         return new BufferedWriterReader(filename);
     }

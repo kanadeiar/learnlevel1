@@ -3,6 +3,5 @@
 public interface IByteingWriterReader
 {
     void Write(byte[] data);
-
     byte[] Read();
 }

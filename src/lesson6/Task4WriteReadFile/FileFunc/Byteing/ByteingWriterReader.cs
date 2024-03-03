@@ -6,7 +6,7 @@ public class ByteingWriterReader : WriterReaderBase, IByteingWriterReader
 
     public void Write(byte[] data)
     {
-        using var stream = Stream ??= new FileStreamAdapter(Filename, FileMode.Open, FileAccess.Read);
+        using var stream = Stream ??= new FileStreamAdapter(Filename, FileMode.Create, FileAccess.Write);
 
         foreach (var each in data)
         {
@@ -16,7 +16,7 @@ public class ByteingWriterReader : WriterReaderBase, IByteingWriterReader
 
     public byte[] Read()
     {
-        using var stream = Stream ??= new FileStreamAdapter(Filename, FileMode.Create, FileAccess.Write);
+        using var stream = Stream ??= new FileStreamAdapter(Filename, FileMode.Open, FileAccess.Read);
 
         var result = new byte[stream.Length];
         for (var i = 0; i < stream.Length; i++)

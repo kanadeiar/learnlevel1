@@ -7,7 +7,7 @@ public class NumberWriterReader(string filename) : WriterReaderBase(filename), I
 
     public void Write(int[] data)
     {
-        using var stream = Stream is null ? new FileStream(Filename, FileMode.Open, FileAccess.Read) : null!;
+        using var stream = Stream is null ? new FileStream(Filename, FileMode.Create, FileAccess.Write) : null!;
         using var writer = Writer ??= new BinaryWriterAdapter(stream);
 
         foreach (var each in data)
@@ -18,7 +18,7 @@ public class NumberWriterReader(string filename) : WriterReaderBase(filename), I
 
     public int[] Read()
     {
-        using var stream = Stream is null ? new FileStream(Filename, FileMode.Create, FileAccess.Write) : null!;
+        using var stream = Stream is null ? new FileStream(Filename, FileMode.Open, FileAccess.Read) : null!;
         using var reader = Reader ??= new BinaryReaderAdapter(stream);
 
         var result = new List<int>();
