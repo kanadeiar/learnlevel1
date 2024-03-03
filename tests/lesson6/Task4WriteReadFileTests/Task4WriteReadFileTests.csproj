@@ -32,6 +32,10 @@
 		</Compile>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\..\..\src\lesson6\Task4WriteReadFile\Task4WriteReadFile.csproj" />
+	</ItemGroup>
+
   <ItemGroup>
     <Using Include="Xunit" />
   </ItemGroup>
