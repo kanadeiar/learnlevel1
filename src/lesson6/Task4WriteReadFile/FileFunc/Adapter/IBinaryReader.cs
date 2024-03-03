@@ -3,7 +3,6 @@
 public interface IBinaryReader : IDisposable
 {
     int PeekChar();
-
     int Read();
 }
 

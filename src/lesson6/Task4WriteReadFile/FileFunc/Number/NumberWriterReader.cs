@@ -1,11 +1,9 @@
 ﻿namespace Task4WriteReadFile.FileFunc.Number;
 
-public class NumberWriterReader : WriterReaderBase, INumberWriterReader
+public class NumberWriterReader(string filename) : WriterReaderBase(filename), INumberWriterReader
 {
     protected IBinaryWriter? Writer;
     protected IBinaryReader? Reader;
-
-    public NumberWriterReader(string filename) : base(filename) { }
 
     public void Write(int[] data)
     {

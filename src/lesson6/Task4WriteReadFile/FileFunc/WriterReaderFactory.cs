@@ -1,4 +1,6 @@
-﻿namespace Task4WriteReadFile.FileFunc;
+﻿using Task4WriteReadFile.FileFunc.Buffered;
+
+namespace Task4WriteReadFile.FileFunc;
 
 public class WriterReaderFactory
 {
@@ -15,5 +17,10 @@ public class WriterReaderFactory
     public ICharWriterReader StreamsCreate(string filename)
     {
         return new CharWriterReader(filename);
+    }
+
+    public IBufferedWriterReader BufferedCreate(string filename)
+    {
+        return new BufferedWriterReader(filename);
     }
 }

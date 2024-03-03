@@ -3,9 +3,7 @@
 public interface IFileStream : IDisposable
 {
     long Length { get; }
-
     void WriteByte(byte b);
-
     int ReadByte();
 }
 
