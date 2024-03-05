@@ -1,6 +1,6 @@
 ﻿namespace Task4WriteReadFile.FileFunc.Buffered;
 
-public class BufferedWriterReader(string filename) : WriterReaderBase(filename), IBufferedWriterReader
+public class BufferedWriterReader(string filename) : WriterReaderBase(filename), IByteingWriterReader
 {
     protected IBufferedStream? Buffered;
 

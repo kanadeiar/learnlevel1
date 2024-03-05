@@ -25,7 +25,7 @@ internal class Program
         stream.Write(data);
         
         var values = Enumerable.Range(1, size).Select(x => x).ToArray();
-        var binary = WriterReaderFactory.BinaryCreate("binary.dat");
+        var binary = WriterReaderFactory.BinaryCreate("binary.txt");
         binary.Write(values);
         
         var chars = Enumerable.Range(1, size).Select(x => (char)x).ToArray();
@@ -54,7 +54,7 @@ internal class Program
     private static void binaryReadAndPrint()
     {
         Console.WriteLine("Поток бинарных данных. Прочитанные данные:");
-        var stream = WriterReaderFactory.BinaryCreate("binary.dat");
+        var stream = WriterReaderFactory.BinaryCreate("binary.txt");
         var data = stream.Read();
         foreach (var each in data)
         {

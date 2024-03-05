@@ -10,4 +10,5 @@ global using Task4WriteReadFile.FileFunc.Base;
 global using Task4WriteReadFile.FileFunc.Buffered;
 global using Task4WriteReadFile.FileFunc.Char;
 global using Task4WriteReadFile.FileFunc.Number;
+global using Task4WriteReadFile.FileFunc.Stream;
 global using Task4WriteReadFileTests.FileFunc.Base;

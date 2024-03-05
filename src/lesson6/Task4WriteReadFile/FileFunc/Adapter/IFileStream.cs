@@ -3,8 +3,8 @@
 public interface IFileStream : IDisposable
 {
     long Length { get; }
-    void WriteByte(byte b);
-    int ReadByte();
+    void Write(byte[] bytes);
+    int Read(byte[] bytes, int offset, int count);
 }
 
 public class FileStreamAdapter(string filename, FileMode mode, FileAccess access) : IFileStream
@@ -13,9 +13,9 @@ public class FileStreamAdapter(string filename, FileMode mode, FileAccess access
 
     public long Length => _stream.Length;
 
-    public void WriteByte(byte b) => _stream.WriteByte(b);
+    public void Write(byte[] bytes) => _stream.Write(bytes);
 
-    public int ReadByte() => _stream.ReadByte();
+    public int Read(byte[] bytes, int offset, int count) => _stream.Read(bytes, offset, count);
     
     public void Dispose() => _stream.Dispose();
 }
