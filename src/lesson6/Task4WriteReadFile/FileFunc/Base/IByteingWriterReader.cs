@@ -1,4 +1,4 @@
-﻿namespace Task4WriteReadFile.FileFunc.Byteing;
+﻿namespace Task4WriteReadFile.FileFunc.Base;
 
 public interface IByteingWriterReader
 {

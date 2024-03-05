@@ -1,4 +1,5 @@
 ﻿using Task4WriteReadFile.FileFunc.Buffered;
+using Task4WriteReadFile.FileFunc.Stream;
 
 namespace Task4WriteReadFile.FileFunc;
 
@@ -6,7 +7,7 @@ public class WriterReaderFactory
 {
     public static IByteingWriterReader StreamCreate(string filename)
     {
-        return new ByteingWriterReader(filename);
+        return new StreamWriterReader(filename);
     }    
     
     public static INumberWriterReader BinaryCreate(string filename)
@@ -19,7 +20,7 @@ public class WriterReaderFactory
         return new CharWriterReader(filename);
     }
 
-    public static IBufferedWriterReader BufferedCreate(string filename)
+    public static IByteingWriterReader BufferedCreate(string filename)
     {
         return new BufferedWriterReader(filename);
     }

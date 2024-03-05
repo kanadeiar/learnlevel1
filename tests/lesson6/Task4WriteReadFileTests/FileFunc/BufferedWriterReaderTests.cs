@@ -8,7 +8,7 @@ public class BufferedWriterReaderTests
         var actuals = Array.Empty<byte>();
         buffered.Setup(x => x.Write(It.IsAny<byte[]>()))
             .Callback((byte[] bytes) => { actuals = bytes; });
-        IBufferedWriterReader writerReader = new BufferedWriterReaderFake("test.data", mock.Object, buffered.Object);
+        IByteingWriterReader writerReader = new BufferedWriterReaderFake("test.data", mock.Object, buffered.Object);
 
         writerReader.Write(expected);
 
@@ -25,8 +25,7 @@ public class BufferedWriterReaderTests
                 expected.CopyTo(arr, 0);
             })
             .Returns(expected.Length);
-
-        IBufferedWriterReader writerReader = new BufferedWriterReaderFake("test.data", mock.Object, buffered.Object);
+        IByteingWriterReader writerReader = new BufferedWriterReaderFake("test.data", mock.Object, buffered.Object);
 
         var actuals = writerReader.Read();
 
