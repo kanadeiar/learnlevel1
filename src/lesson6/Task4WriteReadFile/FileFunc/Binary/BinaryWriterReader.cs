@@ -1,32 +1,26 @@
-﻿namespace Task4WriteReadFile.FileFunc.Number;
+﻿namespace Task4WriteReadFile.FileFunc.Binary;
 
-public class NumberWriterReader(string filename) : WriterReaderBase(filename), INumberWriterReader
+public class BinaryWriterReader(string filename) : WriterReaderBase(filename), IByteingWriterReader
 {
     protected IBinaryWriter? Writer;
     protected IBinaryReader? Reader;
 
-    public void Write(int[] data)
+    public void Write(byte[] data)
     {
         using var stream = Stream is null ? new FileStream(Filename, FileMode.Create, FileAccess.Write) : null!;
         using var writer = Writer ??= new BinaryWriterAdapter(stream);
 
-        foreach (var each in data)
-        {
-            writer.Write(each);
-        }
+        writer.Write(data);
     }
 
-    public int[] Read()
+    public byte[] Read()
     {
         using var stream = Stream is null ? new FileStream(Filename, FileMode.Open, FileAccess.Read) : null!;
         using var reader = Reader ??= new BinaryReaderAdapter(stream);
 
-        var result = new List<int>();
-        while (reader.PeekChar() > -1)
-        {
-            var current = reader.Read();
-            result.Add(current);
-        }
+        var size = Stream is { } ? (int)Stream.Length : (int)stream.Length;
+        var result = new byte[size];
+        reader.Read(result, 0, size);
 
         return result.ToArray();
     }

@@ -21,18 +21,16 @@ internal class Program
     private static void createFilesWithTestValues(int size)
     {
         var data = Enumerable.Range(1, size).Select(x => (byte)x).ToArray();
-        var stream = WriterReaderFactory.StreamCreate("streamingfile.txt");
+        var stream = WriterReaderFactory.Create(MethodCode.Stream, "streamingfile.txt");
         stream.Write(data);
         
-        var values = Enumerable.Range(1, size).Select(x => x).ToArray();
-        var binary = WriterReaderFactory.BinaryCreate("binary.txt");
-        binary.Write(values);
+        var binary = WriterReaderFactory.Create(MethodCode.Binary, "binary.txt");
+        binary.Write(data);
         
-        var chars = Enumerable.Range(1, size).Select(x => (char)x).ToArray();
-        var streams = WriterReaderFactory.StreamsCreate("writestream.txt");
-        streams.Write(chars);
+        var streams = WriterReaderFactory.Create(MethodCode.CharStreams, "writestream.txt");
+        streams.Write(data);
 
-        var buffred = WriterReaderFactory.BufferedCreate("buffered.txt");
+        var buffred = WriterReaderFactory.Create(MethodCode.Buffered, "buffered.txt");
         buffred.Write(data);
 
         ConsoleHelper.Pause("Данные в файлы записаны. Для продолжения нажмите кнопку ...");
@@ -42,7 +40,7 @@ internal class Program
     private static void simpleStreamReadAndPrint()
     {
         Console.WriteLine("Простой файловый поток. Прочитанные данные:");
-        var stream = WriterReaderFactory.StreamCreate("streamingfile.txt");
+        var stream = WriterReaderFactory.Create(MethodCode.Stream, "streamingfile.txt");
         var data = stream.Read();
         foreach (var each in data)
         {
@@ -54,7 +52,7 @@ internal class Program
     private static void binaryReadAndPrint()
     {
         Console.WriteLine("Поток бинарных данных. Прочитанные данные:");
-        var stream = WriterReaderFactory.BinaryCreate("binary.txt");
+        var stream = WriterReaderFactory.Create(MethodCode.Binary, "binary.txt");
         var data = stream.Read();
         foreach (var each in data)
         {
@@ -66,7 +64,7 @@ internal class Program
     private static void readStreamReadAndPrint()
     {
         Console.WriteLine("Отдельный поток чтения данных. Прочитанные данные:");
-        var stream = WriterReaderFactory.StreamsCreate("writestream.txt");
+        var stream = WriterReaderFactory.Create(MethodCode.CharStreams, "writestream.txt");
         var data = stream.Read();
         foreach (var each in data)
         {
@@ -78,7 +76,7 @@ internal class Program
     private static void bufferedStreamReadAndPrint()
     {
         Console.WriteLine("Буферизированный поток. Прочитанные данные:");
-        var stream = WriterReaderFactory.BufferedCreate("buffered.txt");
+        var stream = WriterReaderFactory.Create(MethodCode.Buffered, "buffered.txt");
         var data = stream.Read();
         foreach (var each in data)
         {

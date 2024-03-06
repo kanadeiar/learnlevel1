@@ -2,16 +2,16 @@
 
 public interface IStreamWriter : IDisposable
 {
-    void Write(char value);
+    void Write(char[] buffer);
 }
 
 public class StreamWriterAdapter(FileStream stream) : IStreamWriter
 {
     private readonly StreamWriter _writer = new(stream);
 
-    public void Write(char value)
+    public void Write(char[] buffer)
     {
-        _writer.Write(value);
+        _writer.Write(buffer);
     }
 
     public void Dispose() => _writer.Dispose();
