@@ -1,31 +1,30 @@
 name: .NET Tests
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main", "dev" ]
+on: [push, pull_request]
 
 jobs:
 
   test:
   
-    name: Test on dotnet
+    name: Test on DotNet
     
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     
     - name: Checkout
       uses: actions/checkout@v3
     
-    - name: Setup .NET 8
+    - name: Setup .NET
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: 8.0.x
+
+    - name: Restore dependencies
+      run: dotnet restore
         
     - name: Build
-      run: dotnet build -c debug
+      run: dotnet build --no-restore -c debug
       
     - name: Test
       run: dotnet test --no-build -c debug -v normal
