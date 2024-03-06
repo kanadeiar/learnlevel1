@@ -2,26 +2,14 @@
 
 public interface IBinaryReader : IDisposable
 {
-    int PeekChar();
-    int Read();
+    int Read(byte[] bytes, int offset, int count);
 }
 
 public class BinaryReaderAdapter(FileStream stream) : IBinaryReader
 {
     private BinaryReader _reader = new(stream);
-
-    public int PeekChar()
-    {
-        return _reader.PeekChar();
-    }
-
-    public int Read()
-    {
-        return _reader.Read();
-    }
-
-    public void Dispose()
-    {
-        _reader.Dispose();
-    }
+    
+    public int Read(byte[] bytes, int offset, int count) => _reader.Read(bytes, offset, count);
+    
+    public void Dispose() => _reader.Dispose();
 }

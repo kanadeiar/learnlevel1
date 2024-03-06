@@ -2,16 +2,16 @@
 
 public interface IBinaryWriter : IDisposable
 {
-    void Write(int value);
+    void Write(byte[] buffer);
 }
 
 public class BinaryWriterAdapter(FileStream stream) : IBinaryWriter
 {
     private BinaryWriter _writer = new(stream);
 
-    public void Write(int value)
+    public void Write(byte[] buffer)
     {
-        _writer.Write(value);
+        _writer.Write(buffer);
     }
 
     public void Dispose()

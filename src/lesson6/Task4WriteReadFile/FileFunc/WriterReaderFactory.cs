@@ -1,27 +1,26 @@
-﻿using Task4WriteReadFile.FileFunc.Buffered;
-using Task4WriteReadFile.FileFunc.Stream;
+﻿using Task4WriteReadFile.FileFunc.CharStreams;
 
 namespace Task4WriteReadFile.FileFunc;
 
 public class WriterReaderFactory
 {
-    public static IByteingWriterReader StreamCreate(string filename)
+    public static IByteingWriterReader Create(MethodCode code, string filename)
     {
-        return new StreamWriterReader(filename);
-    }    
-    
-    public static INumberWriterReader BinaryCreate(string filename)
-    {
-        return new NumberWriterReader(filename);
+        return code switch
+        {
+            MethodCode.Stream => new StreamWriterReader(filename),
+            MethodCode.Binary => new BinaryWriterReader(filename),
+            MethodCode.CharStreams => new CharStreamsWriterReader(filename),
+            MethodCode.Buffered => new BufferedWriterReader(filename),
+            _ => throw new IndexOutOfRangeException(nameof(code))
+        };
     }
+}
 
-    public static ICharWriterReader StreamsCreate(string filename)
-    {
-        return new CharWriterReader(filename);
-    }
-
-    public static IByteingWriterReader BufferedCreate(string filename)
-    {
-        return new BufferedWriterReader(filename);
-    }
+public enum MethodCode
+{
+    Stream,
+    Binary,
+    CharStreams,
+    Buffered,
 }

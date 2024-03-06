@@ -2,22 +2,16 @@
 
 public interface IStreamReader : IDisposable
 {
-    int Peek();
-    int Read();
+    int Read(char[] bytes, int offset, int count);
 }
 
 public class StreamReaderAdapter(FileStream stream) : IStreamReader
 {
     private readonly StreamReader _reader = new(stream);
-
-    public int Peek()
+    
+    public int Read(char[] bytes, int offset, int count)
     {
-        return _reader.Peek();
-    }
-
-    public int Read()
-    {
-        return _reader.Read();
+        return _reader.Read(bytes, offset, count);
     }
 
     public void Dispose() => _reader.Dispose();
