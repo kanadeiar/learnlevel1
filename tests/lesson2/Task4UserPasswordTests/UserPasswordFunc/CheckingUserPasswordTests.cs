@@ -9,7 +9,7 @@ public class CheckingUserPasswordTests
 
         var actual = userPassword.Check("root", "GeekBrains");
 
-        Assert.True(actual);
+        actual.Should().BeTrue();
     }
 
     [Theory]
@@ -21,6 +21,6 @@ public class CheckingUserPasswordTests
 
         var actual = userPassword.Check(user, password);
 
-        Assert.False(actual);
+        actual.Should().BeFalse();
     }
 }

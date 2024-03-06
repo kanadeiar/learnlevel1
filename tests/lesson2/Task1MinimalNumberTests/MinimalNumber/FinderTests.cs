@@ -2,30 +2,37 @@
 
 public class FinderTests
 {
-    [Fact]
-    public void TestData()
+    [Theory, MemberData(nameof(ValuesSource), "")]
+    public void TestData(int[] numbers)
     {
-        int[] numbers = new[] { 3, 4, 5 };
         ICommonFinder finder = new Finder(numbers);
 
         var actuals = finder.Numbers.ToArray();
 
-        Assert.Equal(3, actuals.Length);
-        Assert.Equal(3, actuals[0]);
-        Assert.Equal(4, actuals[1]);
-        Assert.Equal(5, actuals[2]);
+        actuals.Should().Equal(numbers);
     }
 
-    [Theory]
-    [InlineData(3, 4, int.MaxValue, 3)]
-    [InlineData(0, int.MinValue, -5, int.MinValue)]
-    public void TestMinimal(int first, int second, int third, int expected)
+    [Theory, MemberData(nameof(ValuesSource), "min")]
+    public void TestMinimal(int[] numbers, int expected)
     {
-        int[] numbers = new[] { first, second, third };
         IMinFinder finder = new Finder(numbers);
 
         var actual = finder.Min();
 
-        Assert.Equal(expected, actual);
+        actual.Should().Be(expected);
+    }
+
+    public static IEnumerable<object[]> ValuesSource(string type)
+    {
+        switch (type)
+        {
+            case "min":
+                yield return new object[] { new int[] { 3, 4, int.MaxValue }, 3 };
+                yield return new object[] { new int[] { 0, int.MinValue, -5 }, int.MinValue };
+                break;
+            default:
+                yield return new object[] { new int[] { 3, 4, 5 } };
+                break;
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Kanadeiar.Common;
+﻿using Kanadeiar.Common.Console;
 
 namespace Task6LibraryTests;
 
@@ -15,7 +15,7 @@ public class ConsoleHelperTests
 
         var text = writer.ToString();
 
-        Assert.Contains("TestText", text);
+        text.Should().Contain("TestText");
 
         Console.SetOut(old);
     }

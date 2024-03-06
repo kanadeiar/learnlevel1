@@ -2,47 +2,33 @@
 
 public class CheckpointTests
 {
-    public static IEnumerable<object[]> UserPasswordSource()
+    [Theory, MemberData(nameof(UserPasswordSource))]
+    public void TestCheckUserPassword(Mock<ICheckingUserPassword> mock)
     {
-        var checkMock = new Mock<ICheckingUserPassword>();
-        checkMock
-            .Setup(x => x.Check("incorrect", "incorrect"))
-            .Returns(false);
-        checkMock
-            .Setup(x => x.Check("root", "GeekBrains"))
-            .Returns(true);
-        
-        yield return new object[] { checkMock.Object };
-    }
-
-    [Theory]
-    [MemberData(nameof(UserPasswordSource))]
-    public void TestCheckUserPassword(ICheckingUserPassword userPassword)
-    {
-        ICheckCheckpoint checkpoint = Checkpoint.Create(userPassword);
+        ICheckCheckpoint checkpoint = Checkpoint.Create(new UserPasswordFuncAdapter(mock.Object));
 
         var actual = checkpoint.CheckUserPassword("root", "GeekBrains");
 
-        Assert.True(actual);
+        actual.Should().BeTrue();
+        mock.Verify(x => x.Check("root", "GeekBrains"), Times.Once);
     }
 
-    [Theory]
-    [MemberData(nameof(UserPasswordSource))]
-    public void TestCheckUserPassword_WhenIncorrect(ICheckingUserPassword userPassword)
+    [Theory, MemberData(nameof(UserPasswordSource))]
+    public void TestCheckUserPassword_WhenIncorrect(Mock<ICheckingUserPassword> mock)
     {
-        ICheckCheckpoint checkpoint = Checkpoint.Create(userPassword);
+        ICheckCheckpoint checkpoint = Checkpoint.Create(new UserPasswordFuncAdapter(mock.Object));
 
         var actual = checkpoint.CheckUserPassword("incorrect", "incorrect");
 
-        Assert.False(checkpoint.IsBlocked());
-        Assert.False(actual);
+        checkpoint.IsBlocked().Should().BeFalse();
+        actual.Should().BeFalse();
+        mock.Verify(x => x.Check("incorrect", "incorrect"), Times.Once);
     }
 
-    [Theory]
-    [MemberData(nameof(UserPasswordSource))]
-    public void TestCheckUserPassword_WhenIncorrect3Times_ThenBlocked(ICheckingUserPassword userPassword)
+    [Theory, MemberData(nameof(UserPasswordSource))]
+    public void TestCheckUserPassword_WhenIncorrect3Times_ThenBlocked(Mock<ICheckingUserPassword> mock)
     {
-        ICheckCheckpoint checkpoint = Checkpoint.Create(userPassword);
+        ICheckCheckpoint checkpoint = Checkpoint.Create(new UserPasswordFuncAdapter(mock.Object));
 
         var actual = false;
         for (var i = 0; i < 3; i++)
@@ -50,15 +36,15 @@ public class CheckpointTests
             actual = checkpoint.CheckUserPassword("incorrect", "incorrect");
         }
 
-        Assert.True(checkpoint.IsBlocked());
-        Assert.False(actual);
+        checkpoint.IsBlocked().Should().BeTrue();
+        actual.Should().BeFalse();
+        mock.Verify(x => x.Check("incorrect", "incorrect"), Times.Exactly(3));
     }
 
-    [Theory]
-    [MemberData(nameof(UserPasswordSource))]
-    public void TestCheckUserPassword_WhenBlocked_ThenIncorrect(ICheckingUserPassword userPassword)
+    [Theory, MemberData(nameof(UserPasswordSource))]
+    public void TestCheckUserPassword_WhenBlocked_ThenIncorrect(Mock<ICheckingUserPassword> mock)
     {
-        ICheckCheckpoint checkpoint = Checkpoint.Create(userPassword);
+        ICheckCheckpoint checkpoint = Checkpoint.Create(new UserPasswordFuncAdapter(mock.Object));
 
         bool actual;
         for (var i = 0; i < 3; i++)
@@ -67,6 +53,18 @@ public class CheckpointTests
         }
         actual = checkpoint.CheckUserPassword("root", "GeekBrains");
 
-        Assert.False(actual);
+        actual.Should().BeFalse();
+        mock.Verify(x => x.Check(It.IsAny<string>(), It.IsAny<string>()), Times.Exactly(3));
+    }
+
+    public static IEnumerable<object[]> UserPasswordSource()
+    {
+        var fixture = new Fixture();
+        fixture.Freeze<Mock<ICheckingUserPassword>>()
+            .Setup(x => x.Check("root", "GeekBrains"))
+            .Returns(true);
+        var mock = fixture.Create<Mock<ICheckingUserPassword>>();
+        
+        yield return new object[] { mock };
     }
 }

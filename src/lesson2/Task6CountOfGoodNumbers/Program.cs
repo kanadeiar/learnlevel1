@@ -1,4 +1,4 @@
-﻿using Kanadeiar.Common;
+﻿using Kanadeiar.Common.Console;
 
 ConsoleHelper.PrintHeader("Задача № 6", "Задача № 6. Подсчет количества \"хороших\" чисел.");
 

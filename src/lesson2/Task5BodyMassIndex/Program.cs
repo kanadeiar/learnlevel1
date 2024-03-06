@@ -1,20 +1,28 @@
-﻿using Kanadeiar.Common;
+﻿using Kanadeiar.Common.Console;
 
-ConsoleHelper.PrintHeader("Задача № 5", "Задача № 5. Рекомендации по индексу массы тела.");
+namespace Task5BodyMassIndex;
 
-var weight = ConsoleHelper.ReadNumberFromConsole<double>("Введите вес в кг");
-var height = ConsoleHelper.ReadNumberFromConsole<double>("Введите рост в метрах");
+internal class Program
+{
+    static void Main(string[] args)
+    {
+        ConsoleHelper.PrintHeader("Задача № 5", "Задача № 5. Рекомендации по индексу массы тела.");
 
-var calculator = new Calculator(weight, height);
+        var weight = ConsoleHelper.ReadNumberFromConsole<double>("Введите вес в кг");
+        var height = ConsoleHelper.ReadNumberFromConsole<double>("Введите рост в метрах");
 
-Console.WriteLine(calculator.Print());
+        var calculator = new Calculator(weight, height);
 
-Console.WriteLine("Рекомендации:");
+        Console.WriteLine(calculator.Print());
 
-var messagesRecommender = Recommender.Create(RecommenderType.Messages);
-Console.WriteLine(messagesRecommender.RecommendationText(calculator));
+        Console.WriteLine("Рекомендации:");
 
-var counterRecommender = Recommender.Create(RecommenderType.Counts);
-Console.WriteLine(counterRecommender.RecommendationText(calculator));
+        var messagesRecommender = Recommender.Create(RecommenderType.Messages);
+        Console.WriteLine(messagesRecommender.RecommendationText(new IndexCalculatorModuleAdapter(calculator)));
 
-ConsoleHelper.PrintFooter();
+        var counterRecommender = Recommender.Create(RecommenderType.Counts);
+        Console.WriteLine(counterRecommender.RecommendationText(new IndexCalculatorModuleAdapter(calculator)));
+
+        ConsoleHelper.PrintFooter();
+    }
+}

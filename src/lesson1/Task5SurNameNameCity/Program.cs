@@ -1,4 +1,4 @@
-﻿using Kanadeiar.Common;
+﻿using Kanadeiar.Common.Console;
 
 ConsoleHelper.PrintHeader("Задача № 5", "Задача № 5. Имя, фамилия, город проживания.");
 

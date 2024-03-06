@@ -1,4 +1,4 @@
-﻿using Kanadeiar.Common;
+﻿using Kanadeiar.Common.Console;
 
 ConsoleHelper.PrintHeader("Задача № 1", "Задача № 1. Написать программу «Анкета».");
 

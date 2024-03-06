@@ -2,7 +2,7 @@
 using System.Numerics;
 using static System.Console;
 
-namespace Kanadeiar.Common;
+namespace Kanadeiar.Common.Console;
 
 public class ConsoleHelper
 {

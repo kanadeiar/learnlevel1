@@ -1,43 +1,53 @@
-﻿namespace Task3LineLengthTests.LineFeat;
+﻿using FluentAssertions;
+
+namespace Task3LineLengthTests.LineFeat;
 
 public class LineTests
 {
-    [Fact]
-    public void TestData()
+    [Theory, MemberData(nameof(ValuesSource), "")]
+    public void TestData(Point start, Point end)
     {
-        var point1 = new Point(2, 2);
-        var point2 = new Point(3, 3);
+        IValuesLine line = Line.Create(start, end);
 
-        var line = Line.Create(new Point(1, 1), new Point(5, 5));
-        Assert.Equal(new Point(1, 1), line.PointStart);
-        Assert.Equal(new Point(5, 5), line.PointEnd);
+        line.PointStart.Should().Be(start);
+        line.PointEnd.Should().Be(end);
     }
 
-    [Theory]
-    [InlineData(2, 2, 3, 3, 1.4142135623730951)]
-    [InlineData(3, 3, 5, 5, 2.8284271247461903)]
-    public void TestLengthFormula(int x1, int y1, int x2, int y2, double expected)
+    [Theory, MemberData(nameof(ValuesSource), "digital" )]
+    public void TestLengthFormula(Point start, Point end, double expected)
     {
-        var point1 = new Point(x1, y1);
-        var point2 = new Point(x2, y2);
-        var line = Line.Create(point1, point2);
+        ILengthLine line = Line.Create(start, end);
 
         var actual = line.Length();
 
-        Assert.Equal(expected, actual);
+        actual.Should().Be(expected);
     }
 
-    [Theory]
-    [InlineData(2, 2, 3, 3, "1.41")]
-    [InlineData(3, 3, 5, 5, "2.83")]
-    public void TestLengthText(int x1, int y1, int x2, int y2, string expected)
+    [Theory, MemberData(nameof(ValuesSource), "text")]
+    public void TestLengthText(Point start, Point end, string expected)
     {
-        var point1 = new Point(x1, y1);
-        var point2 = new Point(x2, y2);
-        var line = Line.Create(point1, point2);
+        ILengthLine line = Line.Create(start, end);
         
         var actual = line.TextLength();
 
-        Assert.Equal(expected, actual);
+        actual.Should().Be(expected);
+    }
+
+    public static IEnumerable<object[]> ValuesSource(string variant)
+    {
+        switch (variant)
+        {
+            case "digital":
+                yield return new object[] { new Point(2, 2), new Point(3, 3), 1.4142135623730951 };
+                yield return new object[] { new Point(3, 3), new Point(5, 5), 2.8284271247461903 };
+                break;
+            case "text":
+                yield return new object[] { new Point(2, 2), new Point(3, 3), "1.41" };
+                yield return new object[] { new Point(3, 3), new Point(5, 5), "2.83" };
+                break;
+            default:
+                yield return new object[] { new Point(2, 2), new Point(5, 5) };
+                break;
+        }
     }
 }

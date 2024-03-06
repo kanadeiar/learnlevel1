@@ -1,4 +1,4 @@
-﻿using Kanadeiar.Common;
+﻿using Kanadeiar.Common.Console;
 
 Console.WriteLine("Метод вывода заголовка:");
 ConsoleHelper.PrintHeader("Задача № 6", "Задача № 6. Собственная библиотека.");
