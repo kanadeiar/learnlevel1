@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             label1 = new Label();
+            labelNumber = new Label();
+            buttonPlus = new Button();
+            buttonMultiply = new Button();
+            buttonReset = new Button();
             SuspendLayout();
             // 
             // label1
@@ -39,26 +43,81 @@
             label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             label1.Location = new Point(12, 9);
             label1.Name = "label1";
-            label1.Size = new Size(665, 55);
+            label1.Size = new Size(496, 55);
             label1.TabIndex = 0;
             label1.Text = "Задача 1. Программа удвоитель.";
             label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // labelNumber
+            // 
+            labelNumber.AutoSize = true;
+            labelNumber.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            labelNumber.Location = new Point(12, 105);
+            labelNumber.Name = "labelNumber";
+            labelNumber.Size = new Size(18, 20);
+            labelNumber.TabIndex = 1;
+            labelNumber.Text = "0";
+            // 
+            // buttonPlus
+            // 
+            buttonPlus.Cursor = Cursors.Hand;
+            buttonPlus.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            buttonPlus.Location = new Point(343, 98);
+            buttonPlus.Name = "buttonPlus";
+            buttonPlus.Size = new Size(165, 35);
+            buttonPlus.TabIndex = 2;
+            buttonPlus.Text = "+1";
+            buttonPlus.UseVisualStyleBackColor = true;
+            buttonPlus.Click += buttonPlus_Click;
+            // 
+            // buttonMultiply
+            // 
+            buttonMultiply.Cursor = Cursors.Hand;
+            buttonMultiply.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            buttonMultiply.Location = new Point(343, 139);
+            buttonMultiply.Name = "buttonMultiply";
+            buttonMultiply.Size = new Size(165, 35);
+            buttonMultiply.TabIndex = 2;
+            buttonMultiply.Text = "x2";
+            buttonMultiply.UseVisualStyleBackColor = true;
+            buttonMultiply.Click += buttonMultiply_Click;
+            // 
+            // buttonReset
+            // 
+            buttonReset.Cursor = Cursors.Hand;
+            buttonReset.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            buttonReset.Location = new Point(343, 180);
+            buttonReset.Name = "buttonReset";
+            buttonReset.Size = new Size(165, 35);
+            buttonReset.TabIndex = 2;
+            buttonReset.Text = "Сброс";
+            buttonReset.UseVisualStyleBackColor = true;
+            buttonReset.Click += buttonReset_Click;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(689, 467);
+            ClientSize = new Size(520, 363);
+            Controls.Add(buttonReset);
+            Controls.Add(buttonMultiply);
+            Controls.Add(buttonPlus);
+            Controls.Add(labelNumber);
             Controls.Add(label1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Geekbrains. C# Уровень 1.";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Label label1;
+        private Label labelNumber;
+        private Button buttonPlus;
+        private Button buttonMultiply;
+        private Button buttonReset;
     }
 }
