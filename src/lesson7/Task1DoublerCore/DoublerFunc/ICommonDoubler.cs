@@ -7,6 +7,7 @@ public interface ICommonDoubler : IValueingDoubler, IControlingDoubler
 public interface IValueingDoubler : IFormObservable
 {
     int Number { get; set; }
+    int Count { get; set; }
 }
 
 public interface IControlingDoubler

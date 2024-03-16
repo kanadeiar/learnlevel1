@@ -6,7 +6,7 @@ public class CommonDoublerTests
     [InlineData(3, 3)]
     public void TestValues(int value, int expected)
     {
-        var doubler = new Doubler { Number = value };
+        IValueingDoubler doubler = new Doubler { Number = value };
 
         doubler.Number.Should().Be(expected);
     }
@@ -15,7 +15,7 @@ public class CommonDoublerTests
     [InlineData(3, 4)]
     public void TestIncrement(int value, int expected)
     {
-        var doubler = new Doubler { Number = value };
+        ICommonDoubler doubler = new Doubler { Number = value };
 
         doubler.Increment();
 
@@ -26,7 +26,7 @@ public class CommonDoublerTests
     [InlineData(3, 6)]
     public void TestDouble(int value, int expected)
     {
-        var doubler = new Doubler { Number = value };
+        ICommonDoubler doubler = new Doubler { Number = value };
 
         doubler.Double();
 
@@ -37,10 +37,22 @@ public class CommonDoublerTests
     [InlineData(3, 1)]
     public void TestReset(int value, int expected)
     {
-        var doubler = new Doubler { Number = value };
+        ICommonDoubler doubler = new Doubler { Number = value };
 
         doubler.Reset();
 
         doubler.Number.Should().Be(expected);
+    }
+
+    [Fact]
+    public void TestCount()
+    {
+        ICommonDoubler doubler = new Doubler { Number = 2 };
+
+        doubler.Reset();
+        doubler.Increment();
+        doubler.Double();
+
+        doubler.Count.Should().Be(3);
     }
 }

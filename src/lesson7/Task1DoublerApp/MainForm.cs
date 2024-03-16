@@ -23,6 +23,7 @@ public partial class MainForm : Form, IFormObserver
         if (observed is IValueingDoubler doubler)
         {
             labelNumber.Text = doubler.Number.ToString();
+            labelCount.Text = doubler.Count.ToString();
         }
     }
 
