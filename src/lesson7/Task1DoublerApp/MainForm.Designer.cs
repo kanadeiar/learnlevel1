@@ -32,7 +32,7 @@
             label1 = new Label();
             labelNumber = new Label();
             buttonPlus = new Button();
-            buttonMultiply = new Button();
+            buttonDouble = new Button();
             buttonReset = new Button();
             SuspendLayout();
             // 
@@ -70,17 +70,17 @@
             buttonPlus.UseVisualStyleBackColor = true;
             buttonPlus.Click += buttonPlus_Click;
             // 
-            // buttonMultiply
+            // buttonDouble
             // 
-            buttonMultiply.Cursor = Cursors.Hand;
-            buttonMultiply.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            buttonMultiply.Location = new Point(343, 139);
-            buttonMultiply.Name = "buttonMultiply";
-            buttonMultiply.Size = new Size(165, 35);
-            buttonMultiply.TabIndex = 2;
-            buttonMultiply.Text = "x2";
-            buttonMultiply.UseVisualStyleBackColor = true;
-            buttonMultiply.Click += buttonMultiply_Click;
+            buttonDouble.Cursor = Cursors.Hand;
+            buttonDouble.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            buttonDouble.Location = new Point(343, 139);
+            buttonDouble.Name = "buttonDouble";
+            buttonDouble.Size = new Size(165, 35);
+            buttonDouble.TabIndex = 2;
+            buttonDouble.Text = "x2";
+            buttonDouble.UseVisualStyleBackColor = true;
+            buttonDouble.Click += buttonDouble_Click;
             // 
             // buttonReset
             // 
@@ -100,7 +100,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(520, 363);
             Controls.Add(buttonReset);
-            Controls.Add(buttonMultiply);
+            Controls.Add(buttonDouble);
             Controls.Add(buttonPlus);
             Controls.Add(labelNumber);
             Controls.Add(label1);
@@ -117,7 +117,7 @@
         private Label label1;
         private Label labelNumber;
         private Button buttonPlus;
-        private Button buttonMultiply;
+        private Button buttonDouble;
         private Button buttonReset;
     }
 }

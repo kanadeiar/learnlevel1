@@ -1,24 +1,47 @@
+using Task1DoublerCore.DoublerFunc;
+
 namespace Task1DoublerApp;
 
-public partial class MainForm : Form
+public partial class MainForm : Form, IFormObserver
 {
+    private IValueingDoubler _valueing;
+    private IControlingDoubler _doubler;
+
     public MainForm()
     {
         InitializeComponent();
+
+        var doubler = new Doubler();
+        doubler.AddObserver(this);
+        _valueing = doubler;
+        Update(_valueing, null);
+        _doubler = doubler;
+    }
+
+    public void Update(IFormObservable observed, object? arg)
+    {
+        if (observed is IValueingDoubler doubler)
+        {
+            labelNumber.Text = doubler.Number.ToString();
+        }
     }
 
     private void buttonPlus_Click(object sender, EventArgs e)
     {
-        labelNumber.Text = (int.Parse(labelNumber.Text) + 1).ToString();
+        _doubler.Increment();
     }
 
-    private void buttonMultiply_Click(object sender, EventArgs e)
+    private void buttonDouble_Click(object sender, EventArgs e)
     {
-        labelNumber.Text = (int.Parse(labelNumber.Text) * 2).ToString();
+        _doubler.Double();
     }
 
     private void buttonReset_Click(object sender, EventArgs e)
     {
-        labelNumber.Text = "1";
+        _doubler.Reset();
     }
 }
+
+
+
+
