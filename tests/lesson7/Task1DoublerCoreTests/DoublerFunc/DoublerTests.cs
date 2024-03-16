@@ -52,6 +52,7 @@ public class CommonDoublerTests
         doubler.Reset();
         doubler.Increment();
         doubler.Double();
+        doubler.Increment();
 
         doubler.Count.Should().Be(3);
     }
