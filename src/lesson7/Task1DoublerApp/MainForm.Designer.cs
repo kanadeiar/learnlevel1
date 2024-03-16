@@ -37,6 +37,13 @@
             label2 = new Label();
             label3 = new Label();
             labelCount = new Label();
+            menuStrip1 = new MenuStrip();
+            играToolStripMenuItem = new ToolStripMenuItem();
+            startGameToolStripMenuItem = new ToolStripMenuItem();
+            panel1 = new Panel();
+            label4 = new Label();
+            labelWinNumber = new Label();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -44,7 +51,7 @@
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.BackColor = Color.LightGreen;
             label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label1.Location = new Point(12, 9);
+            label1.Location = new Point(12, 24);
             label1.Name = "label1";
             label1.Size = new Size(496, 55);
             label1.TabIndex = 0;
@@ -127,12 +134,65 @@
             labelCount.Text = "0";
             labelCount.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { играToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(520, 24);
+            menuStrip1.TabIndex = 6;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // играToolStripMenuItem
+            // 
+            играToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { startGameToolStripMenuItem });
+            играToolStripMenuItem.Name = "играToolStripMenuItem";
+            играToolStripMenuItem.Size = new Size(46, 20);
+            играToolStripMenuItem.Text = "Игра";
+            // 
+            // startGameToolStripMenuItem
+            // 
+            startGameToolStripMenuItem.Name = "startGameToolStripMenuItem";
+            startGameToolStripMenuItem.Size = new Size(157, 22);
+            startGameToolStripMenuItem.Text = "Запустить игру";
+            startGameToolStripMenuItem.Click += startGameToolStripMenuItem_Click;
+            // 
+            // panel1
+            // 
+            panel1.Location = new Point(12, 235);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(496, 4);
+            panel1.TabIndex = 7;
+            // 
+            // label4
+            // 
+            label4.Location = new Point(12, 253);
+            label4.Name = "label4";
+            label4.Size = new Size(171, 20);
+            label4.TabIndex = 4;
+            label4.Text = "Загаданное число:";
+            label4.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // labelWinNumber
+            // 
+            labelWinNumber.BackColor = Color.Gold;
+            labelWinNumber.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            labelWinNumber.Location = new Point(12, 273);
+            labelWinNumber.Name = "labelWinNumber";
+            labelWinNumber.Size = new Size(171, 34);
+            labelWinNumber.TabIndex = 8;
+            labelWinNumber.Text = "0";
+            labelWinNumber.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(520, 363);
+            ClientSize = new Size(520, 352);
+            Controls.Add(labelWinNumber);
+            Controls.Add(panel1);
             Controls.Add(labelCount);
+            Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(buttonReset);
@@ -140,11 +200,16 @@
             Controls.Add(buttonPlus);
             Controls.Add(labelNumber);
             Controls.Add(label1);
+            Controls.Add(menuStrip1);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MainMenuStrip = menuStrip1;
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Geekbrains. C# Уровень 1.";
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -157,5 +222,11 @@
         private Label label2;
         private Label label3;
         private Label labelCount;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem играToolStripMenuItem;
+        private ToolStripMenuItem startGameToolStripMenuItem;
+        private Panel panel1;
+        private Label label4;
+        private Label labelWinNumber;
     }
 }
