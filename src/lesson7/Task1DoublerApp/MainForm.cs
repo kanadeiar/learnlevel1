@@ -1,6 +1,3 @@
-using Task1DoublerCore.DoublerFunc;
-using Task1DoublerCore.DoublerFunc.Base;
-
 namespace Task1DoublerApp;
 
 public partial class MainForm : Form, IFormObserver
@@ -17,6 +14,8 @@ public partial class MainForm : Form, IFormObserver
 
         _doubler.OnStarted += GameingOnStarted;
         _doubler.OnWin += GameingOnOnWin;
+
+        setEnabledForButtons(false);
     }
 
     public void Update(IFormObservable observed, object? arg)
@@ -31,12 +30,19 @@ public partial class MainForm : Form, IFormObserver
 
     private void GameingOnStarted(object? sender, StartedEventArgs e)
     {
+        setEnabledForButtons(true);
         MessageBox.Show($"Нужно получить число {_doubler.WinNumber}", "Игра запущена", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 
     private void GameingOnOnWin(object? sender, WinEventArgs e)
     {
+        setEnabledForButtons(false);
         MessageBox.Show($"Вы победили в этой игре за {_doubler.Count} команд!", "Поздравления", MessageBoxButtons.OK, MessageBoxIcon.Information);
+    }
+
+    private void setEnabledForButtons(bool isEnabled)
+    {
+        buttonPlus.Enabled = buttonDouble.Enabled = buttonReset.Enabled = buttonUndo.Enabled = isEnabled;
     }
 
     private void buttonPlus_Click(object sender, EventArgs e)
@@ -57,6 +63,11 @@ public partial class MainForm : Form, IFormObserver
     private void startGameToolStripMenuItem_Click(object sender, EventArgs e)
     {
         _doubler.Start();
+    }
+
+    private void buttonUndo_Click(object sender, EventArgs e)
+    {
+        _doubler.Undo();
     }
 }
 

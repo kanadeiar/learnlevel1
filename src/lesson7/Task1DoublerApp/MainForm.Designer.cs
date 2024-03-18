@@ -43,6 +43,7 @@
             panel1 = new Panel();
             label4 = new Label();
             labelWinNumber = new Label();
+            buttonUndo = new Button();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -53,7 +54,7 @@
             label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             label1.Location = new Point(12, 24);
             label1.Name = "label1";
-            label1.Size = new Size(496, 55);
+            label1.Size = new Size(497, 55);
             label1.TabIndex = 0;
             label1.Text = "Задача 1. Программа удвоитель.";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -139,7 +140,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { играToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(520, 24);
+            menuStrip1.Size = new Size(521, 24);
             menuStrip1.TabIndex = 6;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -184,11 +185,24 @@
             labelWinNumber.Text = "0";
             labelWinNumber.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // buttonUndo
+            // 
+            buttonUndo.Cursor = Cursors.Hand;
+            buttonUndo.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            buttonUndo.Location = new Point(343, 272);
+            buttonUndo.Name = "buttonUndo";
+            buttonUndo.Size = new Size(165, 35);
+            buttonUndo.TabIndex = 9;
+            buttonUndo.Text = "Отмена";
+            buttonUndo.UseVisualStyleBackColor = true;
+            buttonUndo.Click += buttonUndo_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(520, 352);
+            ClientSize = new Size(521, 326);
+            Controls.Add(buttonUndo);
             Controls.Add(labelWinNumber);
             Controls.Add(panel1);
             Controls.Add(labelCount);
@@ -228,5 +242,6 @@
         private Panel panel1;
         private Label label4;
         private Label labelWinNumber;
+        private Button buttonUndo;
     }
 }

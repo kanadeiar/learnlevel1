@@ -16,6 +16,7 @@ public interface IControllingDoubler
     void Increment();
     void Double();
     void Reset();
+    void Undo();
 }
 
 public interface IGameingDoubler

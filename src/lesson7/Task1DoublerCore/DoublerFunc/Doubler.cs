@@ -65,9 +65,14 @@ public class Doubler : ModelBase, ICommonDoubler
         _game.checkWinGame(Number == WinNumber);
     }
 
+    public void Undo()
+    {
+        _core.undo();
+    }
+
     public void Start()
     {
-        _game.startGame();
         _core.reset();
+        _game.startGame();
     }
 }

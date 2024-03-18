@@ -72,7 +72,7 @@ public class DoublerTests
     [Theory, AutoMoqData]
     public void TestStart_RaisedEventOnStarted(Doubler doubler)
     {
-        IGameingDoubler game= doubler;
+        IGameingDoubler game = doubler;
         using var monitor = game.Monitor();
 
         game.Start();
@@ -94,5 +94,21 @@ public class DoublerTests
 
         monitor.Should()
             .Raise(nameof(game.OnWin));
+    }
+
+    [Theory]
+    [InlineAutoMoqData(2, 3)]
+    public void TestUndo(int value, int expected, Doubler doubler)
+    {
+        ICommonDoubler common = doubler;
+        common.Start();
+        common.Number = value;
+        common.Increment();
+        common.Double();
+
+        common.Undo();
+
+        common.Number.Should().Be(expected);
+        common.Count.Should().Be(1);
     }
 }
