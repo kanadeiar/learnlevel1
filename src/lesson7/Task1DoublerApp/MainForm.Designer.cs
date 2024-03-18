@@ -52,18 +52,18 @@
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.BackColor = Color.LightGreen;
             label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label1.Location = new Point(12, 24);
+            label1.Location = new Point(12, 37);
             label1.Name = "label1";
-            label1.Size = new Size(497, 55);
+            label1.Size = new Size(499, 55);
             label1.TabIndex = 0;
-            label1.Text = "Задача 1. Программа удвоитель.";
+            label1.Text = "Задача 1. Игра \"Удвоитель\".";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // labelNumber
             // 
             labelNumber.BackColor = Color.Lime;
             labelNumber.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            labelNumber.Location = new Point(12, 118);
+            labelNumber.Location = new Point(12, 136);
             labelNumber.Name = "labelNumber";
             labelNumber.Size = new Size(171, 34);
             labelNumber.TabIndex = 1;
@@ -74,7 +74,7 @@
             // 
             buttonPlus.Cursor = Cursors.Hand;
             buttonPlus.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            buttonPlus.Location = new Point(343, 98);
+            buttonPlus.Location = new Point(343, 116);
             buttonPlus.Name = "buttonPlus";
             buttonPlus.Size = new Size(165, 35);
             buttonPlus.TabIndex = 2;
@@ -86,7 +86,7 @@
             // 
             buttonDouble.Cursor = Cursors.Hand;
             buttonDouble.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            buttonDouble.Location = new Point(343, 139);
+            buttonDouble.Location = new Point(343, 157);
             buttonDouble.Name = "buttonDouble";
             buttonDouble.Size = new Size(165, 35);
             buttonDouble.TabIndex = 2;
@@ -98,7 +98,7 @@
             // 
             buttonReset.Cursor = Cursors.Hand;
             buttonReset.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            buttonReset.Location = new Point(343, 180);
+            buttonReset.Location = new Point(343, 198);
             buttonReset.Name = "buttonReset";
             buttonReset.Size = new Size(165, 35);
             buttonReset.TabIndex = 2;
@@ -108,7 +108,7 @@
             // 
             // label2
             // 
-            label2.Location = new Point(12, 98);
+            label2.Location = new Point(12, 116);
             label2.Name = "label2";
             label2.Size = new Size(171, 20);
             label2.TabIndex = 3;
@@ -117,7 +117,7 @@
             // 
             // label3
             // 
-            label3.Location = new Point(12, 164);
+            label3.Location = new Point(12, 182);
             label3.Name = "label3";
             label3.Size = new Size(171, 20);
             label3.TabIndex = 4;
@@ -128,7 +128,7 @@
             // 
             labelCount.BackColor = Color.Cyan;
             labelCount.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            labelCount.Location = new Point(12, 184);
+            labelCount.Location = new Point(12, 202);
             labelCount.Name = "labelCount";
             labelCount.Size = new Size(171, 34);
             labelCount.TabIndex = 5;
@@ -140,7 +140,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { играToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(521, 24);
+            menuStrip1.Size = new Size(523, 24);
             menuStrip1.TabIndex = 6;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -160,14 +160,14 @@
             // 
             // panel1
             // 
-            panel1.Location = new Point(12, 235);
+            panel1.Location = new Point(12, 253);
             panel1.Name = "panel1";
             panel1.Size = new Size(496, 4);
             panel1.TabIndex = 7;
             // 
             // label4
             // 
-            label4.Location = new Point(12, 253);
+            label4.Location = new Point(12, 271);
             label4.Name = "label4";
             label4.Size = new Size(171, 20);
             label4.TabIndex = 4;
@@ -178,7 +178,7 @@
             // 
             labelWinNumber.BackColor = Color.Gold;
             labelWinNumber.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            labelWinNumber.Location = new Point(12, 273);
+            labelWinNumber.Location = new Point(12, 291);
             labelWinNumber.Name = "labelWinNumber";
             labelWinNumber.Size = new Size(171, 34);
             labelWinNumber.TabIndex = 8;
@@ -189,7 +189,7 @@
             // 
             buttonUndo.Cursor = Cursors.Hand;
             buttonUndo.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            buttonUndo.Location = new Point(343, 272);
+            buttonUndo.Location = new Point(343, 290);
             buttonUndo.Name = "buttonUndo";
             buttonUndo.Size = new Size(165, 35);
             buttonUndo.TabIndex = 9;
@@ -201,7 +201,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(521, 326);
+            ClientSize = new Size(523, 343);
             Controls.Add(buttonUndo);
             Controls.Add(labelWinNumber);
             Controls.Add(panel1);
@@ -219,7 +219,7 @@
             MainMenuStrip = menuStrip1;
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Geekbrains. C# Уровень 1.";
+            Text = "Geekbrains. C# Уровень 1 Лекция 7.";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
