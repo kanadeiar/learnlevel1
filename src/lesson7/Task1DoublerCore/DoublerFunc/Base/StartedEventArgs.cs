@@ -1,4 +1,4 @@
-﻿namespace Task1DoublerCore.DoublerFunc;
+﻿namespace Task1DoublerCore.DoublerFunc.Base;
 
 public class StartedEventArgs(int winNumber) : EventArgs
 {

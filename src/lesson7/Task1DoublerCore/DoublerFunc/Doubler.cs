@@ -2,26 +2,22 @@
 
 public class Doubler : ModelBase, ICommonDoubler
 {
-    private EventHandler<StartedEventArgs>? _onStarted;
-
     public event EventHandler<StartedEventArgs>? OnStarted
     {
-        add => _onStarted += value;
-        remove => _onStarted -= value;
+        add => _game.onStarted += value;
+        remove => _game.onStarted -= value;
     }
-
-    private EventHandler<WinEventArgs>? _onWin;
 
     public event EventHandler<WinEventArgs>? OnWin
     {
-        add => _onWin += value;
-        remove => _onWin -= value;
+        add => _game.onWin += value;
+        remove => _game.onWin -= value;
     }
 
-    private Random _rnd = new();
-    private int _number;
+    private readonly DoublerCore _core;
+    private readonly Game _game;
 
-    private bool _started;
+    private int _number;
 
     public int Number
     {
@@ -44,54 +40,34 @@ public class Doubler : ModelBase, ICommonDoubler
         get => _winNumber;
         set => Set(ref _winNumber, value);
     }
+
+    public Doubler()
+    {
+        _core = new DoublerCore(this);
+        _game = new Game(this);
+    }
     
     public void Increment()
     {
-        Number++;
-        Count++;
-
-        checkWinGame();
+        _core.increment();
+        _game.checkWinGame(Number == WinNumber);
     }
 
     public void Double()
     {
-        Number *= 2;
-        Count++;
-
-        checkWinGame();
+        _core.@double();
+        _game.checkWinGame(Number == WinNumber);
     }
 
     public void Reset()
     {
-        Number = 0;
-        Count++;
-
-        checkWinGame();
-    }
-
-    private void checkWinGame()
-    {
-        var isWinInGame = _started && Number == WinNumber;
-        if (isWinInGame)
-        {
-            _started = false;
-            onGameWin(new WinEventArgs());
-        }
+        _core.reset();
+        _game.checkWinGame(Number == WinNumber);
     }
 
     public void Start()
     {
-        var win = _rnd.Next(10, 100);
-        WinNumber = win;
-        Number = 0;
-        Count = 0;
-
-        _started = true;
-
-        onGameStarted(new StartedEventArgs(WinNumber));
+        _game.startGame();
+        _core.reset();
     }
-
-    private void onGameStarted(StartedEventArgs e) => _onStarted?.Invoke(this, e);
-
-    private void onGameWin(WinEventArgs e) => _onWin?.Invoke(this, e);
 }

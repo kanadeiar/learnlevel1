@@ -1,4 +1,5 @@
 using Task1DoublerCore.DoublerFunc;
+using Task1DoublerCore.DoublerFunc.Base;
 
 namespace Task1DoublerApp;
 

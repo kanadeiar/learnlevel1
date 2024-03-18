@@ -44,24 +44,24 @@ public class DoublerTests
         doubler.Number.Should().Be(expected);
     }
 
-    [Fact]
-    public void TestCount()
+    [Theory, AutoMoqData]
+    public void TestCount(Doubler doubler)
     {
-        ICommonDoubler doubler = new Doubler { Number = 2 };
+        doubler.Number = 2;
 
         doubler.Reset();
+        doubler.Increment();
         doubler.Double();
         doubler.Increment();
 
         doubler.Count.Should().Be(3);
     }
 
-    [Fact]
-    public void TestStart_CheckRandomNumber()
+    [Theory, AutoMoqData]
+    public void TestStart_CheckRandomNumber(Doubler doubler)
     {
-        IValueingDoubler doubler = new Doubler();
-        IGameingDoubler game = (IGameingDoubler)doubler;
-        doubler.WinNumber.Should().Be(default);
+        IGameingDoubler game = doubler;
+        doubler.WinNumber = default;
 
         game.Start();
 
@@ -69,11 +69,10 @@ public class DoublerTests
         doubler.WinNumber.Should().BeInRange(10, 100);
     }
 
-    [Fact]
-    public void TestStart_RaisedEventOnStarted()
+    [Theory, AutoMoqData]
+    public void TestStart_RaisedEventOnStarted(Doubler doubler)
     {
-        IValueingDoubler doubler = new Doubler();
-        IGameingDoubler game= (IGameingDoubler)doubler;
+        IGameingDoubler game= doubler;
         using var monitor = game.Monitor();
 
         game.Start();
@@ -83,11 +82,10 @@ public class DoublerTests
             .WithArgs<StartedEventArgs>(arg => arg.WinNumber == doubler.WinNumber);
     }
 
-    [Fact]
-    public void TestStart_RaisedEventOnWin()
+    [Theory, AutoMoqData]
+    public void TestStart_RaisedEventOnWin(Doubler doubler)
     {
-        IValueingDoubler doubler = new Doubler();
-        IGameingDoubler game = (IGameingDoubler)doubler;
+        IGameingDoubler game = doubler;
         using var monitor = game.Monitor();
         game.Start();
         doubler.WinNumber = 1;
