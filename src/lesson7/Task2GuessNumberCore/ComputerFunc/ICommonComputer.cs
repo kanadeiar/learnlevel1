@@ -3,7 +3,7 @@
 /// <summary>
 /// Общий компьютер
 /// </summary>
-public interface ICommonComputer : IValueingComputer, IFormObservable
+public interface ICommonComputer : IValueingComputer, IGameingComputer, IFormObservable
 {
 }
 
@@ -13,12 +13,24 @@ public interface ICommonComputer : IValueingComputer, IFormObservable
 public interface IValueingComputer
 {
     /// <summary>
-    /// Число загаданное компьютером
-    /// </summary>
-    public int ComputerNumber { get; set; }
-
-    /// <summary>
     /// Количество оставшихся попыток
     /// </summary>
-    public int TryingCount { get; set; }
+    int TryingCount { get; }
+}
+
+/// <summary>
+/// Играющий компьютер
+/// </summary>
+public interface IGameingComputer
+{
+    /// <summary>
+    /// Начать игру
+    /// </summary>
+    void Start();
+
+    /// <summary>
+    /// Попытка угадать число
+    /// </summary>
+    /// <param name="number">Предполагаемое число</param>
+    void TryNumber(int number);
 }

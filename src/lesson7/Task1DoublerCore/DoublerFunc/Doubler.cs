@@ -8,10 +8,10 @@ public class Doubler : ModelBase, ICommonDoubler
         remove => _game.onStarted -= value;
     }
 
-    public event EventHandler<WinEventArgs>? OnWin
+    public event EventHandler<WonEventArgs>? OnWon
     {
-        add => _game.onWin += value;
-        remove => _game.onWin -= value;
+        add => _game.onWon += value;
+        remove => _game.onWon -= value;
     }
 
     private readonly DoublerCore _core;

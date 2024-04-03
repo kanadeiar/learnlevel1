@@ -67,7 +67,7 @@ public interface IGameingDoubler
     /// <summary>
     /// Игра выиграна
     /// </summary>
-    event EventHandler<WinEventArgs>? OnWin;
+    event EventHandler<WonEventArgs>? OnWon;
     
     /// <summary>
     /// Начать игру

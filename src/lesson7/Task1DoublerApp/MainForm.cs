@@ -13,7 +13,7 @@ public partial class MainForm : Form, IFormObserver
         Update(_doubler, null);
 
         _doubler.OnStarted += GameingOnStarted;
-        _doubler.OnWin += GameingOnOnWin;
+        _doubler.OnWon += gameingOnOnWon;
 
         setEnabledForButtons(false);
     }
@@ -34,7 +34,7 @@ public partial class MainForm : Form, IFormObserver
         MessageBox.Show($"Нужно получить число {_doubler.WinNumber}", "Игра запущена", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 
-    private void GameingOnOnWin(object? sender, WinEventArgs e)
+    private void gameingOnOnWon(object? sender, WonEventArgs e)
     {
         setEnabledForButtons(false);
         MessageBox.Show($"Вы победили в этой игре за {_doubler.Count} команд!", "Поздравления", MessageBoxButtons.OK, MessageBoxIcon.Information);

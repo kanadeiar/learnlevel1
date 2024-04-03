@@ -12,8 +12,4 @@
 		</Compile>
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="ComputerFunc\Base\" />
-	</ItemGroup>
-
 </Project>

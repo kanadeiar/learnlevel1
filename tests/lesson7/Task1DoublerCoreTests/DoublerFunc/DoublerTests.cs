@@ -108,7 +108,7 @@ public class DoublerTests
     }
 
     [Theory, AutoMoqData]
-    public void TestStart_RaisedEventOnWin(Doubler doubler)
+    public void TestIncrement_RaisedEventOnWon(Doubler doubler)
     {
         IGameingDoubler gameing = doubler;
         IControllingDoubler controlling = doubler;
@@ -119,7 +119,7 @@ public class DoublerTests
         controlling.Increment();
 
         monitor.Should()
-            .Raise(nameof(gameing.OnWin));
+            .Raise(nameof(gameing.OnWon)).WithArgs<WonEventArgs>();
     }
 
     [Theory]
