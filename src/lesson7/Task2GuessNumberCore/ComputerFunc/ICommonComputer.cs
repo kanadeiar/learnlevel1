@@ -15,7 +15,7 @@ public interface IValueingComputer
     /// <summary>
     /// Количество оставшихся попыток
     /// </summary>
-    int TryingCount { get; }
+    int TryingCount { get; set; }
 }
 
 /// <summary>
@@ -23,6 +23,21 @@ public interface IValueingComputer
 /// </summary>
 public interface IGameingComputer
 {
+    /// <summary>
+    /// Событие после запуска игры
+    /// </summary>
+    event EventHandler<StartedEventArgs>? OnStarted;
+
+    /// <summary>
+    /// Событие при выигрыше в игре
+    /// </summary>
+    event EventHandler<WonEventArgs>? OnWon;
+
+    /// <summary>
+    /// Событие при неудачной попытке угадать число
+    /// </summary>
+    event EventHandler<NotGuessedEventArgs>? OnNotGuessed;
+
     /// <summary>
     /// Начать игру
     /// </summary>

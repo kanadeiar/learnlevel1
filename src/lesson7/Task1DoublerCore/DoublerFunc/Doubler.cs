@@ -18,7 +18,6 @@ public class Doubler : ModelBase, ICommonDoubler
     private readonly Game _game;
 
     private int _number;
-
     public int Number
     {
         get => _number;
@@ -26,7 +25,6 @@ public class Doubler : ModelBase, ICommonDoubler
     }
 
     private int _count;
-
     public int Count
     {
         get => _count;
@@ -34,7 +32,6 @@ public class Doubler : ModelBase, ICommonDoubler
     }
 
     private int _winNumber;
-
     public int WinNumber
     {
         get => _winNumber;

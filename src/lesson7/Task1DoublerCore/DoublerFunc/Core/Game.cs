@@ -1,4 +1,4 @@
-﻿namespace Task1DoublerCore.DoublerFunc.Base;
+﻿namespace Task1DoublerCore.DoublerFunc.Core;
 
 internal class Game(IValueingDoubler doubler)
 {

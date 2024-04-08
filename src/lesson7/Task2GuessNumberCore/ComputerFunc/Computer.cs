@@ -1,67 +1,60 @@
-﻿using Task2GuessNumberCore.ComputerFunc.Base;
-
-namespace Task2GuessNumberCore.ComputerFunc;
+﻿namespace Task2GuessNumberCore.ComputerFunc;
 
 public class Computer : ModelBase, ICommonComputer
 {
-    private EventHandler<StartedEventArgs>? _onStarted;
-
     public event EventHandler<StartedEventArgs>? OnStarted
     {
-        add => _onStarted += value;
-        remove => _onStarted -= value;
+        add => _game.onStarted += value;
+        remove => _game.onStarted -= value;
     }
-
-    private EventHandler<WonEventArgs>? _onWon;
-
+    
     public event EventHandler<WonEventArgs>? OnWon
     {
-        add => _onWon += value;
-        remove => _onWon -= value;
+        add => _core.onWon += value;
+        remove => _core.onWon -= value;
+    }
+    
+    public event EventHandler<NotGuessedEventArgs>? OnNotGuessed
+    {
+        add => _core.onNotGuessed += value;
+        remove => _core.onNotGuessed -= value;
+    }
+    
+    public event EventHandler<GameLostEventArgs>? OnGameLost
+    {
+        add => _game.onLost += value;
+        remove => _game.onLost -= value;
     }
 
-    public const int TRYING_COUNT = 7;
+    public const int TRYING_COUNT = 3;
 
-    private Random _rnd = new();
-    private bool _isStarted;
-
-    private int _computerNumber;
+    private readonly Game _game;
+    private readonly ComputerCore _core;
     
     private int _tryingCount;
-
     public int TryingCount
     {
         get => _tryingCount;
-        protected set => Set(ref _tryingCount, value);
+        set => Set(ref _tryingCount, value);
     }
-
+    
     public Computer()
     {
-        
+        _game = new Game(this);
+        _core = new ComputerCore();
     }
 
     public void Start()
     {
-        _computerNumber = _rnd.Next(1, 100);
-        _isStarted = true;
-        TryingCount = TRYING_COUNT;
-
-        onGameStarted(new StartedEventArgs(_tryingCount));
+        _core.GenerateNewNumber();
+        _game.InitGame();
     }
 
     public void TryNumber(int number)
     {
-        if (_isStarted == false) return;
-        TryingCount++;
-        if (number == _computerNumber)
-        {
-            onGameWon(new WonEventArgs());
-        }
+        _game.CheckFinish();
+        _core.CheckNumber(number);
     }
-
-    private void onGameStarted(StartedEventArgs e) => _onStarted?.Invoke(this, e);
-
-    private void onGameWon(WonEventArgs e) => _onWon?.Invoke(this, e);
-
-    protected int ComputerNumber => _computerNumber;
+    
+    protected int ComputerNumber => _core.ComputerNumber;
 }

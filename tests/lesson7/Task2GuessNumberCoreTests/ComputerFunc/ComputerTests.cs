@@ -1,7 +1,4 @@
-﻿using Task2GuessNumberCore.ComputerFunc.Base;
-using Task2GuessNumberCoreTests.ComputerFunc.Base;
-
-namespace Task2GuessNumberCoreTests.ComputerFunc;
+﻿namespace Task2GuessNumberCoreTests.ComputerFunc;
 
 public class ComputerTests
 {
@@ -28,7 +25,7 @@ public class ComputerTests
     }
 
     [Theory, AutoMoqData]
-    public void TestStart_CheckValues(ComputerFake computer)
+    public void TestStart_WhenCheckValues(ComputerFake computer)
     {
         computer.Start();
 
@@ -38,7 +35,7 @@ public class ComputerTests
     }
 
     [Theory, AutoMoqData]
-    public void TestStart_RaisedEventOnStarted(ComputerFake computer)
+    public void TestStart_ThenRaisedEventOnStarted(ComputerFake computer)
     {
         using var monitor = computer.Monitor();
 
@@ -50,15 +47,47 @@ public class ComputerTests
     }
 
     [Theory, AutoMoqData]
-    public void TestTryNumber_RaisedEventOnWon(ComputerFake computer)
+    public void TestTryNumber_WhenGuess_ThenRaisedEventOnWon(ComputerFake computer)
     {
         computer.Start();
         using var monitor = computer.Monitor();
+        var trying = computer.ComputerNumber;
 
-        computer.TryNumber(computer.ComputerNumber);
+        computer.TryNumber(trying);
 
         monitor.Should()
             .Raise(nameof(computer.OnWon))
             .WithArgs<WonEventArgs>();
+    }
+
+    [Theory]
+    [InlineAutoMoqData(-1, NotGuessedCode.IsLess)]
+    [InlineAutoMoqData(+1, NotGuessedCode.IsGreater)]
+    public void TestTryNumber_WhenNotGuess_ThenRaisedEventOnNotGuessed(int number, NotGuessedCode code, ComputerFake computer)
+    {
+        computer.Start();
+        using var monitor = computer.Monitor();
+        var trying = computer.ComputerNumber + number;
+
+        computer.TryNumber(trying);
+
+        monitor.Should()
+            .Raise(nameof(computer.OnNotGuessed))
+            .WithArgs<NotGuessedEventArgs>(x => x.Code == code);
+    }
+
+    [Theory, AutoMoqData]
+    public void TestTryNumber_When8Try_ThenRaisedEventOnGameLost(ComputerFake computer)
+    {
+        computer.Start();
+        using var monitor = computer.Monitor();
+        var trying = computer.ComputerNumber + 1;
+
+        for (var i = 0; i < 3; i++)
+        {
+            computer.TryNumber(trying);
+        }
+
+        monitor.Should().Raise(nameof(computer.OnGameLost)).WithArgs<GameLostEventArgs>();
     }
 }
