@@ -166,11 +166,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task1DoublerCoreTests", "te
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task1DoublerApp", "src\lesson7\Task1DoublerApp\Task1DoublerApp.csproj", "{A0B84A56-F871-482F-90C2-9DDC3AD78DDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task2GuessNumberApp", "src\lesson7\Task2GuessNumberApp\Task2GuessNumberApp.csproj", "{A8FF1391-B1CC-4BA3-A4B4-45EA3C62F0D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task2GuessNumberApp", "src\lesson7\Task2GuessNumberApp\Task2GuessNumberApp.csproj", "{A8FF1391-B1CC-4BA3-A4B4-45EA3C62F0D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task2GuessNumberCore", "src\lesson7\Task2GuessNumberCore\Task2GuessNumberCore.csproj", "{EDCA4AE8-B265-46BB-AFDD-6CB8439B3EFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task2GuessNumberCore", "src\lesson7\Task2GuessNumberCore\Task2GuessNumberCore.csproj", "{EDCA4AE8-B265-46BB-AFDD-6CB8439B3EFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task2GuessNumberCoreTests", "tests\lesson7\Task2GuessNumberCoreTests\Task2GuessNumberCoreTests.csproj", "{620645D0-0E9C-497A-8F42-2B5541612C8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task2GuessNumberCoreTests", "tests\lesson7\Task2GuessNumberCoreTests\Task2GuessNumberCoreTests.csproj", "{620645D0-0E9C-497A-8F42-2B5541612C8B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lesson8", "lesson8", "{FA74127C-F9E7-4C93-A511-91EF8D37A731}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lesson8", "lesson8", "{6530E13E-DA7D-4DDF-8A26-39114B3C8065}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1DateTimeReflexApp", "src\lesson8\Task1DateTimeReflexApp\Task1DateTimeReflexApp.csproj", "{2E2A3744-D119-43F9-BD34-387A87748CB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1DateTimeReflexCore", "src\lesson8\Task1DateTimeReflexCore\Task1DateTimeReflexCore.csproj", "{6377A689-8ADD-410C-87C1-CF38B32B0310}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1DateTimeReflexCoreTests", "tests\lesson8\Task1DateTimeReflexCoreTests\Task1DateTimeReflexCoreTests.csproj", "{6763EF9E-48E5-46DA-81C2-440B8D200C31}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -442,6 +452,18 @@ Global
 		{620645D0-0E9C-497A-8F42-2B5541612C8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{620645D0-0E9C-497A-8F42-2B5541612C8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{620645D0-0E9C-497A-8F42-2B5541612C8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E2A3744-D119-43F9-BD34-387A87748CB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E2A3744-D119-43F9-BD34-387A87748CB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E2A3744-D119-43F9-BD34-387A87748CB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E2A3744-D119-43F9-BD34-387A87748CB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6377A689-8ADD-410C-87C1-CF38B32B0310}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6377A689-8ADD-410C-87C1-CF38B32B0310}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6377A689-8ADD-410C-87C1-CF38B32B0310}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6377A689-8ADD-410C-87C1-CF38B32B0310}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6763EF9E-48E5-46DA-81C2-440B8D200C31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6763EF9E-48E5-46DA-81C2-440B8D200C31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6763EF9E-48E5-46DA-81C2-440B8D200C31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6763EF9E-48E5-46DA-81C2-440B8D200C31}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -527,6 +549,11 @@ Global
 		{A8FF1391-B1CC-4BA3-A4B4-45EA3C62F0D4} = {E7ED2CE6-3D00-44F9-A59D-9E9DDB873019}
 		{EDCA4AE8-B265-46BB-AFDD-6CB8439B3EFC} = {E7ED2CE6-3D00-44F9-A59D-9E9DDB873019}
 		{620645D0-0E9C-497A-8F42-2B5541612C8B} = {F149144B-4BC4-4D03-93E5-326E53BA6FEC}
+		{FA74127C-F9E7-4C93-A511-91EF8D37A731} = {E8669B74-0882-43F1-940B-DBC1EBF9C525}
+		{6530E13E-DA7D-4DDF-8A26-39114B3C8065} = {7374E4E0-21E3-4718-85B5-36DF767BBA6D}
+		{2E2A3744-D119-43F9-BD34-387A87748CB0} = {FA74127C-F9E7-4C93-A511-91EF8D37A731}
+		{6377A689-8ADD-410C-87C1-CF38B32B0310} = {FA74127C-F9E7-4C93-A511-91EF8D37A731}
+		{6763EF9E-48E5-46DA-81C2-440B8D200C31} = {6530E13E-DA7D-4DDF-8A26-39114B3C8065}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {95B77FF9-D3EB-40B5-B922-436658FC9B93}
