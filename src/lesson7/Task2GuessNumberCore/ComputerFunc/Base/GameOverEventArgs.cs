@@ -1,5 +1,5 @@
 ﻿namespace Task2GuessNumberCore.ComputerFunc.Base;
 
-public class GameLostEventArgs : EventArgs
+public class GameOverEventArgs : EventArgs
 {
 }

@@ -77,17 +77,17 @@ public class ComputerTests
     }
 
     [Theory, AutoMoqData]
-    public void TestTryNumber_When8Try_ThenRaisedEventOnGameLost(ComputerFake computer)
+    public void TestTryNumber_WhenTripleTry_ThenRaisedEventOnGameOver(ComputerFake computer)
     {
         computer.Start();
         using var monitor = computer.Monitor();
         var trying = computer.ComputerNumber + 1;
 
-        for (var i = 0; i < 3; i++)
+        for (var i = 0; i < Computer.TRYING_COUNT; i++)
         {
             computer.TryNumber(trying);
         }
 
-        monitor.Should().Raise(nameof(computer.OnGameLost)).WithArgs<GameLostEventArgs>();
+        monitor.Should().Raise(nameof(computer.OnGameOver)).WithArgs<GameOverEventArgs>();
     }
 }

@@ -3,7 +3,7 @@
 internal class Game
 {
     internal EventHandler<StartedEventArgs>? onStarted;
-    internal EventHandler<GameLostEventArgs>? onLost;
+    internal EventHandler<GameOverEventArgs>? onGameOver;
 
     private readonly IValueingComputer _computer;
     private bool _isStarted;
@@ -26,9 +26,9 @@ internal class Game
         if (--_computer.TryingCount > 0) return;
 
         _isStarted = false;
-        onGameLost(new GameLostEventArgs());
+        onGameLost(new GameOverEventArgs());
     }
 
     private void onGameStarted(StartedEventArgs e) => onStarted?.Invoke(this, e);
-    private void onGameLost(GameLostEventArgs e) => onLost?.Invoke(this, e);
+    private void onGameLost(GameOverEventArgs e) => onGameOver?.Invoke(this, e);
 }

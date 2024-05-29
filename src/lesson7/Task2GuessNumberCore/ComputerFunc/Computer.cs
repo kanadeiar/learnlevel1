@@ -20,18 +20,22 @@ public class Computer : ModelBase, ICommonComputer
         remove => _core.onNotGuessed -= value;
     }
     
-    public event EventHandler<GameLostEventArgs>? OnGameLost
+    public event EventHandler<GameOverEventArgs>? OnGameOver
     {
-        add => _game.onLost += value;
-        remove => _game.onLost -= value;
+        add => _game.onGameOver += value;
+        remove => _game.onGameOver -= value;
     }
 
+    /// <summary>
+    /// Максимально допустимое число попыток угадать число
+    /// </summary>
     public const int TRYING_COUNT = 3;
 
     private readonly Game _game;
     private readonly ComputerCore _core;
     
     private int _tryingCount;
+
     public int TryingCount
     {
         get => _tryingCount;
