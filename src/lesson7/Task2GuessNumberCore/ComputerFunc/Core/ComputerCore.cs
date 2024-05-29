@@ -21,10 +21,10 @@ internal class ComputerCore
         }
         else
         {
-            var code = number < _computerNumber
+            var code = number > _computerNumber
                 ? NotGuessedCode.IsLess
                 : NotGuessedCode.IsGreater;
-            onTryNotGuessed(new NotGuessedEventArgs(code));
+            onTryNotGuessed(new NotGuessedEventArgs(code, number));
         }
     }
 

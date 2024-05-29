@@ -29,14 +29,19 @@ public interface IGameingComputer
     event EventHandler<StartedEventArgs>? OnStarted;
 
     /// <summary>
+    /// Событие при неудачной попытке угадать число
+    /// </summary>
+    event EventHandler<NotGuessedEventArgs>? OnNotGuessed;
+
+    /// <summary>
     /// Событие при выигрыше в игре
     /// </summary>
     event EventHandler<WonEventArgs>? OnWon;
 
     /// <summary>
-    /// Событие при неудачной попытке угадать число
+    /// Событие при проигрыше в игре
     /// </summary>
-    event EventHandler<NotGuessedEventArgs>? OnNotGuessed;
+    event EventHandler<GameOverEventArgs>? OnGameOver;
 
     /// <summary>
     /// Начать игру

@@ -29,7 +29,7 @@ public class Computer : ModelBase, ICommonComputer
     /// <summary>
     /// Максимально допустимое число попыток угадать число
     /// </summary>
-    public const int TRYING_COUNT = 3;
+    public const int TRYING_COUNT = 10;
 
     private readonly Game _game;
     private readonly ComputerCore _core;
@@ -56,8 +56,10 @@ public class Computer : ModelBase, ICommonComputer
 
     public void TryNumber(int number)
     {
-        _game.CheckFinish();
-        _core.CheckNumber(number);
+        if (_game.CheckFinish())
+        {
+            _core.CheckNumber(number);
+        }
     }
     
     protected int ComputerNumber => _core.ComputerNumber;

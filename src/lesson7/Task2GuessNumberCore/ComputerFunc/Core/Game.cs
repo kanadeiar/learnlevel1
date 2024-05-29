@@ -20,13 +20,18 @@ internal class Game
         onGameStarted(new StartedEventArgs(_computer.TryingCount));
     }
 
-    public void CheckFinish()
+    public bool CheckFinish()
     {
-        if (_isStarted == false) return;
-        if (--_computer.TryingCount > 0) return;
+        if (_isStarted == false) return false;
+        _computer.TryingCount--;
+        if (_computer.TryingCount > 0)
+        {
+            return true;
+        }
 
         _isStarted = false;
         onGameLost(new GameOverEventArgs());
+        return false;
     }
 
     private void onGameStarted(StartedEventArgs e) => onStarted?.Invoke(this, e);
