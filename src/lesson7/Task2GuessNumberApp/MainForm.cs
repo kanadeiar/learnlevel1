@@ -28,7 +28,7 @@ public partial class MainForm : Form, IFormObserver
         var count = e.TryingCount;
         setEnabledForButtons(true);
         textBoxNumber.Text = string.Empty;
-        MessageBox.Show($"Компьютер загадал число в диапазоне от 0 до 100. Всего дано {count} попыток.", "Игра начата", 
+        MessageBox.Show($"Компьютер загадал число в диапазоне от 0 до 100. Всего дано {count} попыток.", "Игра начата",
             MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 
@@ -40,21 +40,21 @@ public partial class MainForm : Form, IFormObserver
             NotGuessedCode.IsLess => $"Компьютер загадал число меньше {e.Number}",
             _ => "Неизвестное число",
         };
-        MessageBox.Show("Не удалось угадать число! " + text, "Попытка отгадать число", 
+        MessageBox.Show("Не удалось угадать число! " + text, "Попытка отгадать число",
             MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 
     private void ComputerOnOnWon(object? sender, WonEventArgs e)
     {
         setEnabledForButtons(false);
-        MessageBox.Show("Поздравления! Вам удалось угадать число.", "Игра выиграна", 
+        MessageBox.Show("Поздравления! Вам удалось угадать число.", "Игра выиграна",
             MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 
     private void ComputerOnOnGameOver(object? sender, GameOverEventArgs e)
     {
         setEnabledForButtons(false);
-        MessageBox.Show("К сожалению вам не удалось угадать число.", "Игра проиграна", 
+        MessageBox.Show("К сожалению вам не удалось угадать число.", "Игра проиграна",
             MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 
@@ -67,7 +67,7 @@ public partial class MainForm : Form, IFormObserver
     {
         if (observed is IValueingComputer valueing)
         {
-            labelTryingCount.Text = valueing.TryingCount > 0 
+            labelTryingCount.Text = valueing.TryingCount > 0
                 ? "Осталось попыток: " + valueing.TryingCount
                 : "Игра не начата.";
         }
@@ -88,5 +88,15 @@ public partial class MainForm : Form, IFormObserver
 
         MessageBox.Show("Не удалось прочитать число из текстового поля.", "Попытка отгадать число",
             MessageBoxButtons.OK, MessageBoxIcon.Error);
+    }
+
+    private void buttonFormTry_Click(object sender, EventArgs e)
+    {
+        using var form = new TryInputForm();
+        if (form.ShowDialog() == DialogResult.OK)
+        {
+            var number = form.TryNumber;
+            _computer.TryNumber(number);
+        }
     }
 }

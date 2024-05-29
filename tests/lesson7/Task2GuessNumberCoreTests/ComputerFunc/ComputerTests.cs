@@ -61,8 +61,8 @@ public class ComputerTests
     }
 
     [Theory]
-    [InlineAutoMoqData(-1, NotGuessedCode.IsLess)]
-    [InlineAutoMoqData(+1, NotGuessedCode.IsGreater)]
+    [InlineAutoMoqData(-1, NotGuessedCode.IsGreater)]
+    [InlineAutoMoqData(+1, NotGuessedCode.IsLess)]
     public void TestTryNumber_WhenNotGuess_ThenRaisedEventOnNotGuessed(int number, NotGuessedCode code, ComputerFake computer)
     {
         computer.Start();

@@ -39,6 +39,7 @@
             textBoxNumber = new TextBox();
             label2 = new Label();
             labelTryingCount = new Label();
+            buttonFormTry = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
             groupBoxTrying.SuspendLayout();
@@ -61,7 +62,7 @@
             // 
             pictureBox1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             pictureBox1.Image = Properties.Resources.Гусь;
-            pictureBox1.Location = new Point(269, 128);
+            pictureBox1.Location = new Point(269, 127);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(380, 320);
             pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -94,12 +95,13 @@
             // groupBoxTrying
             // 
             groupBoxTrying.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            groupBoxTrying.Controls.Add(buttonFormTry);
             groupBoxTrying.Controls.Add(buttonTry);
             groupBoxTrying.Controls.Add(textBoxNumber);
             groupBoxTrying.Controls.Add(label2);
             groupBoxTrying.Location = new Point(12, 105);
             groupBoxTrying.Name = "groupBoxTrying";
-            groupBoxTrying.Size = new Size(244, 343);
+            groupBoxTrying.Size = new Size(244, 342);
             groupBoxTrying.TabIndex = 4;
             groupBoxTrying.TabStop = false;
             groupBoxTrying.Text = "Угадывание числа";
@@ -141,11 +143,21 @@
             labelTryingCount.TabIndex = 5;
             labelTryingCount.Text = "Игра не начата";
             // 
+            // buttonFormTry
+            // 
+            buttonFormTry.Location = new Point(6, 197);
+            buttonFormTry.Name = "buttonFormTry";
+            buttonFormTry.Size = new Size(232, 111);
+            buttonFormTry.TabIndex = 3;
+            buttonFormTry.Text = "Попробовать отгадать в отдельном окне";
+            buttonFormTry.UseVisualStyleBackColor = true;
+            buttonFormTry.Click += buttonFormTry_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(661, 460);
+            ClientSize = new Size(661, 459);
             Controls.Add(labelTryingCount);
             Controls.Add(groupBoxTrying);
             Controls.Add(pictureBox1);
@@ -177,5 +189,6 @@
         private Button buttonTry;
         private TextBox textBoxNumber;
         private Label labelTryingCount;
+        private Button buttonFormTry;
     }
 }
