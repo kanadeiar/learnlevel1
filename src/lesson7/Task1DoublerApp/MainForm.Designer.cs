@@ -44,7 +44,9 @@
             label4 = new Label();
             labelWinNumber = new Label();
             buttonUndo = new Button();
+            pictureBox1 = new PictureBox();
             menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -52,18 +54,18 @@
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.BackColor = Color.LightGreen;
             label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label1.Location = new Point(12, 24);
+            label1.Location = new Point(12, 37);
             label1.Name = "label1";
-            label1.Size = new Size(497, 55);
+            label1.Size = new Size(557, 55);
             label1.TabIndex = 0;
-            label1.Text = "Задача 1. Программа удвоитель.";
+            label1.Text = "Задача 1. Игра \"Удвоитель\".";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // labelNumber
             // 
             labelNumber.BackColor = Color.Lime;
             labelNumber.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            labelNumber.Location = new Point(12, 118);
+            labelNumber.Location = new Point(12, 136);
             labelNumber.Name = "labelNumber";
             labelNumber.Size = new Size(171, 34);
             labelNumber.TabIndex = 1;
@@ -72,9 +74,10 @@
             // 
             // buttonPlus
             // 
+            buttonPlus.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             buttonPlus.Cursor = Cursors.Hand;
             buttonPlus.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            buttonPlus.Location = new Point(343, 98);
+            buttonPlus.Location = new Point(404, 109);
             buttonPlus.Name = "buttonPlus";
             buttonPlus.Size = new Size(165, 35);
             buttonPlus.TabIndex = 2;
@@ -84,9 +87,10 @@
             // 
             // buttonDouble
             // 
+            buttonDouble.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             buttonDouble.Cursor = Cursors.Hand;
             buttonDouble.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            buttonDouble.Location = new Point(343, 139);
+            buttonDouble.Location = new Point(404, 150);
             buttonDouble.Name = "buttonDouble";
             buttonDouble.Size = new Size(165, 35);
             buttonDouble.TabIndex = 2;
@@ -96,9 +100,10 @@
             // 
             // buttonReset
             // 
+            buttonReset.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             buttonReset.Cursor = Cursors.Hand;
             buttonReset.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            buttonReset.Location = new Point(343, 180);
+            buttonReset.Location = new Point(404, 191);
             buttonReset.Name = "buttonReset";
             buttonReset.Size = new Size(165, 35);
             buttonReset.TabIndex = 2;
@@ -108,7 +113,7 @@
             // 
             // label2
             // 
-            label2.Location = new Point(12, 98);
+            label2.Location = new Point(12, 116);
             label2.Name = "label2";
             label2.Size = new Size(171, 20);
             label2.TabIndex = 3;
@@ -117,7 +122,7 @@
             // 
             // label3
             // 
-            label3.Location = new Point(12, 164);
+            label3.Location = new Point(12, 182);
             label3.Name = "label3";
             label3.Size = new Size(171, 20);
             label3.TabIndex = 4;
@@ -128,7 +133,7 @@
             // 
             labelCount.BackColor = Color.Cyan;
             labelCount.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            labelCount.Location = new Point(12, 184);
+            labelCount.Location = new Point(12, 202);
             labelCount.Name = "labelCount";
             labelCount.Size = new Size(171, 34);
             labelCount.TabIndex = 5;
@@ -140,7 +145,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { играToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(521, 24);
+            menuStrip1.Size = new Size(581, 24);
             menuStrip1.TabIndex = 6;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -160,14 +165,16 @@
             // 
             // panel1
             // 
-            panel1.Location = new Point(12, 235);
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.Location = new Point(12, 259);
             panel1.Name = "panel1";
-            panel1.Size = new Size(496, 4);
+            panel1.Size = new Size(558, 15);
             panel1.TabIndex = 7;
             // 
             // label4
             // 
-            label4.Location = new Point(12, 253);
+            label4.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            label4.Location = new Point(12, 282);
             label4.Name = "label4";
             label4.Size = new Size(171, 20);
             label4.TabIndex = 4;
@@ -176,9 +183,10 @@
             // 
             // labelWinNumber
             // 
+            labelWinNumber.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             labelWinNumber.BackColor = Color.Gold;
             labelWinNumber.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            labelWinNumber.Location = new Point(12, 273);
+            labelWinNumber.Location = new Point(12, 301);
             labelWinNumber.Name = "labelWinNumber";
             labelWinNumber.Size = new Size(171, 34);
             labelWinNumber.TabIndex = 8;
@@ -187,9 +195,10 @@
             // 
             // buttonUndo
             // 
+            buttonUndo.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             buttonUndo.Cursor = Cursors.Hand;
             buttonUndo.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            buttonUndo.Location = new Point(343, 272);
+            buttonUndo.Location = new Point(405, 301);
             buttonUndo.Name = "buttonUndo";
             buttonUndo.Size = new Size(165, 35);
             buttonUndo.TabIndex = 9;
@@ -197,11 +206,22 @@
             buttonUndo.UseVisualStyleBackColor = true;
             buttonUndo.Click += buttonUndo_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.КУр2;
+            pictureBox1.Location = new Point(189, 95);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(208, 158);
+            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox1.TabIndex = 10;
+            pictureBox1.TabStop = false;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(521, 326);
+            ClientSize = new Size(581, 344);
+            Controls.Add(pictureBox1);
             Controls.Add(buttonUndo);
             Controls.Add(labelWinNumber);
             Controls.Add(panel1);
@@ -219,9 +239,10 @@
             MainMenuStrip = menuStrip1;
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Geekbrains. C# Уровень 1.";
+            Text = "Geekbrains. C# Уровень 1 Лекция 7.";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -243,5 +264,6 @@
         private Label label4;
         private Label labelWinNumber;
         private Button buttonUndo;
+        private PictureBox pictureBox1;
     }
 }

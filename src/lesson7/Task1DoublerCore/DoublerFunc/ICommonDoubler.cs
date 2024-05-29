@@ -1,28 +1,76 @@
 ﻿namespace Task1DoublerCore.DoublerFunc;
 
-public interface ICommonDoubler : IValueingDoubler, IControllingDoubler, IGameingDoubler
+/// <summary>
+/// Общий удвоитель
+/// </summary>
+public interface ICommonDoubler : IValueingDoubler, IControllingDoubler, IGameingDoubler, IFormObservable
 {
 }
 
-public interface IValueingDoubler : IFormObservable
+/// <summary>
+/// Удвоитель, содержащий значения
+/// </summary>
+public interface IValueingDoubler
 {
+    /// <summary>
+    /// Текущее число
+    /// </summary>
     int Number { get; set; }
+
+    /// <summary>
+    /// Количество действий
+    /// </summary>
     int Count { get; set; }
+
+    /// <summary>
+    /// Загаданное число
+    /// </summary>
     int WinNumber { get; set; }
 }
 
+/// <summary>
+/// Управляемый удвоитель
+/// </summary>
 public interface IControllingDoubler
 {
+    /// <summary>
+    /// Увеличение числа на еденицу
+    /// </summary>
     void Increment();
+
+    /// <summary>
+    /// Перемножить число на два
+    /// </summary>
     void Double();
+
+    /// <summary>
+    /// Сбросить число на нуль
+    /// </summary>
     void Reset();
+
+    /// <summary>
+    /// Отменить последнее действие
+    /// </summary>
     void Undo();
 }
 
+/// <summary>
+/// Игровой удвоитель
+/// </summary>
 public interface IGameingDoubler
 {
+    /// <summary>
+    /// Игра начата
+    /// </summary>
     event EventHandler<StartedEventArgs>? OnStarted;
-    event EventHandler<WinEventArgs>? OnWin;
+
+    /// <summary>
+    /// Игра выиграна
+    /// </summary>
+    event EventHandler<WonEventArgs>? OnWon;
     
+    /// <summary>
+    /// Начать игру
+    /// </summary>
     void Start();
 }

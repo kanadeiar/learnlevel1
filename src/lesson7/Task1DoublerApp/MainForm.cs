@@ -10,11 +10,10 @@ public partial class MainForm : Form, IFormObserver
 
         _doubler = new Doubler();
         _doubler.AddObserver(this);
+        _doubler.OnStarted += gameingOnStarted;
+        _doubler.OnWon += gameingOnOnWon;
+        
         Update(_doubler, null);
-
-        _doubler.OnStarted += GameingOnStarted;
-        _doubler.OnWin += GameingOnOnWin;
-
         setEnabledForButtons(false);
     }
 
@@ -28,13 +27,13 @@ public partial class MainForm : Form, IFormObserver
         }
     }
 
-    private void GameingOnStarted(object? sender, StartedEventArgs e)
+    private void gameingOnStarted(object? sender, StartedEventArgs e)
     {
         setEnabledForButtons(true);
         MessageBox.Show($"Нужно получить число {_doubler.WinNumber}", "Игра запущена", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 
-    private void GameingOnOnWin(object? sender, WinEventArgs e)
+    private void gameingOnOnWon(object? sender, WonEventArgs e)
     {
         setEnabledForButtons(false);
         MessageBox.Show($"Вы победили в этой игре за {_doubler.Count} команд!", "Поздравления", MessageBoxButtons.OK, MessageBoxIcon.Information);

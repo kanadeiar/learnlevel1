@@ -1,32 +1,32 @@
-﻿namespace Task1DoublerCore.DoublerFunc.Base;
+﻿namespace Task1DoublerCore.DoublerFunc.Core;
 
 internal class Game(IValueingDoubler doubler)
 {
     internal EventHandler<StartedEventArgs>? onStarted;
-    internal EventHandler<WinEventArgs>? onWin;
+    internal EventHandler<WonEventArgs>? onWon;
 
     private Random _rnd = new();
-    private bool _started;
+    private bool _isStarted;
 
     internal void startGame()
     {
         doubler.WinNumber = _rnd.Next(10, 100);
-        _started = true;
+        _isStarted = true;
 
         onGameStarted(new StartedEventArgs(doubler.WinNumber));
     }
 
     internal void checkWinGame(bool isNumbersEqualWin)
     {
-        var isWinInGame = _started && isNumbersEqualWin;
+        var isWinInGame = _isStarted && isNumbersEqualWin;
         if (isWinInGame)
         {
-            _started = false;
-            onGameWin(new WinEventArgs());
+            _isStarted = false;
+            onGameWon(new WonEventArgs());
         }
     }
 
     private void onGameStarted(StartedEventArgs e) => onStarted?.Invoke(this, e);
 
-    private void onGameWin(WinEventArgs e) => onWin?.Invoke(this, e);
+    private void onGameWon(WonEventArgs e) => onWon?.Invoke(this, e);
 }

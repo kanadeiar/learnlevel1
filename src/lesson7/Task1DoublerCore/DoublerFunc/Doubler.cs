@@ -8,17 +8,16 @@ public class Doubler : ModelBase, ICommonDoubler
         remove => _game.onStarted -= value;
     }
 
-    public event EventHandler<WinEventArgs>? OnWin
+    public event EventHandler<WonEventArgs>? OnWon
     {
-        add => _game.onWin += value;
-        remove => _game.onWin -= value;
+        add => _game.onWon += value;
+        remove => _game.onWon -= value;
     }
 
     private readonly DoublerCore _core;
     private readonly Game _game;
 
     private int _number;
-
     public int Number
     {
         get => _number;
@@ -26,7 +25,6 @@ public class Doubler : ModelBase, ICommonDoubler
     }
 
     private int _count;
-
     public int Count
     {
         get => _count;
@@ -34,7 +32,6 @@ public class Doubler : ModelBase, ICommonDoubler
     }
 
     private int _winNumber;
-
     public int WinNumber
     {
         get => _winNumber;
