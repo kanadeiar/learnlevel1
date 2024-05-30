@@ -1,10 +1,27 @@
-namespace Task1DateTimeReflexApp
+using Task1DateTimeReflexCore.ReflectionFunc;
+using Kanadeiar.Desktop.Forms;
+
+namespace Task1DateTimeReflexApp;
+
+public partial class MainForm : Form, IFormObserver
 {
-    public partial class MainForm : Form
+    private Reflection _reflection;
+
+    public MainForm()
     {
-        public MainForm()
+        InitializeComponent();
+
+        _reflection = new Reflection();
+        _reflection.AddObserver(this);
+
+        _reflection.ExecuteFor(typeof(DateTime));
+    }
+
+    public void Update(IFormObservable observed, object? arg)
+    {
+        if (observed is ITextingReflection testing)
         {
-            InitializeComponent();
+            textBoxResult.Text = testing.ReflectionResult;
         }
     }
 }

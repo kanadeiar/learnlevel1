@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             label1 = new Label();
+            textBoxResult = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -39,25 +40,38 @@
             label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             label1.Location = new Point(12, 9);
             label1.Name = "label1";
-            label1.Size = new Size(815, 55);
+            label1.Size = new Size(794, 55);
             label1.TabIndex = 1;
             label1.Text = "Задача 1. Рефлексия типа DateTime.";
             label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // textBoxResult
+            // 
+            textBoxResult.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxResult.Location = new Point(12, 76);
+            textBoxResult.Multiline = true;
+            textBoxResult.Name = "textBoxResult";
+            textBoxResult.ScrollBars = ScrollBars.Vertical;
+            textBoxResult.Size = new Size(794, 361);
+            textBoxResult.TabIndex = 2;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(839, 456);
+            ClientSize = new Size(818, 449);
+            Controls.Add(textBoxResult);
             Controls.Add(label1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainForm";
             Text = "Geekbrains. C# Уровень 1 Лекция 8.";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Label label1;
+        private TextBox textBoxResult;
     }
 }

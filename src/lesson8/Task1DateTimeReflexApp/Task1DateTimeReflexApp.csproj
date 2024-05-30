@@ -17,4 +17,8 @@
     <Content Include="Icons8-Windows-8-Healthcare-Brain.ico" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Task1DateTimeReflexCore\Task1DateTimeReflexCore.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -16,6 +16,7 @@ public class ReflectionTests
     }
 
     [Theory]
+    [InlineAutoMoqData("DateTime")]
     [InlineAutoMoqData("Int32 Hour")]
     [InlineAutoMoqData("Int32 Day")]
     [InlineAutoMoqData("Int32 Minute")]

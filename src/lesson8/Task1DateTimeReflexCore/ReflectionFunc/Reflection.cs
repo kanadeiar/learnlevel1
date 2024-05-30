@@ -14,6 +14,8 @@ public class Reflection : ModelBase, ICommonReflection
     public void ExecuteFor(Type type)
     {
         var builder = new StringBuilder();
+        builder.AppendLine($"Рефлексия типа {type.ToString()}");
+        builder.AppendLine();
 
         builder.AppendLine("Открытые поля:");
         foreach (var item in type.GetFields())
