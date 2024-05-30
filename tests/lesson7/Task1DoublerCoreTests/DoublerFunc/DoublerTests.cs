@@ -1,6 +1,3 @@
-using Kanadeiar.Desktop.Forms;
-using Moq;
-
 namespace Task1DoublerCoreTests.DoublerFunc;
 
 public class DoublerTests
