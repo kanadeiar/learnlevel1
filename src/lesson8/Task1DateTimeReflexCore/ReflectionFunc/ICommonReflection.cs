@@ -12,5 +12,13 @@ public interface ICommonReflection : ITextingReflection, IFormObservable
 /// </summary>
 public interface ITextingReflection
 {
+    /// <summary>
+    /// Результат рефлексии в виде текста
+    /// </summary>
     string ReflectionResult { get; set; }
+
+    /// <summary>
+    /// Произвести рефлексию и выдать результат
+    /// </summary>
+    void ExecuteFor(Type type);
 }

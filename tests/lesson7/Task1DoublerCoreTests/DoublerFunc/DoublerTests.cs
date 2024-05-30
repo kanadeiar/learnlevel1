@@ -136,4 +136,14 @@ public class DoublerTests
         valueing.Number.Should().Be(expected);
         valueing.Count.Should().Be(1);
     }
+
+    [Theory, AutoMoqData]
+    public void TestUndo_WhenCountZero(Doubler doubler)
+    {
+        IControllingDoubler controlling = doubler;
+        IGameingDoubler gameing = doubler;
+        gameing.Start();
+
+        controlling.Undo();
+    }
 }
