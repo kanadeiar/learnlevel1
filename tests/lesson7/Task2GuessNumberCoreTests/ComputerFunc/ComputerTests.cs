@@ -73,7 +73,7 @@ public class ComputerTests
 
         monitor.Should()
             .Raise(nameof(computer.OnNotGuessed))
-            .WithArgs<NotGuessedEventArgs>(x => x.Code == code);
+            .WithArgs<NotGuessedEventArgs>(x => x.Code == code && x.Number == trying);
     }
 
     [Theory, AutoMoqData]
