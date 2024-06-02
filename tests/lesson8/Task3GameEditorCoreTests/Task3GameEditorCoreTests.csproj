@@ -34,10 +34,6 @@
 		</Compile>
 	</ItemGroup>
 
-	<ItemGroup>
-	  <ProjectReference Include="..\..\..\src\lesson8\Task1DateTimeReflexCore\Task1DateTimeReflexCore.csproj" />
-	</ItemGroup>
-
   <ItemGroup>
     <Using Include="Xunit" />
   </ItemGroup>
