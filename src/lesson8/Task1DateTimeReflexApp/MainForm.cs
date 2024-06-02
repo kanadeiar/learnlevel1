@@ -14,8 +14,10 @@ public partial class MainForm : Form, IFormObserver
         _reflection = new Reflection();
         _reflection.AddObserver(this);
 
-        _reflection.ExecuteFor(typeof(DateTime));
+        reflex();
     }
+
+    private void reflex() => _reflection.ExecuteFor(typeof(DateTime));
 
     public void Update(IFormObservable observed, object? arg)
     {
