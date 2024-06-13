@@ -2,7 +2,7 @@
 
 public class TrueFalse
 {
-    private List<Question> _questions = new List<Question>();
+    private List<Question> _questions = new();
 
     private string _fileName;
     public string FileName

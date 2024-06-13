@@ -78,31 +78,33 @@
             // menuItemNew
             // 
             menuItemNew.Name = "menuItemNew";
-            menuItemNew.Size = new Size(180, 22);
+            menuItemNew.Size = new Size(133, 22);
             menuItemNew.Text = "Новый";
             menuItemNew.Click += menuItemNew_Click;
             // 
             // menuItemOpen
             // 
             menuItemOpen.Name = "menuItemOpen";
-            menuItemOpen.Size = new Size(180, 22);
+            menuItemOpen.Size = new Size(133, 22);
             menuItemOpen.Text = "Открыть";
+            menuItemOpen.Click += menuItemOpen_Click;
             // 
             // menuItemSave
             // 
             menuItemSave.Name = "menuItemSave";
-            menuItemSave.Size = new Size(180, 22);
+            menuItemSave.Size = new Size(133, 22);
             menuItemSave.Text = "Сохранить";
+            menuItemSave.Click += menuItemSave_Click;
             // 
             // menuItemDivider
             // 
             menuItemDivider.Name = "menuItemDivider";
-            menuItemDivider.Size = new Size(177, 6);
+            menuItemDivider.Size = new Size(130, 6);
             // 
             // menuItemClose
             // 
             menuItemClose.Name = "menuItemClose";
-            menuItemClose.Size = new Size(180, 22);
+            menuItemClose.Size = new Size(133, 22);
             menuItemClose.Text = "Закрыть";
             menuItemClose.Click += menuItemClose_Click;
             // 
@@ -113,7 +115,7 @@
             textBoxQuestion.Multiline = true;
             textBoxQuestion.Name = "textBoxQuestion";
             textBoxQuestion.ScrollBars = ScrollBars.Vertical;
-            textBoxQuestion.Size = new Size(754, 295);
+            textBoxQuestion.Size = new Size(754, 297);
             textBoxQuestion.TabIndex = 4;
             // 
             // buttonAdd
@@ -125,6 +127,7 @@
             buttonAdd.TabIndex = 5;
             buttonAdd.Text = "Добавить";
             buttonAdd.UseVisualStyleBackColor = true;
+            buttonAdd.Click += buttonAdd_Click;
             // 
             // buttonDelete
             // 
@@ -135,6 +138,7 @@
             buttonDelete.TabIndex = 6;
             buttonDelete.Text = "Удалить";
             buttonDelete.UseVisualStyleBackColor = true;
+            buttonDelete.Click += buttonDelete_Click;
             // 
             // buttonSave
             // 
@@ -145,6 +149,7 @@
             buttonSave.TabIndex = 7;
             buttonSave.Text = "Сохранить";
             buttonSave.UseVisualStyleBackColor = true;
+            buttonSave.Click += buttonSave_Click;
             // 
             // numericUpDownNumber
             // 
@@ -153,6 +158,8 @@
             numericUpDownNumber.Name = "numericUpDownNumber";
             numericUpDownNumber.Size = new Size(98, 23);
             numericUpDownNumber.TabIndex = 8;
+            numericUpDownNumber.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            numericUpDownNumber.ValueChanged += numericUpDownNumber_ValueChanged;
             // 
             // checkBoxIsTrue
             // 
