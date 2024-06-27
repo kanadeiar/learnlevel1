@@ -4,7 +4,8 @@ namespace Task3GameEditorCore.BelieveOrNotBelieveFunc;
 
 public class TrueFalse
 {
-    protected List<Question> Questions = new();
+    private QuestionsData _questions = new(null);
+    protected IEnumerable<Question> Questions => _questions;
 
     protected IXmlSerializer XmlSerializer = new XmlSerializerAdapter(typeof(List<Question>));
     protected IFileStream? WriteFileStream;
@@ -23,34 +24,26 @@ public class TrueFalse
         _fileName = fileName;
     }
 
-    public void Add(string text, bool isTrue)
-    {
-        Questions.Add(new Question(text, isTrue));
-    }
+    public void Add(string text, bool isTrue) => _questions.AddQuestion(text, isTrue);
 
-    public void Remove(int index)
-    {
-        if (index < Questions.Count && index >= 0)
-        {
-            Questions.RemoveAt(index);
-        }
-    }
+    public void Remove(int index) => _questions.RemoveQuestionAt(index);
 
-    public Question this[int index] => Questions[index];
+    public Question this[int index] => _questions[index];
 
-    public int Count => Questions.Count;
+    public int Count => _questions.Count;
 
     public void Save()
     {
         using var stream = WriteFileStream ??= 
             new FileStreamAdapter(new FileStream(FileName, FileMode.Create, FileAccess.Write));
-        XmlSerializer.Serialize(stream, Questions);
+        XmlSerializer.Serialize(stream, _questions.ToList());
     }
 
     public void Load()
     {
         using var stream = ReadFileStream ??= 
             new FileStreamAdapter(new FileStream(FileName, FileMode.Open, FileAccess.Read));
-        Questions = (List<Question>)XmlSerializer.Deserialize(stream)!;
+        var questions = (List<Question>)XmlSerializer.Deserialize(stream)!;
+        _questions = new QuestionsData(questions);
     }
 }

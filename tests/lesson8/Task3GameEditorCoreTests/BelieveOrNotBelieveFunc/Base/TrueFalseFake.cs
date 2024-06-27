@@ -5,7 +5,7 @@ namespace Task3GameEditorCoreTests.BelieveOrNotBelieveFunc.Base;
 
 public class TrueFalseFake : TrueFalse
 {
-    public new List<Question> Questions => base.Questions;
+    public new IEnumerable<Question> Questions => base.Questions;
 
     public TrueFalseFake(string fileName, IXmlSerializer? xmlSerializer = null, IFileStream? writeFileStream = null, IFileStream? readFileStream = null) : base(fileName)
     {
