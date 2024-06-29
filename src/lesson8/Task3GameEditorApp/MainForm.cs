@@ -11,79 +11,137 @@ namespace Task3GameEditorApp
 
         private void numericUpDownNumber_ValueChanged(object sender, EventArgs e)
         {
+            if (checkData() || _data.Count == 0) return;
+
             textBoxQuestion.Text = _data[(int)numericUpDownNumber.Value - 1].Text;
             checkBoxIsTrue.Checked = _data[(int)numericUpDownNumber.Value - 1].IsTrue;
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            if (_data is null)
-            {
-                MessageBox.Show("Создайте базу данных!", "Сообщение");
-                return;
-            }
-            _data.Add((_data.Count + 1).ToString(), true);
+            if (checkData()) return;
+
+            _data.Add(string.Empty, true);
             numericUpDownNumber.Maximum = _data.Count;
             numericUpDownNumber.Value = _data.Count;
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            if (numericUpDownNumber.Maximum == 1 || _data == null)
+            if (checkData()) return;
+            if (_data.Count <= 1)
             {
+                MessageBox.Show("Нельзя удалить последний элемент в списке.", "Ошибка");
                 return;
             }
+
             _data.Remove((int)numericUpDownNumber.Value);
             numericUpDownNumber.Maximum--;
-            if (numericUpDownNumber.Value > 1)
-            {
-                numericUpDownNumber.Value--;
-            }
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            _data[(int)numericUpDownNumber.Value - 1].Text = textBoxQuestion.Text;
-            _data[(int)numericUpDownNumber.Value - 1].IsTrue = checkBoxIsTrue.Checked;
+            if (checkData()) return;
+
+            readValuesFromForm();
         }
 
         private void menuItemNew_Click(object sender, EventArgs e)
         {
-            using var dialog = new SaveFileDialog();
+            using var dialog = new SaveFileDialog
+            {
+                InitialDirectory = Application.StartupPath,
+                Filter = "Файлы XML (*.xml)|*.xml|Все файлы (*.*)|*.*"
+            };
             if (dialog.ShowDialog() == DialogResult.OK)
             {
+                if (!dialog.FileName.EndsWith(".xml"))
+                    dialog.FileName += ".xml";
                 _data = new TrueFalse(dialog.FileName);
-                _data.Add("123", true);
-                _data.Save();
+                _data.Add("Вопрос", false);
+                try
+                {
+                    _data.Save();
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show($"Ошибка создания нового файла.\n{exception.Message}");
+                    return;
+                }
                 numericUpDownNumber.Minimum = 1;
                 numericUpDownNumber.Maximum = 1;
                 numericUpDownNumber.Value = 1;
+                writeValuesToForm();
             }
         }
 
         private void menuItemOpen_Click(object sender, EventArgs e)
         {
-            using var ofd = new OpenFileDialog();
-            if (ofd.ShowDialog() == DialogResult.OK)
+            using var dialog = new OpenFileDialog
             {
-                _data = new TrueFalse(ofd.FileName);
-                _data.Load();
+                InitialDirectory = Application.StartupPath,
+                Filter = "Файлы XML (*.xml)|*.xml|Все файлы (*.*)|*.*"
+            };
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                _data = new TrueFalse(dialog.FileName);
+                try
+                {
+                    _data.Load();
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show($"Ошибка открытия файла.\n{exception.Message}");
+                    return;
+                }
                 numericUpDownNumber.Minimum = 1;
                 numericUpDownNumber.Maximum = _data.Count;
                 numericUpDownNumber.Value = 1;
+                writeValuesToForm();
             }
+        }
+
+        private void writeValuesToForm()
+        {
+            textBoxQuestion.Text = _data[(int)numericUpDownNumber.Value - 1].Text;
+            checkBoxIsTrue.Checked = _data[(int)numericUpDownNumber.Value - 1].IsTrue;
         }
 
         private void menuItemSave_Click(object sender, EventArgs e)
         {
-            if (_data != null)
+            if (checkData()) return;
+            if (_data.Count == 0)
+            {
+                MessageBox.Show("Пустой список вопросов.", "Ошибка");
+                return;
+            }
+
+            readValuesFromForm();
+            try
             {
                 _data.Save();
             }
-            else
+            catch (Exception exception)
             {
-                MessageBox.Show("База данных не создана");
+                MessageBox.Show($"Ошибка сохранения в файл.\n{exception.Message}");
             }
+        }
+
+        private bool checkData()
+        {
+            if (_data is null)
+            {
+                MessageBox.Show("Пустой список вопросов. Создайте новый или откройте сохраненный список.", "Ошибка");
+                return true;
+            }
+
+            return false;
+        }
+
+        private void readValuesFromForm()
+        {
+            _data[(int)numericUpDownNumber.Value - 1].Text = textBoxQuestion.Text;
+            _data[(int)numericUpDownNumber.Value - 1].IsTrue = checkBoxIsTrue.Checked;
         }
 
         private void menuItemClose_Click(object sender, EventArgs e) => Close();
