@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 
-namespace Task3GameEditorCore.BelieveOrNotBelieveFunc;
+namespace Task3GameEditorCore.BelieveOrNotBelieveFunc.Base;
 
 public class QuestionsData : IEnumerable<Question>
 {
@@ -25,8 +25,6 @@ public class QuestionsData : IEnumerable<Question>
     }
 
     public Question this[int index] => _questions[index];
-
-    public int Count => _questions.Count;
 
     public IEnumerator<Question> GetEnumerator()
     {

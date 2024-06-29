@@ -3,7 +3,8 @@ using FluentAssertions;
 using Kanadeiar.Tests;
 using Moq;
 using Task3GameEditorCore.BelieveOrNotBelieveFunc;
-using Task3GameEditorCore.BelieveOrNotBelieveFunc.Adapters;
+using Task3GameEditorCore.BelieveOrNotBelieveFunc.Abstractions;
+using Task3GameEditorCore.BelieveOrNotBelieveFunc.Base;
 using Task3GameEditorCoreTests.BelieveOrNotBelieveFunc.Base;
 
 namespace Task3GameEditorCoreTests.BelieveOrNotBelieveFunc;
@@ -13,25 +14,27 @@ public class TrueFalseTests
     [Theory, AutoData]
     public void TestFileName(string expected)
     {
-        var target = new TrueFalse(expected);
+        ITrueFalse target = new TrueFalseFake(expected);
 
-        target.FileName.Should().Be(expected);
+        var fake = (TrueFalseFake)target;
+        fake.FileName.Should().Be(expected);
     }
 
     [Theory, AutoData]
     public void TestFileName_WhenSet(string expected)
     {
-        var target = new TrueFalse(string.Empty);
-        target.FileName = expected;
+        ITrueFalse target = new TrueFalseFake(string.Empty);
+        var fake = (TrueFalseFake)target;
+        fake.FileName = expected;
 
-        target.FileName.Should().Be(expected);
+        fake.FileName.Should().Be(expected);
     }
 
     [Theory]
     [AutoData]
     public void TestAdd(Question[] expected, string fileName)
     {
-        var target = new TrueFalse(fileName);
+        ITrueFalse target = new TrueFalse(fileName);
 
         Array.ForEach(expected, q => target.Add(q.Text, q.IsTrue));
 
@@ -44,7 +47,7 @@ public class TrueFalseTests
     [AutoData]
     public void TestRemove(Question[] expected, string fileName)
     {
-        var target = new TrueFalse(fileName);
+        ITrueFalse target = new TrueFalse(fileName);
         Array.ForEach(expected, q => target.Add(q.Text, q.IsTrue));
 
         target.Remove(0);
@@ -57,7 +60,7 @@ public class TrueFalseTests
     [AutoData]
     public void TestRemove_WhenIncorrect(Question[] expected, string fileName)
     {
-        var target = new TrueFalse(fileName);
+        ITrueFalse target = new TrueFalse(fileName);
         Array.ForEach(expected, q => target.Add(q.Text, q.IsTrue));
 
         target.Remove(-1);
@@ -69,29 +72,28 @@ public class TrueFalseTests
     [Theory]
     [InlineAutoMoqData("test", true)]
     [InlineAutoMoqData("Вопрос", true)]
-    public void TestSave(string text, bool isTrue, [Frozen]Mock<IXmlSerializer> serMock, string fileName)
+    public void TestSave(string text, bool isTrue, [Frozen] Mock<IXmlFileSerializer<List<Question>>> serMock, string fileName)
     {
-        var streamMock = new Mock<IFileStream>();
-        var target = new TrueFalseFake(fileName, serMock.Object, streamMock.Object);
+        ITrueFalse target = new TrueFalseFake(fileName, serMock.Object);
         target.Add(text, isTrue);
 
         target.Save();
 
-        serMock.Verify(x => x.Serialize(streamMock.Object, target.Questions), Times.Once);
+        var fake = (TrueFalseFake)target;
+        serMock.Verify(x => x.SerializeAndSave(fake.Questions.ToList(), fileName), Times.Once);
     }
 
     [Theory]
     [InlineAutoMoqData("test", true)]
     [InlineAutoMoqData("Вопрос", true)]
-    public void TestLoad(string text, bool isTrue, [Frozen] Mock<IXmlSerializer> serMock, string fileName)
+    public void TestLoad(string text, bool isTrue, [Frozen] Mock<IXmlFileSerializer<List<Question>>> serMock, string fileName)
     {
-        var streamMock = new Mock<IFileStream>();
-        var target = new TrueFalseFake(fileName, serMock.Object, readFileStream: streamMock.Object);
-        serMock.Setup(x => x.Deserialize(streamMock.Object)).Returns(new[]{ new Question(text, isTrue) }.ToList);
+        ITrueFalse target = new TrueFalseFake(fileName, serMock.Object);
+        serMock.Setup(x => x.OpenAndDeserialize(fileName)).Returns(new[] { new Question(text, isTrue) }.ToList);
 
         target.Load();
 
-        serMock.Verify(x => x.Deserialize(streamMock.Object), Times.Once);
+        serMock.Verify(x => x.OpenAndDeserialize(fileName), Times.Once);
         target[0].Text = text;
         target[0].IsTrue = isTrue;
     }

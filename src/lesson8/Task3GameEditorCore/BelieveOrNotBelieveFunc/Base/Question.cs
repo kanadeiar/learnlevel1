@@ -1,4 +1,4 @@
-﻿namespace Task3GameEditorCore.BelieveOrNotBelieveFunc;
+﻿namespace Task3GameEditorCore.BelieveOrNotBelieveFunc.Base;
 
 [Serializable]
 public class Question

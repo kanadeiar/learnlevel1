@@ -1,5 +1,6 @@
 ﻿using Task3GameEditorCore.BelieveOrNotBelieveFunc;
-using Task3GameEditorCore.BelieveOrNotBelieveFunc.Adapters;
+using Task3GameEditorCore.BelieveOrNotBelieveFunc.Abstractions;
+using Task3GameEditorCore.BelieveOrNotBelieveFunc.Base;
 
 namespace Task3GameEditorCoreTests.BelieveOrNotBelieveFunc.Base;
 
@@ -7,10 +8,14 @@ public class TrueFalseFake : TrueFalse
 {
     public new IEnumerable<Question> Questions => base.Questions;
 
-    public TrueFalseFake(string fileName, IXmlSerializer? xmlSerializer = null, IFileStream? writeFileStream = null, IFileStream? readFileStream = null) : base(fileName)
+    public new string FileName
     {
-        XmlSerializer = xmlSerializer!;
-        WriteFileStream = writeFileStream!;
-        ReadFileStream = readFileStream!;
+        get => base.FileName;
+        set => base.FileName = value;
+    }
+    
+    public TrueFalseFake(string fileName, IXmlFileSerializer<List<Question>>? serializer = null) : base(fileName)
+    {
+        QuestionsSerializer = serializer;
     }
 }

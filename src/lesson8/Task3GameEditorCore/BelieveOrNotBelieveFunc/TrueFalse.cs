@@ -1,22 +1,29 @@
-﻿using Task3GameEditorCore.BelieveOrNotBelieveFunc.Adapters;
+﻿using Task3GameEditorCore.BelieveOrNotBelieveFunc.Abstractions;
+using Task3GameEditorCore.BelieveOrNotBelieveFunc.Adapters;
+using Task3GameEditorCore.BelieveOrNotBelieveFunc.Base;
 
 namespace Task3GameEditorCore.BelieveOrNotBelieveFunc;
 
-public class TrueFalse
+public class TrueFalse : ITrueFalse
 {
     private QuestionsData _questions = new(null);
-    protected IEnumerable<Question> Questions => _questions;
 
-    protected IXmlSerializer XmlSerializer = new XmlSerializerAdapter(typeof(List<Question>));
-    protected IFileStream? WriteFileStream;
-    protected IFileStream? ReadFileStream;
+    protected IEnumerable<Question> Questions => _questions;
 
     private string _fileName;
 
-    public string FileName
+    protected string FileName
     {
         get => _fileName;
         set => _fileName = value;
+    }
+
+    private IXmlFileSerializer<List<Question>>? _questionsSerializer;
+    
+    protected IXmlFileSerializer<List<Question>>? QuestionsSerializer
+    {
+        get => _questionsSerializer;
+        set => _questionsSerializer = value;
     }
 
     public TrueFalse(string fileName)
@@ -30,20 +37,18 @@ public class TrueFalse
 
     public Question this[int index] => _questions[index];
 
-    public int Count => _questions.Count;
+    public int Count => Questions.Count();
 
     public void Save()
     {
-        using var stream = WriteFileStream ??= 
-            new FileStreamAdapter(new FileStream(FileName, FileMode.Create, FileAccess.Write));
-        XmlSerializer.Serialize(stream, _questions.ToList());
+        var serializer = _questionsSerializer ??= new XmlFileSerializerHelper<List<Question>>();
+        serializer.SerializeAndSave(Questions.ToList(), FileName);
     }
 
     public void Load()
     {
-        using var stream = ReadFileStream ??= 
-            new FileStreamAdapter(new FileStream(FileName, FileMode.Open, FileAccess.Read));
-        var questions = (List<Question>)XmlSerializer.Deserialize(stream)!;
+        var serializer = _questionsSerializer ??= new XmlFileSerializerHelper<List<Question>>();
+        var questions = serializer.OpenAndDeserialize(FileName);
         _questions = new QuestionsData(questions);
     }
 }
