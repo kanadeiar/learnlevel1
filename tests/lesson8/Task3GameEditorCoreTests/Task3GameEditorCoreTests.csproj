@@ -18,6 +18,7 @@
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 	  </PackageReference>
 	  <PackageReference Include="FluentAssertions" Version="6.12.0" />
+	  <PackageReference Include="JetBrains.DotMemoryUnit" Version="3.2.20220510" />
 	  <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
 	  <PackageReference Include="Moq" Version="4.20.70" />
 	  <PackageReference Include="System.Net.Http" Version="4.3.4" />
@@ -35,7 +36,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\..\src\lesson8\Task1DateTimeReflexCore\Task1DateTimeReflexCore.csproj" />
+	  <ProjectReference Include="..\..\..\src\lesson8\Task3GameEditorCore\Task3GameEditorCore.csproj" />
 	</ItemGroup>
 
   <ItemGroup>
