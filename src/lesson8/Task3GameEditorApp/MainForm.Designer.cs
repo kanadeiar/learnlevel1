@@ -45,6 +45,7 @@
             buttonSave = new Button();
             numericUpDownNumber = new NumericUpDown();
             checkBoxIsTrue = new CheckBox();
+            menuItemSaveAs = new ToolStripMenuItem();
             menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownNumber).BeginInit();
             SuspendLayout();
@@ -73,7 +74,7 @@
             // 
             // menuItemFile
             // 
-            menuItemFile.DropDownItems.AddRange(new ToolStripItem[] { menuItemNew, menuItemOpen, menuItemSave, menuItemDivider, menuItemClose });
+            menuItemFile.DropDownItems.AddRange(new ToolStripItem[] { menuItemNew, menuItemOpen, menuItemSave, menuItemSaveAs, menuItemDivider, menuItemClose });
             menuItemFile.Name = "menuItemFile";
             menuItemFile.Size = new Size(57, 21);
             menuItemFile.Text = "Файл";
@@ -81,33 +82,33 @@
             // menuItemNew
             // 
             menuItemNew.Name = "menuItemNew";
-            menuItemNew.Size = new Size(145, 22);
+            menuItemNew.Size = new Size(187, 22);
             menuItemNew.Text = "Новый";
             menuItemNew.Click += menuItemNew_Click;
             // 
             // menuItemOpen
             // 
             menuItemOpen.Name = "menuItemOpen";
-            menuItemOpen.Size = new Size(145, 22);
+            menuItemOpen.Size = new Size(187, 22);
             menuItemOpen.Text = "Открыть";
             menuItemOpen.Click += menuItemOpen_Click;
             // 
             // menuItemSave
             // 
             menuItemSave.Name = "menuItemSave";
-            menuItemSave.Size = new Size(145, 22);
+            menuItemSave.Size = new Size(187, 22);
             menuItemSave.Text = "Сохранить";
             menuItemSave.Click += menuItemSave_Click;
             // 
             // menuItemDivider
             // 
             menuItemDivider.Name = "menuItemDivider";
-            menuItemDivider.Size = new Size(142, 6);
+            menuItemDivider.Size = new Size(184, 6);
             // 
             // menuItemClose
             // 
             menuItemClose.Name = "menuItemClose";
-            menuItemClose.Size = new Size(145, 22);
+            menuItemClose.Size = new Size(187, 22);
             menuItemClose.Text = "Закрыть";
             menuItemClose.Click += menuItemClose_Click;
             // 
@@ -168,7 +169,7 @@
             // buttonSave
             // 
             buttonSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            buttonSave.BackColor = Color.FromArgb(192, 192, 255);
+            buttonSave.BackColor = Color.FromArgb(192, 255, 255);
             buttonSave.Cursor = Cursors.Hand;
             buttonSave.Font = new Font("Microsoft Sans Serif", 12F);
             buttonSave.Location = new Point(272, 409);
@@ -202,6 +203,13 @@
             checkBoxIsTrue.TabIndex = 9;
             checkBoxIsTrue.Text = "Правда";
             checkBoxIsTrue.UseVisualStyleBackColor = true;
+            // 
+            // menuItemSaveAs
+            // 
+            menuItemSaveAs.Name = "menuItemSaveAs";
+            menuItemSaveAs.Size = new Size(187, 22);
+            menuItemSaveAs.Text = "Сохранить как ...";
+            menuItemSaveAs.Click += menuItemSaveAs_Click;
             // 
             // MainForm
             // 
@@ -247,5 +255,6 @@
         private CheckBox checkBoxIsTrue;
         private ToolStripMenuItem menuItemHelp;
         private ToolStripMenuItem menuItemAbout;
+        private ToolStripMenuItem menuItemSaveAs;
     }
 }

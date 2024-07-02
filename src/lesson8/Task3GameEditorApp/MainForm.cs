@@ -1,3 +1,5 @@
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
+
 namespace Task3GameEditorApp
 {
     public partial class MainForm : Form
@@ -116,6 +118,7 @@ namespace Task3GameEditorApp
             }
 
             readValuesFromForm();
+
             try
             {
                 _data.Save();
@@ -123,6 +126,43 @@ namespace Task3GameEditorApp
             catch (Exception exception)
             {
                 MessageBox.Show($"Ошибка сохранения в файл.\n{exception.Message}");
+            }
+        }
+
+        private void menuItemSaveAs_Click(object sender, EventArgs e)
+        {
+            if (checkData()) return;
+            if (_data.Count == 0)
+            {
+                MessageBox.Show("Пустой список вопросов.", "Ошибка");
+                return;
+            }
+
+            using var dialog = new SaveFileDialog
+            {
+                InitialDirectory = Application.StartupPath,
+                Filter = "Файлы XML (*.xml)|*.xml|Все файлы (*.*)|*.*"
+            };
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                if (!dialog.FileName.EndsWith(".xml"))
+                    dialog.FileName += ".xml";
+
+                readValuesFromForm();
+
+                try
+                {
+                    var data = new TrueFalse(dialog.FileName);
+                    for (var i = 0; i < _data.Count; i++)
+                    {
+                        data.Add(_data[i].Text, _data[i].IsTrue);
+                    }
+                    data.Save();
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show($"Ошибка сохранения в файл.\n{exception.Message}");
+                }
             }
         }
 
