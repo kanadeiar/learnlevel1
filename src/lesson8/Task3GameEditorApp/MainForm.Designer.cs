@@ -37,6 +37,8 @@
             menuItemSave = new ToolStripMenuItem();
             menuItemDivider = new ToolStripSeparator();
             menuItemClose = new ToolStripMenuItem();
+            menuItemHelp = new ToolStripMenuItem();
+            menuItemAbout = new ToolStripMenuItem();
             textBoxQuestion = new TextBox();
             buttonAdd = new Button();
             buttonDelete = new Button();
@@ -62,7 +64,7 @@
             // menuStripMain
             // 
             menuStripMain.Font = new Font("Microsoft Sans Serif", 10F);
-            menuStripMain.Items.AddRange(new ToolStripItem[] { menuItemFile });
+            menuStripMain.Items.AddRange(new ToolStripItem[] { menuItemFile, menuItemHelp });
             menuStripMain.Location = new Point(0, 0);
             menuStripMain.Name = "menuStripMain";
             menuStripMain.Size = new Size(778, 25);
@@ -79,35 +81,49 @@
             // menuItemNew
             // 
             menuItemNew.Name = "menuItemNew";
-            menuItemNew.Size = new Size(180, 22);
+            menuItemNew.Size = new Size(145, 22);
             menuItemNew.Text = "Новый";
             menuItemNew.Click += menuItemNew_Click;
             // 
             // menuItemOpen
             // 
             menuItemOpen.Name = "menuItemOpen";
-            menuItemOpen.Size = new Size(180, 22);
+            menuItemOpen.Size = new Size(145, 22);
             menuItemOpen.Text = "Открыть";
             menuItemOpen.Click += menuItemOpen_Click;
             // 
             // menuItemSave
             // 
             menuItemSave.Name = "menuItemSave";
-            menuItemSave.Size = new Size(180, 22);
+            menuItemSave.Size = new Size(145, 22);
             menuItemSave.Text = "Сохранить";
             menuItemSave.Click += menuItemSave_Click;
             // 
             // menuItemDivider
             // 
             menuItemDivider.Name = "menuItemDivider";
-            menuItemDivider.Size = new Size(177, 6);
+            menuItemDivider.Size = new Size(142, 6);
             // 
             // menuItemClose
             // 
             menuItemClose.Name = "menuItemClose";
-            menuItemClose.Size = new Size(180, 22);
+            menuItemClose.Size = new Size(145, 22);
             menuItemClose.Text = "Закрыть";
             menuItemClose.Click += menuItemClose_Click;
+            // 
+            // menuItemHelp
+            // 
+            menuItemHelp.DropDownItems.AddRange(new ToolStripItem[] { menuItemAbout });
+            menuItemHelp.Name = "menuItemHelp";
+            menuItemHelp.Size = new Size(75, 21);
+            menuItemHelp.Text = "Справка";
+            // 
+            // menuItemAbout
+            // 
+            menuItemAbout.Name = "menuItemAbout";
+            menuItemAbout.Size = new Size(162, 22);
+            menuItemAbout.Text = "О программе";
+            menuItemAbout.Click += menuItemAbout_Click;
             // 
             // textBoxQuestion
             // 
@@ -204,6 +220,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStripMain;
             Name = "MainForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Geekbrains. C# Уровень 1 Лекция 8.";
             menuStripMain.ResumeLayout(false);
             menuStripMain.PerformLayout();
@@ -228,5 +245,7 @@
         private Button buttonSave;
         private NumericUpDown numericUpDownNumber;
         private CheckBox checkBoxIsTrue;
+        private ToolStripMenuItem menuItemHelp;
+        private ToolStripMenuItem menuItemAbout;
     }
 }

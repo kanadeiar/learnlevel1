@@ -13,8 +13,7 @@ namespace Task3GameEditorApp
         {
             if (checkData() || _data.Count == 0) return;
 
-            textBoxQuestion.Text = _data[(int)numericUpDownNumber.Value - 1].Text;
-            checkBoxIsTrue.Checked = _data[(int)numericUpDownNumber.Value - 1].IsTrue;
+            writeValuesToForm();
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -145,5 +144,11 @@ namespace Task3GameEditorApp
         }
 
         private void menuItemClose_Click(object sender, EventArgs e) => Close();
+
+        private void menuItemAbout_Click(object sender, EventArgs e)
+        {
+            var form = new AboutForm();
+            form.ShowDialog();
+        }
     }
 }
