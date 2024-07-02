@@ -61,10 +61,11 @@
             // 
             // menuStripMain
             // 
+            menuStripMain.Font = new Font("Microsoft Sans Serif", 10F);
             menuStripMain.Items.AddRange(new ToolStripItem[] { menuItemFile });
             menuStripMain.Location = new Point(0, 0);
             menuStripMain.Name = "menuStripMain";
-            menuStripMain.Size = new Size(778, 24);
+            menuStripMain.Size = new Size(778, 25);
             menuStripMain.TabIndex = 3;
             menuStripMain.Text = "menuStrip1";
             // 
@@ -72,91 +73,103 @@
             // 
             menuItemFile.DropDownItems.AddRange(new ToolStripItem[] { menuItemNew, menuItemOpen, menuItemSave, menuItemDivider, menuItemClose });
             menuItemFile.Name = "menuItemFile";
-            menuItemFile.Size = new Size(48, 20);
+            menuItemFile.Size = new Size(57, 21);
             menuItemFile.Text = "Файл";
             // 
             // menuItemNew
             // 
             menuItemNew.Name = "menuItemNew";
-            menuItemNew.Size = new Size(133, 22);
+            menuItemNew.Size = new Size(180, 22);
             menuItemNew.Text = "Новый";
             menuItemNew.Click += menuItemNew_Click;
             // 
             // menuItemOpen
             // 
             menuItemOpen.Name = "menuItemOpen";
-            menuItemOpen.Size = new Size(133, 22);
+            menuItemOpen.Size = new Size(180, 22);
             menuItemOpen.Text = "Открыть";
             menuItemOpen.Click += menuItemOpen_Click;
             // 
             // menuItemSave
             // 
             menuItemSave.Name = "menuItemSave";
-            menuItemSave.Size = new Size(133, 22);
+            menuItemSave.Size = new Size(180, 22);
             menuItemSave.Text = "Сохранить";
             menuItemSave.Click += menuItemSave_Click;
             // 
             // menuItemDivider
             // 
             menuItemDivider.Name = "menuItemDivider";
-            menuItemDivider.Size = new Size(130, 6);
+            menuItemDivider.Size = new Size(177, 6);
             // 
             // menuItemClose
             // 
             menuItemClose.Name = "menuItemClose";
-            menuItemClose.Size = new Size(133, 22);
+            menuItemClose.Size = new Size(180, 22);
             menuItemClose.Text = "Закрыть";
             menuItemClose.Click += menuItemClose_Click;
             // 
             // textBoxQuestion
             // 
             textBoxQuestion.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBoxQuestion.Font = new Font("Microsoft Sans Serif", 12F);
             textBoxQuestion.Location = new Point(12, 105);
             textBoxQuestion.Multiline = true;
             textBoxQuestion.Name = "textBoxQuestion";
             textBoxQuestion.ScrollBars = ScrollBars.Vertical;
-            textBoxQuestion.Size = new Size(754, 297);
+            textBoxQuestion.Size = new Size(754, 290);
             textBoxQuestion.TabIndex = 4;
             // 
             // buttonAdd
             // 
             buttonAdd.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            buttonAdd.Location = new Point(12, 419);
+            buttonAdd.BackColor = Color.FromArgb(192, 255, 192);
+            buttonAdd.Cursor = Cursors.Hand;
+            buttonAdd.Font = new Font("Microsoft Sans Serif", 12F);
+            buttonAdd.Location = new Point(12, 409);
             buttonAdd.Name = "buttonAdd";
-            buttonAdd.Size = new Size(108, 23);
+            buttonAdd.Size = new Size(108, 33);
             buttonAdd.TabIndex = 5;
             buttonAdd.Text = "Добавить";
-            buttonAdd.UseVisualStyleBackColor = true;
+            buttonAdd.UseVisualStyleBackColor = false;
             buttonAdd.Click += buttonAdd_Click;
             // 
             // buttonDelete
             // 
             buttonDelete.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            buttonDelete.Location = new Point(126, 419);
+            buttonDelete.BackColor = Color.FromArgb(255, 192, 192);
+            buttonDelete.Cursor = Cursors.Hand;
+            buttonDelete.Font = new Font("Microsoft Sans Serif", 12F);
+            buttonDelete.ForeColor = SystemColors.ControlText;
+            buttonDelete.Location = new Point(126, 409);
             buttonDelete.Name = "buttonDelete";
-            buttonDelete.Size = new Size(108, 23);
+            buttonDelete.Size = new Size(108, 33);
             buttonDelete.TabIndex = 6;
             buttonDelete.Text = "Удалить";
-            buttonDelete.UseVisualStyleBackColor = true;
+            buttonDelete.UseVisualStyleBackColor = false;
             buttonDelete.Click += buttonDelete_Click;
             // 
             // buttonSave
             // 
             buttonSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            buttonSave.Location = new Point(272, 419);
+            buttonSave.BackColor = Color.FromArgb(192, 192, 255);
+            buttonSave.Cursor = Cursors.Hand;
+            buttonSave.Font = new Font("Microsoft Sans Serif", 12F);
+            buttonSave.Location = new Point(272, 409);
             buttonSave.Name = "buttonSave";
-            buttonSave.Size = new Size(108, 23);
+            buttonSave.Size = new Size(108, 33);
             buttonSave.TabIndex = 7;
             buttonSave.Text = "Сохранить";
-            buttonSave.UseVisualStyleBackColor = true;
+            buttonSave.UseVisualStyleBackColor = false;
             buttonSave.Click += buttonSave_Click;
             // 
             // numericUpDownNumber
             // 
             numericUpDownNumber.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            numericUpDownNumber.Location = new Point(398, 419);
+            numericUpDownNumber.Font = new Font("Microsoft Sans Serif", 12F);
+            numericUpDownNumber.Location = new Point(398, 413);
             numericUpDownNumber.Name = "numericUpDownNumber";
-            numericUpDownNumber.Size = new Size(98, 23);
+            numericUpDownNumber.Size = new Size(98, 26);
             numericUpDownNumber.TabIndex = 8;
             numericUpDownNumber.Value = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDownNumber.ValueChanged += numericUpDownNumber_ValueChanged;
@@ -165,9 +178,11 @@
             // 
             checkBoxIsTrue.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             checkBoxIsTrue.AutoSize = true;
-            checkBoxIsTrue.Location = new Point(502, 422);
+            checkBoxIsTrue.Cursor = Cursors.Hand;
+            checkBoxIsTrue.Font = new Font("Microsoft Sans Serif", 12F);
+            checkBoxIsTrue.Location = new Point(513, 414);
             checkBoxIsTrue.Name = "checkBoxIsTrue";
-            checkBoxIsTrue.Size = new Size(66, 19);
+            checkBoxIsTrue.Size = new Size(87, 24);
             checkBoxIsTrue.TabIndex = 9;
             checkBoxIsTrue.Text = "Правда";
             checkBoxIsTrue.UseVisualStyleBackColor = true;
@@ -185,6 +200,7 @@
             Controls.Add(textBoxQuestion);
             Controls.Add(label1);
             Controls.Add(menuStripMain);
+            Font = new Font("Microsoft Sans Serif", 9F);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStripMain;
             Name = "MainForm";
