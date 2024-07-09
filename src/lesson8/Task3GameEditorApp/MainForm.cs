@@ -157,7 +157,9 @@ namespace Task3GameEditorApp
                     {
                         data.Add(_data[i].Text, _data[i].IsTrue);
                     }
-                    data.Save();
+
+                    _data = data;
+                    _data.Save();
                 }
                 catch (Exception exception)
                 {
