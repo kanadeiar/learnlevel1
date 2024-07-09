@@ -13,7 +13,7 @@ namespace Task3GameEditorApp
 
         private void numericUpDownNumber_ValueChanged(object sender, EventArgs e)
         {
-            if (checkData() || _data.Count == 0) return;
+            if (checkData() || _data!.Count == 0) return;
 
             writeValuesToForm();
         }
@@ -22,7 +22,7 @@ namespace Task3GameEditorApp
         {
             if (checkData()) return;
 
-            _data.Add(string.Empty, true);
+            _data!.Add(string.Empty, true);
             numericUpDownNumber.Maximum = _data.Count;
             numericUpDownNumber.Value = _data.Count;
         }
@@ -30,7 +30,7 @@ namespace Task3GameEditorApp
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             if (checkData()) return;
-            if (_data.Count <= 1)
+            if (_data!.Count <= 1)
             {
                 MessageBox.Show("Нельзя удалить последний элемент в списке.", "Ошибка");
                 return;
@@ -104,14 +104,14 @@ namespace Task3GameEditorApp
 
         private void writeValuesToForm()
         {
-            textBoxQuestion.Text = _data[(int)numericUpDownNumber.Value - 1].Text;
+            textBoxQuestion.Text = _data![(int)numericUpDownNumber.Value - 1].Text;
             checkBoxIsTrue.Checked = _data[(int)numericUpDownNumber.Value - 1].IsTrue;
         }
 
         private void menuItemSave_Click(object sender, EventArgs e)
         {
             if (checkData()) return;
-            if (_data.Count == 0)
+            if (_data!.Count == 0)
             {
                 MessageBox.Show("Пустой список вопросов.", "Ошибка");
                 return;
@@ -132,7 +132,7 @@ namespace Task3GameEditorApp
         private void menuItemSaveAs_Click(object sender, EventArgs e)
         {
             if (checkData()) return;
-            if (_data.Count == 0)
+            if (_data!.Count == 0)
             {
                 MessageBox.Show("Пустой список вопросов.", "Ошибка");
                 return;
@@ -181,7 +181,7 @@ namespace Task3GameEditorApp
 
         private void readValuesFromForm()
         {
-            _data[(int)numericUpDownNumber.Value - 1].Text = textBoxQuestion.Text;
+            _data![(int)numericUpDownNumber.Value - 1].Text = textBoxQuestion.Text;
             _data[(int)numericUpDownNumber.Value - 1].IsTrue = checkBoxIsTrue.Checked;
         }
 
