@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Runtime.CompilerServices;
+using Kanadeiar.Desktop.Forms;
 using Task4BirthdaysCore.BirthdaysFunc.Abstractions;
 using Task4BirthdaysCore.BirthdaysFunc.Adapters;
 using Task4BirthdaysCore.BirthdaysFunc.Base;
@@ -7,34 +8,49 @@ using Task4BirthdaysCore.BirthdaysFunc.Base;
 [assembly: InternalsVisibleTo("Task4BirthdaysCoreTests")]
 namespace Task4BirthdaysCore.BirthdaysFunc;
 
-public class Birthdays : ICommonBirthdays
+public class Birthdays : ModelBase, ICommonBirthdays
 {
     internal BirthdaysData data = new();
 
-    internal string fileName;
-
     internal IXmlFileSerializer<List<Birthday>>? serializer;
+
+    private string _fileName;
+    
+    public string FileName
+    {
+        get => _fileName;
+        set => Set(ref _fileName, value);
+    }
 
     public Birthdays(string fileName)
     {
-        this.fileName = fileName;
+        this._fileName = fileName;
     }
 
-    public void Add(Birthday birthday) => data.Add(birthday);
+    public void Add(Birthday birthday)
+    {
+        data.Add(birthday);
+        NotifyObservers();
+    }
 
-    public void Remove(Birthday birthday) => data.Remove(birthday);
+    public void Remove(Birthday birthday)
+    {
+        data.Remove(birthday);
+        NotifyObservers();
+    }
 
     public void Save()
     {
         var ser = serializer ??= new XmlFileSerializerAdapter<List<Birthday>>();
-        ser.SerializeAndSave(data.ToList(), fileName);
+        ser.SerializeAndSave(data.ToList(), FileName);
     }
 
     public void Load()
     {
         var ser = serializer ??= new XmlFileSerializerAdapter<List<Birthday>>();
-        var birthdays = serializer.OpenAndDeserialize(fileName);
+        var birthdays = serializer.OpenAndDeserialize(FileName);
         data = new BirthdaysData(birthdays);
+        NotifyObservers();
     }
 
     public IEnumerator<Birthday> GetEnumerator() => data.GetEnumerator();

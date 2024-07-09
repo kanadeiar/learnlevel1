@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using AutoFixture.Xunit2;
 using FluentAssertions;
+using Kanadeiar.Desktop.Forms;
+using Kanadeiar.Tests;
 using Moq;
 using Task4BirthdaysCore.BirthdaysFunc;
 using Task4BirthdaysCore.BirthdaysFunc.Abstractions;
@@ -10,21 +12,32 @@ namespace Task4BirthdaysCoreTests.BirthdaysFunc;
 
 public class BirthdaysTests
 {
+    [Theory, AutoMoqData]
+    public void TestNotify(Mock<IFormObserver> mock, Birthdays birthdays)
+    {
+        IFormObservable observable = birthdays;
+        observable.AddObserver(mock.Object);
+
+        birthdays.FileName = "test";
+
+        mock.Verify(x => x.Update(observable, It.IsAny<object>()), Times.Once);
+    }
+
     [Theory, AutoData]
     public void TestFileName(string expectedFileName)
     {
         var target = new Birthdays(expectedFileName);
 
-        target.fileName.Should().Be(expectedFileName);
+        target.FileName.Should().Be(expectedFileName);
     }
 
     [Theory, AutoData]
     public void TestFileName_WhenSetValue(string expected)
     {
         var target = new Birthdays(string.Empty);
-        target.fileName = expected;
+        target.FileName = expected;
 
-        target.fileName.Should().Be(expected);
+        target.FileName.Should().Be(expected);
     }
 
     [Theory, AutoData]
