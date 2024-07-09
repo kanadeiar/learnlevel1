@@ -14,6 +14,21 @@ public class Birthdays : ModelBase, ICommonBirthdays
 
     internal IXmlFileSerializer<List<Birthday>>? serializer;
 
+    private Birthday _selected = new ();
+
+    public Birthday Selected
+    {
+        get => _selected; 
+        set => Set(ref _selected, value);
+    }
+
+    public void Select(int index)
+    {
+        if (index < 0 || index >= data.Count()) return;
+
+        Selected = data.ToArray()[index];
+    }
+
     private string _fileName;
     
     public string FileName
@@ -33,6 +48,12 @@ public class Birthdays : ModelBase, ICommonBirthdays
         NotifyObservers();
     }
 
+    public void Edit(int index, Birthday birthday)
+    {
+        data.Edit(index, birthday);
+        NotifyObservers();
+    }
+
     public void Remove(Birthday birthday)
     {
         data.Remove(birthday);
@@ -48,12 +69,13 @@ public class Birthdays : ModelBase, ICommonBirthdays
     public void Load()
     {
         var ser = serializer ??= new XmlFileSerializerAdapter<List<Birthday>>();
-        var birthdays = serializer.OpenAndDeserialize(FileName);
+        var birthdays = ser.OpenAndDeserialize(FileName);
         data = new BirthdaysData(birthdays);
         NotifyObservers();
     }
 
     public IEnumerator<Birthday> GetEnumerator() => data.GetEnumerator();
+
 
     IEnumerator IEnumerable.GetEnumerator() => ((IEnumerable)data).GetEnumerator();
 }

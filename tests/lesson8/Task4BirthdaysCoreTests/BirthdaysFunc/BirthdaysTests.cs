@@ -13,7 +13,7 @@ namespace Task4BirthdaysCoreTests.BirthdaysFunc;
 public class BirthdaysTests
 {
     [Theory, AutoMoqData]
-    public void TestNotify(Mock<IFormObserver> mock, Birthdays birthdays)
+    public void TestNotify([Frozen]Mock<IFormObserver> mock, Birthdays birthdays)
     {
         IFormObservable observable = birthdays;
         observable.AddObserver(mock.Object);
@@ -26,7 +26,7 @@ public class BirthdaysTests
     [Theory, AutoData]
     public void TestFileName(string expectedFileName)
     {
-        var target = new Birthdays(expectedFileName);
+        ICommonBirthdays target = new Birthdays(expectedFileName);
 
         target.FileName.Should().Be(expectedFileName);
     }
@@ -58,6 +58,35 @@ public class BirthdaysTests
         list.Last().Should().BeEquivalentTo(expected.Last());
     }
 
+    [Theory, AutoMoqData]
+    public void TestSelect([Frozen]Mock<IFormObserver> mock, Birthday[] expected, string fileName)
+    {
+        ISelectableBirthdays selectable = new Birthdays(fileName);
+        IFormObservable observable = (IFormObservable)selectable;
+        observable.AddObserver(mock.Object);
+        ((Birthdays)selectable).data = new BirthdaysData(expected.ToList());
+
+        selectable.Select(1);
+
+        mock.Verify(x => x.Update(observable, It.IsAny<object>()), Times.Once);
+        selectable.Selected.Should().BeEquivalentTo(expected.Skip(1).First());
+    }
+
+    [Theory]
+    [InlineAutoMoqData(-1)]
+    [InlineAutoMoqData(3)]
+    public void TestSelect_WhenOverRange_ThenNone(int index, [Frozen] Mock<IFormObserver> mock, Birthday[] expected, string fileName)
+    {
+        ISelectableBirthdays selectable = new Birthdays(fileName);
+        IFormObservable observable = (IFormObservable)selectable;
+        observable.AddObserver(mock.Object);
+        ((Birthdays)selectable).data = new BirthdaysData(expected.ToList());
+
+        selectable.Select(index);
+
+        mock.Verify(x => x.Update(observable, It.IsAny<object>()), Times.Never);
+    }
+
     [Theory, AutoData]
     public void TestAdd(Birthday[] expected, string fileName)
     {
@@ -69,6 +98,19 @@ public class BirthdaysTests
         birthdays.Count().Should().Be(expected.Length);
         birthdays.First().Should().BeEquivalentTo(expected.First());
         birthdays.Last().Should().BeEquivalentTo(expected.Last());
+    }
+
+    [Theory, AutoData]
+    public void TestEdit(Birthday[] array, string fileName)
+    {
+        var expected = new Birthday("New", "Test", new DateTime(1990, 1, 1));
+        IEditingBirthdays editing = new Birthdays(fileName);
+        var birthdays = editing as Birthdays;
+        birthdays.data = new BirthdaysData(array.ToList());
+        
+        editing.Edit(1, expected);
+
+        birthdays.Skip(1).First().Should().BeEquivalentTo(expected);
     }
 
     [Theory, AutoData]

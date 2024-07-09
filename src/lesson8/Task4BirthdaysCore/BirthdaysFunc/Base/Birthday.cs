@@ -11,8 +11,8 @@ public struct Birthday
     [XmlAttribute]
     public string Name { get; set; } = string.Empty;
 
-    [XmlAttribute]
-    public DateTime Birth { get; set; }
+    [XmlAttribute] 
+    public DateTime Birth { get; set; } = new DateTime(1980, 1, 1);
 
     public Birthday() { }
 

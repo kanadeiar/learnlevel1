@@ -13,6 +13,8 @@ public class BirthdaysData : IEnumerable<Birthday>
 
     public void Add(Birthday birthday) => _birthdays.Add(birthday);
 
+    public void Edit(int index, Birthday birthday) => _birthdays[index] = birthday;
+
     public void Remove(Birthday birthday) => _birthdays.Remove(birthday);
 
     public IEnumerator<Birthday> GetEnumerator() => _birthdays.GetEnumerator();
