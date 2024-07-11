@@ -94,7 +94,7 @@ public class BirthdaysTests
         
         Array.ForEach(expected, x => editing.Add(x));
 
-        var birthdays = editing as Birthdays;
+        var birthdays = (Birthdays)editing;
         birthdays.Count().Should().Be(expected.Length);
         birthdays.First().Should().BeEquivalentTo(expected.First());
         birthdays.Last().Should().BeEquivalentTo(expected.Last());
@@ -105,7 +105,7 @@ public class BirthdaysTests
     {
         var expected = new Birthday("New", "Test", new DateTime(1990, 1, 1));
         IEditingBirthdays editing = new Birthdays(fileName);
-        var birthdays = editing as Birthdays;
+        var birthdays = (Birthdays)editing;
         birthdays.data = new BirthdaysData(array.ToList());
         
         editing.Edit(1, expected);
@@ -117,7 +117,7 @@ public class BirthdaysTests
     public void TestRemove(Birthday[] expected, string fileName)
     {
         IEditingBirthdays editing = new Birthdays(fileName);
-        var birthdays = editing as Birthdays;
+        var birthdays = (Birthdays)editing;
         birthdays.data = new BirthdaysData(expected.ToList());
 
         editing.Remove(expected.First());
