@@ -17,4 +17,16 @@
     <Content Include="Icons8-Windows-8-Healthcare-Brain.ico" />
   </ItemGroup>
 
+	<ItemGroup>
+		<Compile Include="$(SolutionDir)shared\desktop\**\*.*">
+			<Link>Common\%(RecursiveDir)%(FileName)%(Extension)</Link>
+		</Compile>
+	</ItemGroup>
+
+  <ItemGroup>
+    <None Update="students.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

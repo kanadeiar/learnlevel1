@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 
@@ -34,6 +34,12 @@
 			<Link>Common\%(RecursiveDir)%(FileName)%(Extension)</Link>
 		</Compile>
 	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\..\src\lesson8\Task5CSVToXMLApp\Task5CSVToXMLApp.csproj" />
+	</ItemGroup>
+
+
 
   <ItemGroup>
     <Using Include="Xunit" />
