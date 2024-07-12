@@ -21,4 +21,10 @@
     <ProjectReference Include="..\Task6TrueFalseGameCore\Task6TrueFalseGameCore.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="gamedata.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
