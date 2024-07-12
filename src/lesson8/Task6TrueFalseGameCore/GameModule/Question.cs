@@ -9,7 +9,7 @@ public class Question
     /// <summary>
     /// Утверждение
     /// </summary>
-    public string Message { get; set; } = string.Empty;
+    public string Text { get; set; } = string.Empty;
 
     /// <summary>
     /// Это утверждение - истина

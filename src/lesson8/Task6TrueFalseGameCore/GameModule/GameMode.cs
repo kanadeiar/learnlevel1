@@ -14,7 +14,11 @@ public enum GameMode
     /// </summary>
     Question,
     /// <summary>
-    /// Игра завершена
+    /// Игра выиграна
     /// </summary>
-    EndGame
+    Victory,
+    /// <summary>
+    /// Игра завершена проигрышом
+    /// </summary>
+    GameOver
 }
