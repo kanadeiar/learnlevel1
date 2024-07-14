@@ -19,7 +19,18 @@ public partial class MainForm : Form, IFormObserver
     {
         if (observed is GameManager manager)
         {
-            
+            labelQuestion.Text = manager.QuestionText;
+            buttonStart.Visible = manager.EnableStart;
+            buttonYes.Visible = buttonNo.Visible = manager.EnableAnswer;
         }
     }
+
+    private void buttonStart_Click(object sender, EventArgs e) 
+        => _gameManager.Start();
+
+    private void buttonYes_Click(object sender, EventArgs e) 
+        => _gameManager.Yes();
+
+    private void buttonNo_Click(object sender, EventArgs e) 
+        => _gameManager.No();
 }
