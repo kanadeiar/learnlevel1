@@ -8,7 +8,7 @@ public class GameManager : ModelBase
 {
     internal static QuestionLoader? loader;
 
-    internal GameBase game;
+    internal Game game;
 
     public string QuestionText => game.QuestionText;
 
@@ -20,7 +20,7 @@ public class GameManager : ModelBase
     {
         loader = new QuestionLoader(fileName);
         var allQuestions = loader.Load();
-        game = new GameBase(allQuestions);
+        game = new Game(allQuestions);
 
         NotifyObservers();
     }
