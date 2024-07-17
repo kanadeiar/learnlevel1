@@ -111,6 +111,7 @@
             Controls.Add(label1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Geekbrains. C# Уровень 1 Лекция 8.";
             ResumeLayout(false);
         }

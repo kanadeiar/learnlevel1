@@ -16,11 +16,11 @@ public class GameManagerTests
     {
         mock.Setup(x => x.OpenAndDeserialize(fileName))
             .Returns(expected.ToList);
-        GameManager.serializer = mock.Object;
+        QuestionLoader.serializer = mock.Object;
 
         var target = new GameManager(fileName);
 
-        var actuals = target.allQuestions;
+        var actuals = target.game.allQuestions;
         actuals.Should().BeEquivalentTo(expected);
         mock.Verify(x => x.OpenAndDeserialize(fileName), Times.Once);
         target.QuestionText.Should().Contain("Добро пожаловать в игру!");
@@ -44,11 +44,11 @@ public class GameManagerTests
     [AutoMoqData]
     public void TestStart(Question[] questions, GameManager manager)
     {
-        manager.allQuestions = questions.ToList();
+        manager.game.allQuestions = questions.ToList();
 
         manager.Start();
 
-        manager.QuestionText.Should().Be(questions[manager.generedQuestions[0]].Text);
+        manager.QuestionText.Should().Be(questions[manager.game.generedQuestions[0]].Text);
         manager.EnableStart.Should().BeFalse();
         manager.EnableAnswer.Should().BeTrue();
     }
@@ -63,13 +63,13 @@ public class GameManagerTests
             new() { Text = "Тест2", IsTrue = true },
             new() { Text = "Тест3", IsTrue = true },
         };
-        manager.allQuestions = questions.ToList();
+        manager.game.allQuestions = questions.ToList();
         manager.Start();
-        manager.generedQuestions = [0, 1, 2];
+        manager.game.generedQuestions = [0, 1, 2];
 
         manager.Yes();
 
-        manager.QuestionText.Should().Be(questions[manager.generedQuestions[1]].Text);
+        manager.QuestionText.Should().Be(questions[manager.game.generedQuestions[1]].Text);
     }
 
     [Theory]
@@ -82,13 +82,13 @@ public class GameManagerTests
             new() { Text = "ЛожныйТест2", IsTrue = false },
             new() { Text = "ЛожныйТест3", IsTrue = false },
         };
-        manager.allQuestions = questions.ToList();
+        manager.game.allQuestions = questions.ToList();
         manager.Start();
-        manager.generedQuestions = [0, 1, 2];
+        manager.game.generedQuestions = [0, 1, 2];
 
         manager.No();
 
-        manager.QuestionText.Should().Be(questions[manager.generedQuestions[1]].Text);
+        manager.QuestionText.Should().Be(questions[manager.game.generedQuestions[1]].Text);
     }
 
     [Theory]
@@ -101,9 +101,9 @@ public class GameManagerTests
             new() { Text = "Тест2", IsTrue = false },
             new() { Text = "Тест3", IsTrue = false },
         };
-        manager.allQuestions = questions.ToList();
+        manager.game.allQuestions = questions.ToList();
         manager.Start();
-        manager.generedQuestions = [0, 1, 2];
+        manager.game.generedQuestions = [0, 1, 2];
 
         manager.Yes();
         manager.No();
@@ -124,9 +124,9 @@ public class GameManagerTests
             new() { Text = "Тест2", IsTrue = false },
             new() { Text = "Тест3", IsTrue = true },
         };
-        manager.allQuestions = questions.ToList();
+        manager.game.allQuestions = questions.ToList();
         manager.Start();
-        manager.generedQuestions = [0, 1, 2];
+        manager.game.generedQuestions = [0, 1, 2];
 
         manager.Yes();
         manager.No();
