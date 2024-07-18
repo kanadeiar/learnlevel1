@@ -12,13 +12,13 @@ public class WeatherForecastTests
 {
     [Theory]
     [AutoMoqData]
-    public async Task TestGetData([Frozen] Mock<IHttpClient> mock)
+    public void TestGetData([Frozen] Mock<IHttpClient> mock)
     {
         mock.Setup(x => x.GetStringAsync(It.IsAny<string>())).ReturnsAsync(TEST_JSON);
         WeatherForecast.client = mock.Object;
         var forecast = new WeatherForecast();
 
-        await forecast.UpdateData();
+        forecast.UpdateData().Wait();
 
         forecast.MorningData.Should().Contain("Утро: температура 30,9 °C, ветер: 8,9 км/ч");
         forecast.DayData.Should().Contain("День: температура 30,8 °C, ветер: 13,6 км/ч");
