@@ -1,28 +1,41 @@
+using Kanadeiar.Desktop.Forms;
+using Task7WeatherForecastCore.WeatherModule;
+
 namespace Task7WeatherForecastApp
 {
-    public partial class MainForm : Form
+    public partial class MainForm : Form, IFormObserver
     {
-        private const string ADDRESS = "https://api.open-meteo.com/v1/forecast?latitude=53.20&longitude=45.00&hourly=temperature_2m,wind_speed_10m&forecast_days=1";
+        private readonly WeatherForecast _forecast;
 
         public MainForm()
         {
             InitializeComponent();
+
+            _forecast = new WeatherForecast();
         }
 
-        private void MainForm_Shown(object sender, EventArgs e)
+        private async void MainForm_Shown(object sender, EventArgs e)
         {
-            //var client = new HttpClient();
-            //var response = await client.GetStringAsync(ADDRESS);
+            try
+            {
+                await _forecast.UpdateData();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Ошибка при получении прогноза погоды:\n" + exception.Message, 
+                    "Получение прогноза погоды", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
-            //var weather = JsonConvert.DeserializeObject<Weather>(response);
-
-
-
+        public void Update(IFormObservable observed, object? arg)
+        {
+            if (observed is WeatherForecast forecast)
+            {
+                labelMorning.Text = forecast.MorningData;
+                labelDay.Text = forecast.DayData;
+                labelEvening.Text = forecast.EveningData;
+                labelNight.Text = forecast.NightData;
+            }
         }
     }
-
-
-
-
-
 }
