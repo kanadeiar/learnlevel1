@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>Icons8-Windows-8-Healthcare-Brain.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Icons8-Windows-8-Healthcare-Brain.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Icons8-Windows-8-Healthcare-Brain.ico" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<Compile Include="$(SolutionDir)shared\desktop\**\*.*">
+			<Link>Common\%(RecursiveDir)%(FileName)%(Extension)</Link>
+		</Compile>
+	</ItemGroup>
+
+  <ItemGroup>
+    <None Update="students.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
