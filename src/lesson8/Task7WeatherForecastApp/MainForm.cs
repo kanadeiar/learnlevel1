@@ -12,6 +12,7 @@ namespace Task7WeatherForecastApp
             InitializeComponent();
 
             _forecast = new WeatherForecast();
+            _forecast.AddObserver(this);
         }
 
         private async void MainForm_Shown(object sender, EventArgs e)

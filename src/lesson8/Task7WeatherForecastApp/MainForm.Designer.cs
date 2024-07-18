@@ -89,7 +89,7 @@
             // panelDay
             // 
             panelDay.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panelDay.BackColor = Color.PaleGoldenrod;
+            panelDay.BackColor = Color.Orange;
             panelDay.Controls.Add(labelDay);
             panelDay.Location = new Point(12, 220);
             panelDay.Name = "panelDay";
@@ -108,7 +108,7 @@
             // panelEvening
             // 
             panelEvening.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panelEvening.BackColor = Color.PaleGoldenrod;
+            panelEvening.BackColor = Color.Salmon;
             panelEvening.Controls.Add(labelEvening);
             panelEvening.Location = new Point(12, 343);
             panelEvening.Name = "panelEvening";
@@ -127,7 +127,7 @@
             // panelNight
             // 
             panelNight.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panelNight.BackColor = Color.PaleGoldenrod;
+            panelNight.BackColor = Color.SkyBlue;
             panelNight.Controls.Add(labelNight);
             panelNight.Location = new Point(12, 469);
             panelNight.Name = "panelNight";
@@ -156,6 +156,7 @@
             Controls.Add(label1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Geekbrains. C# Уровень 1 Лекция 8.";
             Shown += MainForm_Shown;
             panelMorning.ResumeLayout(false);
