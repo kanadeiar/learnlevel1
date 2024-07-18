@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<ArrayOfQuestion xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Question>
+    <Text>Гусь это птица</Text>
+	<IsTrue>true</IsTrue>
+  </Question>
+  <Question>
+	<Text>Петух несет яйца</Text>
+	<IsTrue>false</IsTrue>
+  </Question>
+  <Question>
+	<Text>Корова ест траву</Text>
+	<IsTrue>true</IsTrue>
+  </Question>
+  <Question>
+	<Text>Корова ест мясо</Text>
+	<IsTrue>false</IsTrue>
+  </Question>
+  <Question>
+	<Text>Хлеб это еда</Text>
+	<IsTrue>true</IsTrue>
+  </Question>
+  <Question>
+	<Text>Корова это хлеб</Text>
+	<IsTrue>false</IsTrue>
+  </Question>
+  <Question>
+	<Text>Корова любит ходить за покупками</Text>
+	<IsTrue>false</IsTrue>
+  </Question>
+  <Question>
+	<Text>Жена любит ходить за покупками</Text>
+	<IsTrue>true</IsTrue>
+  </Question>
+</ArrayOfQuestion>
