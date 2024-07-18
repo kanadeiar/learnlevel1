@@ -4,6 +4,7 @@ using Kanadeiar.Desktop.Forms;
 using Task7WeatherForecastCore.WeatherModule.Abstractions;
 using Task7WeatherForecastCore.WeatherModule.Adapters;
 using Task7WeatherForecastCore.WeatherModule.WeatherData;
+using System.Globalization;
 
 [assembly: InternalsVisibleTo("Task7WeatherForecastCoreTests")]
 namespace Task7WeatherForecastCore.WeatherModule
@@ -29,12 +30,16 @@ namespace Task7WeatherForecastCore.WeatherModule
 
             if (weather == null) return;
 
-            MorningData = $"Утро: температура {weather.Hourly.Temperature2m[8]} °C, ветер: {weather.Hourly.WindSpeed10m[8]} км/ч";
-            DayData = $"День: температура {weather.Hourly.Temperature2m[13]} °C, ветер: {weather.Hourly.WindSpeed10m[13]} км/ч";
-            EveningData = $"Вечер: температура {weather.Hourly.Temperature2m[18]} °C, ветер: {weather.Hourly.WindSpeed10m[18]} км/ч";
-            NightData = $"Ночь: температура {weather.Hourly.Temperature2m[23]} °C, ветер: {weather.Hourly.WindSpeed10m[23]} км/ч";
+            MorningData = TextGen("Утро", weather.Hourly, 8);
+            DayData = TextGen("День", weather.Hourly, 13); 
+            EveningData = TextGen("Вечер", weather.Hourly, 18);
+            NightData = TextGen("Ночь", weather.Hourly, 23);
 
-            NotifyObservers();
+            NotifyObservers();  
+            
+            return;
+
+            string TextGen(string text, Hourly hourly, int i) => string.Format(CultureInfo.InvariantCulture, "{0}: температура {1} °C, ветер: {2} км/ч", text, hourly.Temperature2m[i], hourly.WindSpeed10m[i]);
         }
     }
 }

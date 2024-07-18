@@ -20,10 +20,10 @@ public class WeatherForecastTests
 
         forecast.UpdateData().Wait();
 
-        forecast.MorningData.Should().Contain("Утро: температура 30,9 °C, ветер: 8,9 км/ч");
-        forecast.DayData.Should().Contain("День: температура 30,8 °C, ветер: 13,6 км/ч");
-        forecast.EveningData.Should().Contain("Вечер: температура 23,8 °C, ветер: 4,3 км/ч");
-        forecast.NightData.Should().Contain("Ночь: температура 18,8 °C, ветер: 4,3 км/ч");
+        forecast.MorningData.Should().Contain("Утро: температура 30.9 °C, ветер: 8.9 км/ч");
+        forecast.DayData.Should().Contain("День: температура 30.8 °C, ветер: 13.6 км/ч");
+        forecast.EveningData.Should().Contain("Вечер: температура 23.8 °C, ветер: 4.3 км/ч");
+        forecast.NightData.Should().Contain("Ночь: температура 18.8 °C, ветер: 4.3 км/ч");
     }
 
     [Theory]
